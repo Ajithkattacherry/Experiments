@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:NetworkSession.xcodeproj">
+      location = "self:/Users/A6AH/Development/Experiments/NetworkSession/Experiments.xcodeproj">
    </FileRef>
 </Workspace>

@@ -34,17 +34,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E0A94D862272C1E300F322F4 /* NetworkSession.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkSession.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0A94D862272C1E300F322F4 /* Experiments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Experiments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A94D892272C1E300F322F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0A94D8B2272C1E300F322F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E0A94D8E2272C1E300F322F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E0A94D902272C1E600F322F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0A94D932272C1E600F322F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0A94D952272C1E600F322F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E0A94D9A2272C1E600F322F4 /* NetworkSessionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkSessionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0A94D9A2272C1E600F322F4 /* ExperimentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExperimentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A94D9E2272C1E600F322F4 /* NetworkSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionTests.swift; sourceTree = "<group>"; };
 		E0A94DA02272C1E600F322F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E0A94DA52272C1E600F322F4 /* NetworkSessionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkSessionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0A94DA52272C1E600F322F4 /* ExperimentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExperimentsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A94DA92272C1E600F322F4 /* NetworkSessionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionUITests.swift; sourceTree = "<group>"; };
 		E0A94DAB2272C1E600F322F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,9 +87,9 @@
 		E0A94D872272C1E300F322F4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E0A94D862272C1E300F322F4 /* NetworkSession.app */,
-				E0A94D9A2272C1E600F322F4 /* NetworkSessionTests.xctest */,
-				E0A94DA52272C1E600F322F4 /* NetworkSessionUITests.xctest */,
+				E0A94D862272C1E300F322F4 /* Experiments.app */,
+				E0A94D9A2272C1E600F322F4 /* ExperimentsTests.xctest */,
+				E0A94DA52272C1E600F322F4 /* ExperimentsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,9 +128,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E0A94D852272C1E300F322F4 /* NetworkSession */ = {
+		E0A94D852272C1E300F322F4 /* Experiments */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E0A94DAE2272C1E600F322F4 /* Build configuration list for PBXNativeTarget "NetworkSession" */;
+			buildConfigurationList = E0A94DAE2272C1E600F322F4 /* Build configuration list for PBXNativeTarget "Experiments" */;
 			buildPhases = (
 				E0A94D822272C1E300F322F4 /* Sources */,
 				E0A94D832272C1E300F322F4 /* Frameworks */,
@@ -140,14 +140,14 @@
 			);
 			dependencies = (
 			);
-			name = NetworkSession;
+			name = Experiments;
 			productName = NetworkSession;
-			productReference = E0A94D862272C1E300F322F4 /* NetworkSession.app */;
+			productReference = E0A94D862272C1E300F322F4 /* Experiments.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E0A94D992272C1E600F322F4 /* NetworkSessionTests */ = {
+		E0A94D992272C1E600F322F4 /* ExperimentsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E0A94DB12272C1E600F322F4 /* Build configuration list for PBXNativeTarget "NetworkSessionTests" */;
+			buildConfigurationList = E0A94DB12272C1E600F322F4 /* Build configuration list for PBXNativeTarget "ExperimentsTests" */;
 			buildPhases = (
 				E0A94D962272C1E600F322F4 /* Sources */,
 				E0A94D972272C1E600F322F4 /* Frameworks */,
@@ -158,14 +158,14 @@
 			dependencies = (
 				E0A94D9C2272C1E600F322F4 /* PBXTargetDependency */,
 			);
-			name = NetworkSessionTests;
+			name = ExperimentsTests;
 			productName = NetworkSessionTests;
-			productReference = E0A94D9A2272C1E600F322F4 /* NetworkSessionTests.xctest */;
+			productReference = E0A94D9A2272C1E600F322F4 /* ExperimentsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E0A94DA42272C1E600F322F4 /* NetworkSessionUITests */ = {
+		E0A94DA42272C1E600F322F4 /* ExperimentsUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E0A94DB42272C1E600F322F4 /* Build configuration list for PBXNativeTarget "NetworkSessionUITests" */;
+			buildConfigurationList = E0A94DB42272C1E600F322F4 /* Build configuration list for PBXNativeTarget "ExperimentsUITests" */;
 			buildPhases = (
 				E0A94DA12272C1E600F322F4 /* Sources */,
 				E0A94DA22272C1E600F322F4 /* Frameworks */,
@@ -176,9 +176,9 @@
 			dependencies = (
 				E0A94DA72272C1E600F322F4 /* PBXTargetDependency */,
 			);
-			name = NetworkSessionUITests;
+			name = ExperimentsUITests;
 			productName = NetworkSessionUITests;
-			productReference = E0A94DA52272C1E600F322F4 /* NetworkSessionUITests.xctest */;
+			productReference = E0A94DA52272C1E600F322F4 /* ExperimentsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -204,7 +204,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E0A94D812272C1E300F322F4 /* Build configuration list for PBXProject "NetworkSession" */;
+			buildConfigurationList = E0A94D812272C1E300F322F4 /* Build configuration list for PBXProject "Experiments" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -217,9 +217,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E0A94D852272C1E300F322F4 /* NetworkSession */,
-				E0A94D992272C1E600F322F4 /* NetworkSessionTests */,
-				E0A94DA42272C1E600F322F4 /* NetworkSessionUITests */,
+				E0A94D852272C1E300F322F4 /* Experiments */,
+				E0A94D992272C1E600F322F4 /* ExperimentsTests */,
+				E0A94DA42272C1E600F322F4 /* ExperimentsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -282,12 +282,12 @@
 /* Begin PBXTargetDependency section */
 		E0A94D9C2272C1E600F322F4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E0A94D852272C1E300F322F4 /* NetworkSession */;
+			target = E0A94D852272C1E300F322F4 /* Experiments */;
 			targetProxy = E0A94D9B2272C1E600F322F4 /* PBXContainerItemProxy */;
 		};
 		E0A94DA72272C1E600F322F4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E0A94D852272C1E300F322F4 /* NetworkSession */;
+			target = E0A94D852272C1E300F322F4 /* Experiments */;
 			targetProxy = E0A94DA62272C1E600F322F4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -478,7 +478,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NetworkSession.app/NetworkSession";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Experiments.app/Experiments";
 			};
 			name = Debug;
 		};
@@ -498,7 +498,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NetworkSession.app/NetworkSession";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Experiments.app/Experiments";
 			};
 			name = Release;
 		};
@@ -543,7 +543,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E0A94D812272C1E300F322F4 /* Build configuration list for PBXProject "NetworkSession" */ = {
+		E0A94D812272C1E300F322F4 /* Build configuration list for PBXProject "Experiments" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E0A94DAC2272C1E600F322F4 /* Debug */,
@@ -552,7 +552,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E0A94DAE2272C1E600F322F4 /* Build configuration list for PBXNativeTarget "NetworkSession" */ = {
+		E0A94DAE2272C1E600F322F4 /* Build configuration list for PBXNativeTarget "Experiments" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E0A94DAF2272C1E600F322F4 /* Debug */,
@@ -561,7 +561,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E0A94DB12272C1E600F322F4 /* Build configuration list for PBXNativeTarget "NetworkSessionTests" */ = {
+		E0A94DB12272C1E600F322F4 /* Build configuration list for PBXNativeTarget "ExperimentsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E0A94DB22272C1E600F322F4 /* Debug */,
@@ -570,7 +570,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E0A94DB42272C1E600F322F4 /* Build configuration list for PBXNativeTarget "NetworkSessionUITests" */ = {
+		E0A94DB42272C1E600F322F4 /* Build configuration list for PBXNativeTarget "ExperimentsUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E0A94DB52272C1E600F322F4 /* Debug */,
