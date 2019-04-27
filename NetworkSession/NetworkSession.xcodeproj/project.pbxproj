@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E0353A1C227437180033DE75 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0353A1B227437180033DE75 /* PDFViewController.swift */; };
+		E0353A1E227439E50033DE75 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0353A1D227439E50033DE75 /* Helper.swift */; };
 		E0A94D8A2272C1E300F322F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A94D892272C1E300F322F4 /* AppDelegate.swift */; };
 		E0A94D8C2272C1E300F322F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A94D8B2272C1E300F322F4 /* ViewController.swift */; };
 		E0A94D8F2272C1E300F322F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0A94D8D2272C1E300F322F4 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E0353A1B227437180033DE75 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		E0353A1D227439E50033DE75 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		E0A94D862272C1E300F322F4 /* NetworkSession.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkSession.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A94D892272C1E300F322F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0A94D8B2272C1E300F322F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 			children = (
 				E0A94D892272C1E300F322F4 /* AppDelegate.swift */,
 				E0A94D8B2272C1E300F322F4 /* ViewController.swift */,
+				E0353A1D227439E50033DE75 /* Helper.swift */,
+				E0353A1B227437180033DE75 /* PDFViewController.swift */,
 				E0A94D8D2272C1E300F322F4 /* Main.storyboard */,
 				E0A94D902272C1E600F322F4 /* Assets.xcassets */,
 				E0A94D922272C1E600F322F4 /* LaunchScreen.storyboard */,
@@ -256,8 +262,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0353A1C227437180033DE75 /* PDFViewController.swift in Sources */,
 				E0A94D8C2272C1E300F322F4 /* ViewController.swift in Sources */,
 				E0A94D8A2272C1E300F322F4 /* AppDelegate.swift in Sources */,
+				E0353A1E227439E50033DE75 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
