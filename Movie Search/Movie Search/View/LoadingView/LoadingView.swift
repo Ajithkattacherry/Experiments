@@ -12,13 +12,13 @@ class LoadingView: UIView {
     private var label:UILabel?
     private var activityIndicator: UIActivityIndicatorView?
     
-    public init(text: String) {
+    init(text: String) {
         super.init(frame: CGRect(x: 0.0, y: 0.0, width: 140.0, height: 50.0))
+        self.alpha = 0.0
         
         addBGImageView()
         addActivityIndicator()
         addLabel(with: text)
-        self.alpha = 0.0
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -72,12 +72,8 @@ class LoadingView: UIView {
     public func addToView(aView:UIView ) {
         // position the view in the bottom left corner and add it to the given view
         self.autoresizingMask = [.flexibleRightMargin,.flexibleTopMargin ]
-        
-        self.frame = self.newFrame(rect:self.frame, origin:CGPoint(
-            x:5.0,
-            y:aView.frame.size.height - self.frame.size.height - 5.0
-        ))
-        
+        self.frame = self.newFrame(rect:self.frame,
+                                   origin:CGPoint(x:5.0, y:aView.frame.size.height - self.frame.size.height - 5.0))
         aView.addSubview(self)
         self.superview?.bringSubviewToFront(aView)
     }
@@ -88,6 +84,4 @@ class LoadingView: UIView {
             self?.alpha = show ? 0.30 :0.0
         }
     }
-
-    
 }
