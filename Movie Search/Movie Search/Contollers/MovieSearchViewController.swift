@@ -17,7 +17,7 @@ class MovieSearchViewController: UIViewController {
     private var searchResults: [MovieSearchDataModel]?
     private var workItemDataLoad: DispatchWorkItem?
     
-    var updatingView = UpdateView(text: Constants.infoDownloading)
+    var updatingView = LoadingView(text: Constants.infoDownloading)
     
     override func viewDidLoad() {
         super.viewDidLoad()

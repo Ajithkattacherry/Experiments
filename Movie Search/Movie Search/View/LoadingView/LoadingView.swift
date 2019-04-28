@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UpdateView: UIView {
+class LoadingView: UIView {
     private var label:UILabel?
     private var activityIndicator: UIActivityIndicatorView?
     
@@ -57,7 +57,7 @@ class UpdateView: UIView {
         label?.backgroundColor = UIColor.clear
         label?.sizeToFit()
         label?.frame = self.newFrame(rect:(label?.frame)!,
-                                     origin:CGPoint(x: activityIndicator?.frame.maxX ?? 0 + 10.0, y: 18.0))
+                                     origin:CGPoint(x: activityIndicator?.frame.maxX ?? 0 + 15.0, y: 18.0))
         self.addSubview(label!)
     }
     
