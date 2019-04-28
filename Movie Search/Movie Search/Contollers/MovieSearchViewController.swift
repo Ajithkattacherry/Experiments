@@ -26,6 +26,8 @@ class MovieSearchViewController: UIViewController {
         
         //Updating View set
         updatingView.addToView(aView: view)
+        updatingView.center = CGPoint(x: view.frame.size.width/2,
+                                      y: view.frame.size.height/2)
         
         //Set Background color to white
         view.backgroundColor = .white
@@ -38,6 +40,7 @@ class MovieSearchViewController: UIViewController {
         searchController.searchBar.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.tableFooterView = UIView()
     }
     
     override func viewDidAppear(_ animated: Bool) {

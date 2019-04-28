@@ -13,7 +13,7 @@ struct Constants {
     static let posterURL = "https://image.tmdb.org/t/p/w600_and_h900_bestv2"
     static let placeholder = "placeholder"
     static let movieCellId = "movieCellId"
-    static let bgImage = "background"
+    static let bgImage = "background.png"
     static let infoDownloading = "Downloading..."
     
     //Moive search key
