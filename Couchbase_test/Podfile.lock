@@ -1,0 +1,16 @@
+PODS:
+  - CouchbaseLite-Swift-Enterprise (2.5.0)
+
+DEPENDENCIES:
+  - CouchbaseLite-Swift-Enterprise
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - CouchbaseLite-Swift-Enterprise
+
+SPEC CHECKSUMS:
+  CouchbaseLite-Swift-Enterprise: d7c0b71862bbe7657e7f0b34315a8354e70a8aaa
+
+PODFILE CHECKSUM: 168d43833391c5e6a0c2cb678e5f20331e37e7ef
+
+COCOAPODS: 1.5.0
