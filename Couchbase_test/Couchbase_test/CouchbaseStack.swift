@@ -39,8 +39,8 @@ class CouchbaseStack: NSObject {
     }
     
     // Create a new document (i.e. a record) in the database.
-    func createDocument(with properties: [String: Any]) {
-        let mutableDoc = MutableDocument(id: "test_id_7218")
+    func createDocument(with id: String, properties: [String: Any]) {
+        let mutableDoc = MutableDocument(id: id)
         for key in properties.keys {
             if let value = properties[key]  as? String {
                 mutableDoc.setString(value, forKey: key)

@@ -17,13 +17,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        saveMyDocument(with: "test_id_7218", data: myData)
+        saveMyDocument()
         getMyDocument()
         search()
     }
 
-    func saveMyDocument(with id: String, data: [String: Any]) {
-        CouchbaseStack.shared.createDocument(with: data)
+    func saveMyDocument() {
+        CouchbaseStack.shared.createDocument(with: "test_id_7218", properties: myData)
     }
     
     func getMyDocument() {
