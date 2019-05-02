@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         saveMyDocument(with: "test_id_7218", data: myData)
         getMyDocument()
+        search()
     }
 
     func saveMyDocument(with id: String, data: [String: Any]) {
@@ -26,8 +27,15 @@ class ViewController: UIViewController {
     }
     
     func getMyDocument() {
-        let document = CouchbaseStack.shared.openDocument(with: "test_id_7218")
-        print(document?.id ?? "TEST")
+        guard let document = CouchbaseStack.shared.openDocument(with: "test_id_7218") else { return }
+        print(document.id)
+        if let name = document.string(forKey: "Name") {
+            print(name)
+        }
+    }
+    
+    func search() {
+        CouchbaseStack.shared.getResult()
     }
 }
 
