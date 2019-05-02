@@ -38,17 +38,17 @@
 		2DA940D50F291D27461A7402 /* Pods-Couchbase_test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Couchbase_test.release.xcconfig"; path = "Pods/Target Support Files/Pods-Couchbase_test/Pods-Couchbase_test.release.xcconfig"; sourceTree = "<group>"; };
 		4A11032E97FA1B2C9EDF00C5 /* Pods_Couchbase_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Couchbase_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC960059065E1F64E82156AE /* Pods-Couchbase_test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Couchbase_test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Couchbase_test/Pods-Couchbase_test.debug.xcconfig"; sourceTree = "<group>"; };
-		E031B1CC227B8F3E0094B36D /* Couchbase_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Couchbase_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E031B1CC227B8F3E0094B36D /* Couchbase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Couchbase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E031B1CF227B8F3E0094B36D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E031B1D1227B8F3E0094B36D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E031B1D4227B8F3E0094B36D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E031B1D6227B8F410094B36D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E031B1D9227B8F410094B36D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E031B1DB227B8F410094B36D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E031B1E0227B8F420094B36D /* Couchbase_testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Couchbase_testTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E031B1E0227B8F420094B36D /* CouchbaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CouchbaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E031B1E4227B8F420094B36D /* Couchbase_testTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Couchbase_testTests.swift; sourceTree = "<group>"; };
 		E031B1E6227B8F420094B36D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E031B1EB227B8F420094B36D /* Couchbase_testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Couchbase_testUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E031B1EB227B8F420094B36D /* CouchbaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CouchbaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E031B1EF227B8F420094B36D /* Couchbase_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Couchbase_testUITests.swift; sourceTree = "<group>"; };
 		E031B1F1227B8F420094B36D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,9 +111,9 @@
 		E031B1CD227B8F3E0094B36D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E031B1CC227B8F3E0094B36D /* Couchbase_test.app */,
-				E031B1E0227B8F420094B36D /* Couchbase_testTests.xctest */,
-				E031B1EB227B8F420094B36D /* Couchbase_testUITests.xctest */,
+				E031B1CC227B8F3E0094B36D /* Couchbase.app */,
+				E031B1E0227B8F420094B36D /* CouchbaseTests.xctest */,
+				E031B1EB227B8F420094B36D /* CouchbaseUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,9 +152,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E031B1CB227B8F3E0094B36D /* Couchbase_test */ = {
+		E031B1CB227B8F3E0094B36D /* Couchbase */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E031B1F4227B8F420094B36D /* Build configuration list for PBXNativeTarget "Couchbase_test" */;
+			buildConfigurationList = E031B1F4227B8F420094B36D /* Build configuration list for PBXNativeTarget "Couchbase" */;
 			buildPhases = (
 				05BE41FB014476875D1BFDAE /* [CP] Check Pods Manifest.lock */,
 				E031B1C8227B8F3E0094B36D /* Sources */,
@@ -166,14 +166,14 @@
 			);
 			dependencies = (
 			);
-			name = Couchbase_test;
+			name = Couchbase;
 			productName = Couchbase_test;
-			productReference = E031B1CC227B8F3E0094B36D /* Couchbase_test.app */;
+			productReference = E031B1CC227B8F3E0094B36D /* Couchbase.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E031B1DF227B8F420094B36D /* Couchbase_testTests */ = {
+		E031B1DF227B8F420094B36D /* CouchbaseTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E031B1F7227B8F420094B36D /* Build configuration list for PBXNativeTarget "Couchbase_testTests" */;
+			buildConfigurationList = E031B1F7227B8F420094B36D /* Build configuration list for PBXNativeTarget "CouchbaseTests" */;
 			buildPhases = (
 				E031B1DC227B8F420094B36D /* Sources */,
 				E031B1DD227B8F420094B36D /* Frameworks */,
@@ -184,14 +184,14 @@
 			dependencies = (
 				E031B1E2227B8F420094B36D /* PBXTargetDependency */,
 			);
-			name = Couchbase_testTests;
+			name = CouchbaseTests;
 			productName = Couchbase_testTests;
-			productReference = E031B1E0227B8F420094B36D /* Couchbase_testTests.xctest */;
+			productReference = E031B1E0227B8F420094B36D /* CouchbaseTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E031B1EA227B8F420094B36D /* Couchbase_testUITests */ = {
+		E031B1EA227B8F420094B36D /* CouchbaseUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E031B1FA227B8F420094B36D /* Build configuration list for PBXNativeTarget "Couchbase_testUITests" */;
+			buildConfigurationList = E031B1FA227B8F420094B36D /* Build configuration list for PBXNativeTarget "CouchbaseUITests" */;
 			buildPhases = (
 				E031B1E7227B8F420094B36D /* Sources */,
 				E031B1E8227B8F420094B36D /* Frameworks */,
@@ -202,9 +202,9 @@
 			dependencies = (
 				E031B1ED227B8F420094B36D /* PBXTargetDependency */,
 			);
-			name = Couchbase_testUITests;
+			name = CouchbaseUITests;
 			productName = Couchbase_testUITests;
-			productReference = E031B1EB227B8F420094B36D /* Couchbase_testUITests.xctest */;
+			productReference = E031B1EB227B8F420094B36D /* CouchbaseUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -230,7 +230,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E031B1C7227B8F3E0094B36D /* Build configuration list for PBXProject "Couchbase_test" */;
+			buildConfigurationList = E031B1C7227B8F3E0094B36D /* Build configuration list for PBXProject "Couchbase" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -243,9 +243,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E031B1CB227B8F3E0094B36D /* Couchbase_test */,
-				E031B1DF227B8F420094B36D /* Couchbase_testTests */,
-				E031B1EA227B8F420094B36D /* Couchbase_testUITests */,
+				E031B1CB227B8F3E0094B36D /* Couchbase */,
+				E031B1DF227B8F420094B36D /* CouchbaseTests */,
+				E031B1EA227B8F420094B36D /* CouchbaseUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -349,12 +349,12 @@
 /* Begin PBXTargetDependency section */
 		E031B1E2227B8F420094B36D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E031B1CB227B8F3E0094B36D /* Couchbase_test */;
+			target = E031B1CB227B8F3E0094B36D /* Couchbase */;
 			targetProxy = E031B1E1227B8F420094B36D /* PBXContainerItemProxy */;
 		};
 		E031B1ED227B8F420094B36D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E031B1CB227B8F3E0094B36D /* Couchbase_test */;
+			target = E031B1CB227B8F3E0094B36D /* Couchbase */;
 			targetProxy = E031B1EC227B8F420094B36D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -503,7 +503,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75CAM5AQ83;
 				INFOPLIST_FILE = Couchbase_test/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codesteger.Couchbase-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -519,7 +522,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75CAM5AQ83;
 				INFOPLIST_FILE = Couchbase_test/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codesteger.Couchbase-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -534,12 +540,16 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Couchbase_testTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codesteger.Couchbase-testTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Couchbase_test.app/Couchbase_test";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Couchbase.app/Couchbase";
 			};
 			name = Debug;
 		};
@@ -550,12 +560,16 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Couchbase_testTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codesteger.Couchbase-testTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Couchbase_test.app/Couchbase_test";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Couchbase.app/Couchbase";
 			};
 			name = Release;
 		};
@@ -565,7 +579,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Couchbase_testUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codesteger.Couchbase-testUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -580,7 +598,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Couchbase_testUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codesteger.Couchbase-testUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -592,7 +614,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E031B1C7227B8F3E0094B36D /* Build configuration list for PBXProject "Couchbase_test" */ = {
+		E031B1C7227B8F3E0094B36D /* Build configuration list for PBXProject "Couchbase" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E031B1F2227B8F420094B36D /* Debug */,
@@ -601,7 +623,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E031B1F4227B8F420094B36D /* Build configuration list for PBXNativeTarget "Couchbase_test" */ = {
+		E031B1F4227B8F420094B36D /* Build configuration list for PBXNativeTarget "Couchbase" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E031B1F5227B8F420094B36D /* Debug */,
@@ -610,7 +632,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E031B1F7227B8F420094B36D /* Build configuration list for PBXNativeTarget "Couchbase_testTests" */ = {
+		E031B1F7227B8F420094B36D /* Build configuration list for PBXNativeTarget "CouchbaseTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E031B1F8227B8F420094B36D /* Debug */,
@@ -619,7 +641,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E031B1FA227B8F420094B36D /* Build configuration list for PBXNativeTarget "Couchbase_testUITests" */ = {
+		E031B1FA227B8F420094B36D /* Build configuration list for PBXNativeTarget "CouchbaseUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E031B1FB227B8F420094B36D /* Debug */,
