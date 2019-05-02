@@ -15,6 +15,7 @@
 		E031B1DA227B8F410094B36D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E031B1D8227B8F410094B36D /* LaunchScreen.storyboard */; };
 		E031B1E5227B8F420094B36D /* Couchbase_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E031B1E4227B8F420094B36D /* Couchbase_testTests.swift */; };
 		E031B1F0227B8F420094B36D /* Couchbase_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E031B1EF227B8F420094B36D /* Couchbase_testUITests.swift */; };
+		E0E700F5227B9AFC00987BB8 /* CouchbaseStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E700F4227B9AFC00987BB8 /* CouchbaseStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		E031B1EB227B8F420094B36D /* CouchbaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CouchbaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E031B1EF227B8F420094B36D /* Couchbase_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Couchbase_testUITests.swift; sourceTree = "<group>"; };
 		E031B1F1227B8F420094B36D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0E700F4227B9AFC00987BB8 /* CouchbaseStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouchbaseStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				E031B1CF227B8F3E0094B36D /* AppDelegate.swift */,
+				E0E700F4227B9AFC00987BB8 /* CouchbaseStack.swift */,
 				E031B1D1227B8F3E0094B36D /* ViewController.swift */,
 				E031B1D3227B8F3E0094B36D /* Main.storyboard */,
 				E031B1D6227B8F410094B36D /* Assets.xcassets */,
@@ -325,6 +328,7 @@
 			files = (
 				E031B1D2227B8F3E0094B36D /* ViewController.swift in Sources */,
 				E031B1D0227B8F3E0094B36D /* AppDelegate.swift in Sources */,
+				E0E700F5227B9AFC00987BB8 /* CouchbaseStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
