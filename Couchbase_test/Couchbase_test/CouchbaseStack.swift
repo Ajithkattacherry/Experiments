@@ -41,13 +41,7 @@ class CouchbaseStack: NSObject {
     // Create a new document (i.e. a record) in the database.
     func createDocument(with id: String, properties: [String: Any]) {
         let mutableDoc = MutableDocument(id: id)
-        for key in properties.keys {
-            if let value = properties[key]  as? String {
-                mutableDoc.setString(value, forKey: key)
-            } else if let value = properties[key]  as? Double {
-                mutableDoc.setDouble(value, forKey: key)
-            }
-        }
+        mutableDoc.setData(properties)
         
         // Save it to the database.
         do {
@@ -63,21 +57,22 @@ class CouchbaseStack: NSObject {
     }
     
     // Create a query to fetch documents of type SDK.
-    func getResult() {
+    func getResult(expression: ExpressionProtocol? = nil) {
         let query = QueryBuilder
             .select(
                 SelectResult.expression(Meta.id),
-                SelectResult.property("Name"),
-                SelectResult.property("ID")
+                SelectResult.property("name"),
+                SelectResult.property("type")
             )
             .from(DataSource.database(database))
+            .where(expression ?? Expression.all())
         
         do {
             for result in try query.execute() {
-                if let name =  result.string(forKey: "Name") {
+                if let name =  result.string(forKey: "name") {
                     print("Name :: \(name)")
                 }
-                if let id = result.string(forKey: "ID") {
+                if let id = result.string(forKey: "type") {
                     print("ID :: \(id)")
                 }
             }

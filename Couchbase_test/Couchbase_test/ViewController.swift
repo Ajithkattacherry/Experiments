@@ -10,10 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let myData: [String: Any] = ["Name": "Ajith",
-                                 "ID": "DFS123",
-                                 "Code": 3626.36]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -23,18 +19,19 @@ class ViewController: UIViewController {
     }
 
     func saveMyDocument() {
-        CouchbaseStack.shared.createDocument(with: "test_id_7218", properties: myData)
+        guard let document = getFormElements(from: "document") else { return }
+        CouchbaseStack.shared.createDocument(with: "test_id_7218", properties: document)
     }
     
     func getMyDocument() {
         guard let document = CouchbaseStack.shared.openDocument(with: "test_id_7218") else { return }
+        let documentDic = document.toDictionary()
         print(document.id)
-        if let name = document.string(forKey: "Name") {
-            print(name)
-        }
+        print(documentDic)
     }
     
     func search() {
+        CouchbaseStack.shared.getResult(expression: QueryType.name.getExpression())
         CouchbaseStack.shared.getResult()
     }
 }

@@ -15,6 +15,8 @@
 		E031B1DA227B8F410094B36D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E031B1D8227B8F410094B36D /* LaunchScreen.storyboard */; };
 		E031B1E5227B8F420094B36D /* Couchbase_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E031B1E4227B8F420094B36D /* Couchbase_testTests.swift */; };
 		E031B1F0227B8F420094B36D /* Couchbase_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E031B1EF227B8F420094B36D /* Couchbase_testUITests.swift */; };
+		E0774D07227D141F0047EC3D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0774D06227D141F0047EC3D /* Helper.swift */; };
+		E0774D09227D149D0047EC3D /* document.json in Resources */ = {isa = PBXBuildFile; fileRef = E0774D08227D149D0047EC3D /* document.json */; };
 		E0E700F5227B9AFC00987BB8 /* CouchbaseStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E700F4227B9AFC00987BB8 /* CouchbaseStack.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,8 @@
 		E031B1EB227B8F420094B36D /* CouchbaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CouchbaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E031B1EF227B8F420094B36D /* Couchbase_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Couchbase_testUITests.swift; sourceTree = "<group>"; };
 		E031B1F1227B8F420094B36D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0774D06227D141F0047EC3D /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		E0774D08227D149D0047EC3D /* document.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = document.json; sourceTree = "<group>"; };
 		E0E700F4227B9AFC00987BB8 /* CouchbaseStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouchbaseStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +130,8 @@
 				E031B1CF227B8F3E0094B36D /* AppDelegate.swift */,
 				E0E700F4227B9AFC00987BB8 /* CouchbaseStack.swift */,
 				E031B1D1227B8F3E0094B36D /* ViewController.swift */,
+				E0774D06227D141F0047EC3D /* Helper.swift */,
+				E0774D08227D149D0047EC3D /* document.json */,
 				E031B1D3227B8F3E0094B36D /* Main.storyboard */,
 				E031B1D6227B8F410094B36D /* Assets.xcassets */,
 				E031B1D8227B8F410094B36D /* LaunchScreen.storyboard */,
@@ -258,6 +264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0774D09227D149D0047EC3D /* document.json in Resources */,
 				E031B1DA227B8F410094B36D /* LaunchScreen.storyboard in Resources */,
 				E031B1D7227B8F410094B36D /* Assets.xcassets in Resources */,
 				E031B1D5227B8F3E0094B36D /* Main.storyboard in Resources */,
@@ -329,6 +336,7 @@
 				E031B1D2227B8F3E0094B36D /* ViewController.swift in Sources */,
 				E031B1D0227B8F3E0094B36D /* AppDelegate.swift in Sources */,
 				E0E700F5227B9AFC00987BB8 /* CouchbaseStack.swift in Sources */,
+				E0774D07227D141F0047EC3D /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
