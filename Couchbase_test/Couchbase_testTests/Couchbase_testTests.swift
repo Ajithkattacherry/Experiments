@@ -22,8 +22,22 @@ class Couchbase_testTests: XCTestCase {
     func testGetDocument() {
         guard let document = CouchbaseStack.shared.openDocument(with: "test_id_7218") else { return }
         let actual = document.toDictionary()
-        print(actual)
         XCTAssertNotNil(actual)
+        
+        let expectedName = document.name
+        XCTAssertEqual(expectedName, "Cake")
+        
+        let expectedId = document.docId
+        XCTAssertEqual(expectedId, "0001")
+        
+        let expectedState = document.state
+        XCTAssertEqual(expectedState, "open")
+        
+        let expectedBatterType = document.batterType
+        XCTAssertEqual(expectedBatterType, "Regular")
+        
+        let expectedToppingType = document.toppingType
+        XCTAssertEqual(expectedToppingType, "None")
     }
     
 }

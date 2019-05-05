@@ -24,7 +24,7 @@ extension Document {
         return state
     }
     
-    var id: String {
+    var docId: String {
         let properties = toDictionary()
         guard let data = properties["data"] as? [[String: Any]],
             let id = data.first?["id"] as? String
