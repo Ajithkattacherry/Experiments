@@ -75,7 +75,30 @@ class CouchbaseStack: NSObject {
             print("Result allResults: \(enumeratorResult.allResults())")
             for result in try query.execute() {
                 print("document id :: \(result.string(forKey: "id")!)")
-                print("document state :: \(result.string(forKey: "state")!)")
+                guard let document = openDocument(with: result.string(forKey: "id")!) else { return }
+                print(document.toDictionary())
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func getResult() {
+        let query = QueryBuilder
+            .select(
+                SelectResult.expression(Meta.id),
+                SelectResult.all()
+            )
+            .from(DataSource.database(database))
+        
+        do {
+            let enumeratorResult = try query.execute()
+            print("Result count: \(enumeratorResult.allResults().count)")
+            print("Result allResults: \(enumeratorResult.allResults())")
+            for result in try query.execute() {
+                print("document id :: \(result.string(forKey: "id")!)")
+                guard let document = openDocument(with: result.string(forKey: "id")!) else { return }
+                print(document.toDictionary())
             }
         } catch {
             print(error)

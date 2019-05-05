@@ -31,6 +31,9 @@ class ViewController: UIViewController {
     }
     
     private func search() {
+        // Search for all docs
+        CouchbaseStack.shared.getResult()
+        
         // Search for open state docs
         CouchbaseStack.shared.getResult(expression: QueryType.stateOpen.getExpression())
         
