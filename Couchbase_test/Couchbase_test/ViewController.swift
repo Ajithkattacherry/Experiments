@@ -31,8 +31,8 @@ class ViewController: UIViewController {
     }
     
     func search() {
-        CouchbaseStack.shared.getResult(expression: QueryType.name.getExpression())
-        CouchbaseStack.shared.getResult()
+        CouchbaseStack.shared.getResult(expression: QueryType.state.getExpression())
+        CouchbaseStack.shared.getResult(expression: QueryType.id.getExpression())
     }
 }
 

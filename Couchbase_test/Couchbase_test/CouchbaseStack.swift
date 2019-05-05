@@ -10,18 +10,18 @@ import UIKit
 import CouchbaseLiteSwift
 
 enum QueryType {
-    case name
+    case state
     case id
     case code
     
     func getExpression() -> ExpressionProtocol? {
         switch self {
-        case .name:
-            return Expression.property("Name").equalTo(Expression.string("Ajith"))
+        case .state:
+            return Expression.property("state").equalTo(Expression.string("open"))
         case .id:
-            return Expression.property("ID").equalTo(Expression.string("DFS123"))
+            return Expression.property("id").equalTo(Expression.int(5005))
         case .code:
-            return Expression.property("Code").equalTo(Expression.double(3626.36))
+            return Expression.property("ppu").equalTo(Expression.double(0.55))
         }
     }
 }
@@ -59,20 +59,24 @@ class CouchbaseStack: NSObject {
     // Create a query to fetch documents of type SDK.
     func getResult(expression: ExpressionProtocol? = nil) {
         let query = QueryBuilder
-            .select(
-                SelectResult.expression(Meta.id),
-                SelectResult.property("name"),
-                SelectResult.property("type")
-            )
+            .select(SelectResult.all())
             .from(DataSource.database(database))
-            .where(expression ?? Expression.all())
+//            .where(expression ?? Expression.all())
+//        let query = QueryBuilder
+//            .select(
+//                SelectResult.expression(Meta.id),
+//                SelectResult.property("name"),
+//                SelectResult.property("type")
+//            )
+//            .from(DataSource.database(database))
+//            .where(expression ?? Expression.all())
         
         do {
             for result in try query.execute() {
-                if let name =  result.string(forKey: "name") {
-                    print("Name :: \(name)")
+                if let name =  result.string(forKey: "state") {
+                    print("State :: \(name)")
                 }
-                if let id = result.string(forKey: "type") {
+                if let id = result.string(forKey: "id") {
                     print("ID :: \(id)")
                 }
             }

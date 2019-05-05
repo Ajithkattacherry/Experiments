@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Couchbase_test
+@testable import Couchbase
 
 class Couchbase_testTests: XCTestCase {
 
@@ -18,17 +18,12 @@ class Couchbase_testTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testCreateDatabase() {
+        guard let document = CouchbaseStack.shared.openDocument(with: "test_id_7218") else { return }
+        let actual = document.toDictionary()
+        print(actual)
+        XCTAssertNotNil(actual)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+    
 }
