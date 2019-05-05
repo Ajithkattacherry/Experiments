@@ -60,11 +60,12 @@ class CouchbaseStack: NSObject {
     }
     
     // Create a query to fetch documents of type SDK.
-    func getResult(expression: ExpressionProtocol? = nil) {
+    @discardableResult func getResult(expression: ExpressionProtocol? = nil) -> [DocumentDataModel] {
+        var documentModel = [DocumentDataModel]()
         let query = QueryBuilder
             .select(
                 SelectResult.expression(Meta.id),
-                SelectResult.property("state")
+                SelectResult.all()
             )
             .from(DataSource.database(database))
             .where(expression ?? Expression.all())
@@ -72,36 +73,19 @@ class CouchbaseStack: NSObject {
         do {
             let enumeratorResult = try query.execute()
             print("Result count: \(enumeratorResult.allResults().count)")
-            print("Result allResults: \(enumeratorResult.allResults())")
             for result in try query.execute() {
                 print("document id :: \(result.string(forKey: "id")!)")
-                guard let document = openDocument(with: result.string(forKey: "id")!) else { return }
-                print(document.toDictionary())
+                guard let document = openDocument(with: result.string(forKey: "id")!) else { return [] }
+                let model = DocumentDataModel(state: document.state,
+                                              id: document.id,
+                                              name: document.name,
+                                              batterType: document.batterType,
+                                              toppingType: document.toppingType)
+                documentModel.append(model)
             }
         } catch {
             print(error)
         }
-    }
-    
-    func getResult() {
-        let query = QueryBuilder
-            .select(
-                SelectResult.expression(Meta.id),
-                SelectResult.all()
-            )
-            .from(DataSource.database(database))
-        
-        do {
-            let enumeratorResult = try query.execute()
-            print("Result count: \(enumeratorResult.allResults().count)")
-            print("Result allResults: \(enumeratorResult.allResults())")
-            for result in try query.execute() {
-                print("document id :: \(result.string(forKey: "id")!)")
-                guard let document = openDocument(with: result.string(forKey: "id")!) else { return }
-                print(document.toDictionary())
-            }
-        } catch {
-            print(error)
-        }
+        return documentModel
     }
 }
