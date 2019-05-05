@@ -19,7 +19,7 @@ class Couchbase_testTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testCreateDatabase() {
+    func testGetDocument() {
         guard let document = CouchbaseStack.shared.openDocument(with: "test_id_7218") else { return }
         let actual = document.toDictionary()
         print(actual)

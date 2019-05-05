@@ -18,21 +18,24 @@ class ViewController: UIViewController {
         search()
     }
 
-    func saveMyDocument() {
+    private func saveMyDocument() {
         guard let document = getFormElements(from: "document") else { return }
         CouchbaseStack.shared.createDocument(with: "test_id_7218", properties: document)
     }
     
-    func getMyDocument() {
+    private func getMyDocument() {
         guard let document = CouchbaseStack.shared.openDocument(with: "test_id_7218") else { return }
         let documentDic = document.toDictionary()
         print(document.id)
         print(documentDic)
     }
     
-    func search() {
-        CouchbaseStack.shared.getResult(expression: QueryType.state.getExpression())
-        CouchbaseStack.shared.getResult(expression: QueryType.id.getExpression())
+    private func search() {
+        // Search for open state docs
+        CouchbaseStack.shared.getResult(expression: QueryType.stateOpen.getExpression())
+        
+        // Search for close state docs
+        CouchbaseStack.shared.getResult(expression: QueryType.stateClose.getExpression())
     }
 }
 

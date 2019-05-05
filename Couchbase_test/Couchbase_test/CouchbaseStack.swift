@@ -10,14 +10,17 @@ import UIKit
 import CouchbaseLiteSwift
 
 enum QueryType {
-    case state
+    case stateOpen
+    case stateClose
     case id
     case code
     
     func getExpression() -> ExpressionProtocol? {
         switch self {
-        case .state:
+        case .stateOpen:
             return Expression.property("state").equalTo(Expression.string("open"))
+        case .stateClose:
+            return Expression.property("state").equalTo(Expression.string("close"))
         case .id:
             return Expression.property("id").equalTo(Expression.int(5005))
         case .code:
@@ -59,26 +62,20 @@ class CouchbaseStack: NSObject {
     // Create a query to fetch documents of type SDK.
     func getResult(expression: ExpressionProtocol? = nil) {
         let query = QueryBuilder
-            .select(SelectResult.all())
+            .select(
+                SelectResult.expression(Meta.id),
+                SelectResult.property("state")
+            )
             .from(DataSource.database(database))
-//            .where(expression ?? Expression.all())
-//        let query = QueryBuilder
-//            .select(
-//                SelectResult.expression(Meta.id),
-//                SelectResult.property("name"),
-//                SelectResult.property("type")
-//            )
-//            .from(DataSource.database(database))
-//            .where(expression ?? Expression.all())
+            .where(expression ?? Expression.all())
         
         do {
+            let enumeratorResult = try query.execute()
+            print("Result count: \(enumeratorResult.allResults().count)")
+            print("Result allResults: \(enumeratorResult.allResults())")
             for result in try query.execute() {
-                if let name =  result.string(forKey: "state") {
-                    print("State :: \(name)")
-                }
-                if let id = result.string(forKey: "id") {
-                    print("ID :: \(id)")
-                }
+                print("document id :: \(result.string(forKey: "id")!)")
+                print("document state :: \(result.string(forKey: "state")!)")
             }
         } catch {
             print(error)
