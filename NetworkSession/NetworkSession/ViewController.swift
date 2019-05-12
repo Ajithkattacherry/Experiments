@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func getJSONData() {
-        guard let url = URL(string: "https://demo0736356.mockable.io/getCollections") else { return }
+        guard let url = URL(string: "http://demo0736356.mockable.io/jsonEncodeTest") else { return }
         session.dataTask(with: url) { (data, response, error) in
             if let _response = response {
                 print(_response)

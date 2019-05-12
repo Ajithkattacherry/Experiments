@@ -39,6 +39,11 @@ class CouchbaseStack: NSObject {
         } catch {
             fatalError("Error opening database")
         }
+        
+        database.addChangeListener { (change) in
+            print(change.database)
+            print(change.documentIDs)
+        }
     }
     
     // Create a new document (i.e. a record) in the database.
@@ -70,6 +75,14 @@ class CouchbaseStack: NSObject {
             .from(DataSource.database(database))
             .where(expression ?? Expression.all())
         
+        // Adds a query change listener.
+        // Changes will be posted on the main queue.
+        let token = query.addChangeListener { (change) in
+            for result in change.results! {
+                print(result.keys)
+            }
+        }
+        
         do {
             let enumeratorResult = try query.execute()
             print("Result count: \(enumeratorResult.allResults().count)")
@@ -87,5 +100,9 @@ class CouchbaseStack: NSObject {
             print(error)
         }
         return documentModel
+    }
+    
+    func fetchDocuments(From dataBase: Database,for ids: [String]) {
+        // Fetch updated docs from DB
     }
 }
