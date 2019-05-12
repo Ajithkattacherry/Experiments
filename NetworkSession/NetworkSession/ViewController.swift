@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     let session = URLSession.shared
     var pdfURL: URL?
+    var dataModel: DataModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +27,9 @@ class ViewController: UIViewController {
             }
             if let _data = data {
                 do {
-                    let json = try JSONSerialization.jsonObject(with: _data, options: [])
-                    print(json)
+                    let json = try JSONSerialization.jsonObject(with: _data, options: .mutableContainers)
+                    guard let dataModel = DataModel.setData(from: json as? [String: Any] ?? [:]) else { return }
+                    self.dataModel = dataModel
                 } catch let error {
                     print(error)
                 }
@@ -39,7 +41,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func postJSONData() {
-        
+        guard let model = dataModel,
+            let jsondata = model.getDictionary()
+            else { return }
+        print(jsondata)
     }
     
     @IBAction func downloadData() {
