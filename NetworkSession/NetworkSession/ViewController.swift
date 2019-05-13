@@ -28,7 +28,7 @@ class ViewController: UIViewController {
             if let _data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: _data, options: .mutableContainers)
-                    guard let dataModel = DataModel.setData(from: json as? [String: Any] ?? [:]) else { return }
+                    guard let dataModel = DataModel.setDataModel(from: json as? [String: Any] ?? [:]) else { return }
                     self.dataModel = dataModel
                 } catch let error {
                     print(error)

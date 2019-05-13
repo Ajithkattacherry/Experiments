@@ -15,13 +15,15 @@ struct DataModel: Codable {
     var value: String
     var displayName: String
     var description: String
+    var innerModel: InnerModel?
     
     func getDictionary() -> [String: Any]? {
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         guard let encodedData = try? encoder.encode(self) else { return [:]}
         do {
-            let dictionary = try JSONSerialization.jsonObject(with: encodedData, options: .mutableContainers)
+            let dictionary = try JSONSerialization.jsonObject(with: encodedData,
+                                                              options: .mutableContainers)
             return dictionary as? [String : Any]
         } catch {
             print("Error: \(error.localizedDescription)")
@@ -29,14 +31,22 @@ struct DataModel: Codable {
         return nil
     }
     
-    static func setData(from dictionary: [String: Any]) -> DataModel? {
+    static func setDataModel(from dictionary: [String: Any]) -> DataModel? {
         let decoder = JSONDecoder()
         do {
-            let data = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
+            let data = try JSONSerialization.data(withJSONObject: dictionary,
+                                                  options: .prettyPrinted)
             return try decoder.decode(DataModel.self, from: data)
         } catch {
             print("Error: \(error.localizedDescription)")
         }
         return nil
     }
+}
+
+// Making the inner struct codable. This will get automatically handled while encoding/decoding the DataModel object
+struct InnerModel: Codable {
+    var id: String
+    var name: String
+    var address: String
 }
