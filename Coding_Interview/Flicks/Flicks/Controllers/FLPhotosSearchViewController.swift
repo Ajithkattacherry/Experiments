@@ -18,12 +18,12 @@ class FLPhotosSearchViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
-        searchBar.placeholder = "Search images"
+        searchBar.placeholder = Constants.searchBarPlaceholderText
     }
     
     // MARK - Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PhotoSegue" {
+        if segue.identifier == Constants.photoDetailsSegue {
             let photoViewController = segue.destination as! FLPhotosDetailViewController
             let selectedIndexPath = tableView.indexPathForSelectedRow
             photoViewController.photoDataModel = photoListDataModel?.photos[selectedIndexPath!.row]
@@ -33,10 +33,10 @@ class FLPhotosSearchViewController: UIViewController {
     // MARK: - Actions
     @IBAction func resetSearch(sender: Any) {
         photoListDataModel?.photos.removeAll(keepingCapacity: false)
-        searchBar.text = ""
+        searchBar.text = Constants.emptyString
         searchBar.resignFirstResponder()
         tableView.reloadData()
-        self.title = "Flicks"
+        self.title = Constants.appName
     }
     
     // MARK: - Private
@@ -48,7 +48,7 @@ class FLPhotosSearchViewController: UIViewController {
             })
             
             guard let dataModel = photoListDataModel else {
-                if error?.code == FLNetworkManager.Errors.invalidAccessErrorCode {
+                if error?.code == Errors.invalidAccessErrorCode {
                     DispatchQueue.main.async(execute: { () -> Void in
                         self.showErrorAlert()
                     })
@@ -64,8 +64,8 @@ class FLPhotosSearchViewController: UIViewController {
     }
     
     private func showErrorAlert() {
-        let alertController = UIAlertController(title: "Search Error", message: "Invalid API Key", preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        let alertController = UIAlertController(title: Errors.invalidAPIKeyTitle, message: Errors.invalidAPIKey, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: Constants.alertDismissTitle, style: .default, handler: nil)
         alertController.addAction(dismissAction)
         present(alertController, animated: true, completion: nil)
     }
@@ -78,8 +78,7 @@ extension FLPhotosSearchViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let searchResultCellIdentifier = "FLSearchResultCell"
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: searchResultCellIdentifier, for: indexPath as IndexPath) as? FLSearchResultCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.searchResultCellIdentifier, for: indexPath as IndexPath) as? FLSearchResultCell else {
             return UITableViewCell()
         }
         cell.setupWithPhoto(photoDataModel: photoListDataModel?.photos[indexPath.row])
@@ -88,7 +87,7 @@ extension FLPhotosSearchViewController: UITableViewDataSource, UITableViewDelega
     
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "PhotoSegue", sender: self)
+        self.performSegue(withIdentifier: Constants.photoDetailsSegue, sender: self)
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
 }

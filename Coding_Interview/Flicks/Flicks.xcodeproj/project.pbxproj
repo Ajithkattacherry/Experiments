@@ -18,6 +18,7 @@
 		E0F5EC2A2376C0EA00F836E8 /* FLPhotoListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC292376C0EA00F836E8 /* FLPhotoListDataModel.swift */; };
 		E0F5EC2C2376C12800F836E8 /* FLSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC2B2376C12800F836E8 /* FLSearchResultCell.swift */; };
 		E0F5EC2E2376C18A00F836E8 /* FLNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC2D2376C18A00F836E8 /* FLNetworkManager.swift */; };
+		E0F5EC312376C70200F836E8 /* FLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC302376C70200F836E8 /* FLConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		E0F5EC292376C0EA00F836E8 /* FLPhotoListDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLPhotoListDataModel.swift; sourceTree = "<group>"; };
 		E0F5EC2B2376C12800F836E8 /* FLSearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLSearchResultCell.swift; sourceTree = "<group>"; };
 		E0F5EC2D2376C18A00F836E8 /* FLNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLNetworkManager.swift; sourceTree = "<group>"; };
+		E0F5EC302376C70200F836E8 /* FLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				E0F5EBF92376A27400F836E8 /* DataModel */,
 				E0F5EBFA2376A27400F836E8 /* Network */,
 				E0F5EBFD2376A27400F836E8 /* Resources */,
+				E0F5EC2F2376C6EC00F836E8 /* Utility */,
 				E0F5EC0A2376A8EF00F836E8 /* Views */,
 			);
 			path = Flicks;
@@ -175,6 +178,14 @@
 				E0F5EC2B2376C12800F836E8 /* FLSearchResultCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E0F5EC2F2376C6EC00F836E8 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				E0F5EC302376C70200F836E8 /* FLConstants.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +325,7 @@
 				E0F5EC2A2376C0EA00F836E8 /* FLPhotoListDataModel.swift in Sources */,
 				E0F5EC2C2376C12800F836E8 /* FLSearchResultCell.swift in Sources */,
 				E0F5EC282376C0A900F836E8 /* FLPhotosDetailViewController.swift in Sources */,
+				E0F5EC312376C70200F836E8 /* FLConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
