@@ -15,6 +15,7 @@ struct Errors {
     static let invalidAccessErrorCode = 100
     static let invalidAPIKey = "Invalid API Key"
     static let invalidAPIKeyTitle = "Search Error"
+    static let emptySearchString = "Search text is empty"
 }
 
 struct Constants {
@@ -24,5 +25,6 @@ struct Constants {
     static let searchBarPlaceholderText = "Search images"
     static let photoDetailsSegue = "PhotoDetailsSegue"
     static let alertDismissTitle = "Dismiss"
+    static let alertTitle = "Alert"
     static let searchResultCellIdentifier = "FLSearchResultCell"
 }

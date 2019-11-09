@@ -40,9 +40,9 @@ class FLPhotosSearchViewController: UIViewController {
     }
     
     // MARK: - Private
-    private func performSearchWithText(searchText: String) {
+    private func performSearch(with text: String) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        FLNetworkManager.fetchPhotosForSearchText(searchText: searchText) { (error, photoListDataModel) in
+        FLNetworkManager.fetchPhotosForSearchText(searchText: text) { (error, photoListDataModel) in
             DispatchQueue.main.async(execute: { () -> Void in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             })
@@ -50,21 +50,21 @@ class FLPhotosSearchViewController: UIViewController {
             guard let dataModel = photoListDataModel else {
                 if error?.code == Errors.invalidAccessErrorCode {
                     DispatchQueue.main.async(execute: { () -> Void in
-                        self.showErrorAlert()
+                        self.showErrorAlert(title: Errors.invalidAPIKeyTitle, message: Errors.invalidAPIKey)
                     })
                 }
                 return
             }
             self.photoListDataModel = dataModel
             DispatchQueue.main.async(execute: { () -> Void in
-                self.title = searchText
+                self.title = text
                 self.tableView.reloadData()
             })
         }
     }
     
-    private func showErrorAlert() {
-        let alertController = UIAlertController(title: Errors.invalidAPIKeyTitle, message: Errors.invalidAPIKey, preferredStyle: .alert)
+    private func showErrorAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: Constants.alertDismissTitle, style: .default, handler: nil)
         alertController.addAction(dismissAction)
         present(alertController, animated: true, completion: nil)
@@ -96,7 +96,11 @@ extension FLPhotosSearchViewController: UISearchControllerDelegate, UISearchBarD
     // MARK: - UISearchBarDelegate
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        performSearchWithText(searchText: searchBar.text!)
+        guard let text = searchBar.text, !text.isEmpty else {
+            showErrorAlert(title: Constants.alertTitle, message: Errors.emptySearchString)
+            return
+        }
+        performSearch(with: text)
     }
 }
 
