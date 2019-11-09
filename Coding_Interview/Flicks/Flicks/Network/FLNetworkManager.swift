@@ -35,28 +35,9 @@ class FLNetworkManager {
                         return
                     }
                 }
-                
-                guard let photosContainer = resultsDictionary!["photos"] as? NSDictionary else { return }
-                let page = photosContainer["page"] as? Int ?? 0
-                let pages = photosContainer["pages"] as? Int ?? 0
-                let perpage = photosContainer["perpage"] as? Int ?? 0
-                let total = photosContainer["total"] as? Int ?? 0
-                
-                guard let photosArray = photosContainer["photo"] as? [NSDictionary] else { return }
-
-                let flickrPhoto: [FLPhotoDataModel] = photosArray.map { photoDictionary in
-                    let id = photoDictionary["id"] as? String ?? ""
-                    let owner = photoDictionary["owner"] as? String ?? ""
-                    let secret = photoDictionary["secret"] as? String ?? ""
-                    let server = photoDictionary["server"] as? String ?? ""
-                    let farm = photoDictionary["farm"] as? Int ?? 0
-                    let title = photoDictionary["title"] as? String ?? ""
-                    let ispublic = photoDictionary["ispublic"] as? Int ?? 0
-                    let isfriend = photoDictionary["isfriend"] as? Int ?? 0
-                    let isfamily = photoDictionary["isfamily"] as? Int ?? 0
-                    return FLPhotoDataModel(id: id, owner: owner, secret: secret, server: server, farm: farm, title: title, ispublic: ispublic, isfriend: isfriend, isfamily: isfamily)
-                }
-                onCompletion(nil, FLPhotoListDataModel(page: page, pages: pages, perpage: perpage, total: total, photos: flickrPhoto))
+                guard let data = data else { return }
+                let flPhotos = try FLPhotos.setData(data)
+                onCompletion(nil, flPhotos?.photoListDataModel)
                 
             } catch let error as NSError {
                 print("Error parsing JSON: \(error)")
