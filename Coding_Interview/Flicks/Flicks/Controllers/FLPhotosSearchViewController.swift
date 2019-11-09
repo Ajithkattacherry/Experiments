@@ -14,13 +14,11 @@ class FLPhotosSearchViewController: UIViewController {
     
     var photoListDataModel: FLPhotoListDataModel?
     
-    // MARK: - Actions
-    @IBAction func resetSearch(sender: Any) {
-        photoListDataModel?.photos.removeAll(keepingCapacity: false)
-        searchBar.text = ""
-        searchBar.resignFirstResponder()
-        tableView.reloadData()
-        self.title = "Image Search"
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.tableFooterView = UIView()
+        searchBar.placeholder = "Search images"
     }
     
     // MARK - Segue
@@ -32,16 +30,25 @@ class FLPhotosSearchViewController: UIViewController {
         }
     }
     
+    // MARK: - Actions
+    @IBAction func resetSearch(sender: Any) {
+        photoListDataModel?.photos.removeAll(keepingCapacity: false)
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        tableView.reloadData()
+        self.title = "Flicks"
+    }
+    
     // MARK: - Private
     private func performSearchWithText(searchText: String) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        FlicksNetworkManager.fetchPhotosForSearchText(searchText: searchText) { (error, photoListDataModel) in
+        FLNetworkManager.fetchPhotosForSearchText(searchText: searchText) { (error, photoListDataModel) in
             DispatchQueue.main.async(execute: { () -> Void in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             })
             
             guard let dataModel = photoListDataModel else {
-                if error?.code == FlicksNetworkManager.Errors.invalidAccessErrorCode {
+                if error?.code == FLNetworkManager.Errors.invalidAccessErrorCode {
                     DispatchQueue.main.async(execute: { () -> Void in
                         self.showErrorAlert()
                     })
@@ -60,7 +67,7 @@ class FLPhotosSearchViewController: UIViewController {
         let alertController = UIAlertController(title: "Search Error", message: "Invalid API Key", preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
         alertController.addAction(dismissAction)
-        self.present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
 }
 
