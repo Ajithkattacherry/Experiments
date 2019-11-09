@@ -26,7 +26,7 @@ struct Constants {
     static let appName = "Flicks"
     static let emptyString = ""
     static let placeholderImage = "placeholder"
-    static let searchBarPlaceholderText = "Search images"
+    static let searchBarPlaceholderText = "Search for yor Flicks"
     static let photoDetailsSegue = "PhotoDetailsSegue"
     static let alertDismissTitle = "Dismiss"
     static let alertTitle = "Alert"
