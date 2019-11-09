@@ -13,6 +13,7 @@ class FLPhotosSearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var photoListDataModel: FLPhotoListDataModel?
+    var searchText: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +41,9 @@ class FLPhotosSearchViewController: UIViewController {
     }
     
     // MARK: - Private
-    private func performSearch(with text: String) {
+    private func performSearch(with text: String, page: Int = 1) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        FLNetworkManager.fetchPhotosForSearchText(searchText: text) { (error, photoListDataModel) in
+        FLNetworkManager.fetchPhotosForSearchText(searchText: text, page: page) { (error, photoListDataModel) in
             DispatchQueue.main.async(execute: { () -> Void in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             })
@@ -55,7 +56,12 @@ class FLPhotosSearchViewController: UIViewController {
                 }
                 return
             }
-            self.photoListDataModel = dataModel
+            if self.photoListDataModel == nil {
+              self.photoListDataModel = dataModel
+            } else {
+                self.photoListDataModel?.page = dataModel.page
+                self.photoListDataModel?.photos.append(contentsOf: dataModel.photos)
+            }
             DispatchQueue.main.async(execute: { () -> Void in
                 self.title = text
                 self.tableView.reloadData()
@@ -90,6 +96,13 @@ extension FLPhotosSearchViewController: UITableViewDataSource, UITableViewDelega
         self.performSegue(withIdentifier: Constants.photoDetailsSegue, sender: self)
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastRowIndex = tableView.numberOfRows(inSection: 0) - 1
+        if indexPath.row == lastRowIndex {
+            performSearch(with: searchText ?? "", page: (photoListDataModel?.page ?? 0) + 1)
+        }
+    }
 }
 
 extension FLPhotosSearchViewController: UISearchControllerDelegate, UISearchBarDelegate {
@@ -100,6 +113,7 @@ extension FLPhotosSearchViewController: UISearchControllerDelegate, UISearchBarD
             showErrorAlert(title: Constants.alertTitle, message: Errors.emptySearchString)
             return
         }
+        searchText = text
         performSearch(with: text)
     }
 }

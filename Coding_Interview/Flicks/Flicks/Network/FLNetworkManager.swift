@@ -11,15 +11,14 @@ import UIKit
 class FLNetworkManager {
     typealias FlickrResponse = (NSError?, FLPhotoListDataModel?) -> Void
 
-    class func fetchPhotosForSearchText(searchText: String, onCompletion: @escaping FlickrResponse) -> Void {
+    class func fetchPhotosForSearchText(searchText: String, page: Int, onCompletion: @escaping FlickrResponse) -> Void {
         let escapedSearchText: String = searchText.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
-        //let urlString: String = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(Keys.flickrKey)&tags=\(escapedSearchText)&per_page=25&format=json&nojsoncallback=1"
-        let urlString = "https://demo0736356.mockable.io/getPhotos"
-        let url: URL = URL(string: urlString)!
-        let searchTask = URLSession.shared.dataTask(with: url as URL, completionHandler: {data, response, error -> Void in
+        let urlString: String = Service.host + Service.module + "\(Service.flickrKey)" + Service.text + "\(escapedSearchText)" + Service.format + "\(page)"
+        guard let url = URL(string: urlString) else { return }
+        let searchTask = URLSession.shared.dataTask(with: url, completionHandler: {data, response, error -> Void in
             
+            // Error fetching photos
             if error != nil {
-                print("Error fetching photos: \(String(describing: error))")
                 onCompletion(error as NSError?, nil)
                 return
             }
@@ -29,6 +28,7 @@ class FLNetworkManager {
                 guard let results = resultsDictionary else { return }
                 
                 if let statusCode = results["code"] as? Int {
+                    // Error code 100 - Invalid API key
                     if statusCode == Errors.invalidAccessErrorCode {
                         let invalidAccessError = NSError(domain: "com.flickr.api", code: statusCode, userInfo: nil)
                         onCompletion(invalidAccessError, nil)
@@ -40,7 +40,7 @@ class FLNetworkManager {
                 onCompletion(nil, flPhotos?.photoListDataModel)
                 
             } catch let error as NSError {
-                print("Error parsing JSON: \(error)")
+                // Error parsing JSON
                 onCompletion(error, nil)
                 return
             }

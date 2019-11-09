@@ -7,8 +7,12 @@
 //
 
 
-struct Keys {
-    static let flickrKey = "YOUR_API_KEY"
+struct Service {
+    static let host = "https://www.flickr.com/"
+    static let module = "services/rest/?method=flickr.photos.search&api_key="
+    static let text = "&text="
+    static let format = "&format=json&nojsoncallback=1&page="
+    static let flickrKey = "0fe1aaa149e2cd9cfae6d59c927e453f"
 }
 
 struct Errors {
