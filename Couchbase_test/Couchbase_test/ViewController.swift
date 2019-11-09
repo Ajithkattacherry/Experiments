@@ -10,9 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var txtSearchField: UITextField!
+    @IBOutlet weak var lblResult: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        txtSearchField.delegate = self
         saveMyDocument()
         getMyDocument()
         search()
@@ -21,6 +25,7 @@ class ViewController: UIViewController {
     private func saveMyDocument() {
         guard let document = getFormElements(from: "document") else { return }
         CouchbaseStack.shared.createDocument(with: "test_id_7218", properties: document)
+        CouchbaseStack.shared.testFullTextSearch()
     }
     
     private func getMyDocument() {
@@ -40,5 +45,26 @@ class ViewController: UIViewController {
         // Search for close state docs
         CouchbaseStack.shared.getResult(expression: QueryType.stateClose.getExpression())
     }
+    
+    @IBAction func didTapOnSearch(_ sender: Any) {
+        view.endEditing(true)
+        let result = CouchbaseStack.shared.fetchDocuments(for: lblResult.text ?? "")
+        //let result = CouchbaseStack.shared.fetchDocumentsFromDocument(for: lblResult.text ?? "")
+        lblResult.text = result.joined(separator: "\n")
+    }
+}
+
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        lblResult.text = textField.text
+        view.setNeedsDisplay()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        lblResult.text = textField.text
+        view.setNeedsDisplay()
+    }
+    
 }
 

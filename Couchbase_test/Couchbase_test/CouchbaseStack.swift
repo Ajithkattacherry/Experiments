@@ -57,6 +57,14 @@ class CouchbaseStack: NSObject {
         } catch {
             fatalError("Error saving document")
         }
+        
+        // Create index
+        do {
+            let index = IndexBuilder.fullTextIndex(items: FullTextIndexItem.property("name")).ignoreAccents(false)
+            try database.createIndex(index, withName: "AjithTest")
+        } catch let error {
+            print(error.localizedDescription)
+        }
     }
     
     func openDocument(with id: String) -> Document? {
@@ -102,7 +110,77 @@ class CouchbaseStack: NSObject {
         return documentModel
     }
     
-    func fetchDocuments(From dataBase: Database,for ids: [String]) {
-        // Fetch updated docs from DB
+    func testFullTextSearch() {
+        // Insert documents
+        let tasks = ["buy groceries", "play chess", "book travels", "buy museum tickets"]
+        for task in tasks {
+            let doc = MutableDocument()
+            doc.setString("task", forKey: "type")
+            doc.setString(task, forKey: "list")
+            try? database.saveDocument(doc)
+        }
+        
+//        let tasks = ["list": ["buy groceries", "play chess", "book travels", "buy museum tickets"]]
+//        let doc = MutableDocument()
+//        doc.setData(tasks)
+//        try? database.saveDocument(doc)
+        
+        // Create index
+        do {
+            let index = IndexBuilder.fullTextIndex(items: FullTextIndexItem.property("list")).ignoreAccents(false)
+            try database.createIndex(index, withName: "nameFTSIndex")
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func fetchDocuments(for text: String) -> [String] {
+        var resultArray = [String]()
+        let whereClause = FullTextExpression.index("nameFTSIndex").match(text)
+        let query = QueryBuilder
+            .select(SelectResult.expression(Meta.id))
+            .from(DataSource.database(database))
+            .where(whereClause)
+        
+        do {
+            let results = try query.execute()
+            guard !results.allResults().isEmpty else {
+                print("No Items found")
+                return []
+            }
+            for result in try query.execute() {
+                print("document Property \(result.toDictionary())")
+                let result = (result.toDictionary().keys.first ?? "") + ": " + (result.toDictionary().values.first as? String ?? "")
+                resultArray.append(result)
+            }
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        return resultArray
+    }
+    
+    func fetchDocumentsFromDocument(for text: String) -> [String] {
+        var resultArray = [String]()
+        let whereClause = FullTextExpression.index("AjithTest").match(text)
+        let query = QueryBuilder
+            .select(SelectResult.expression(Meta.id))
+            .from(DataSource.database(database))
+            .where(whereClause)
+        
+        do {
+            let results = try query.execute()
+            guard !results.allResults().isEmpty else {
+                print("No Items found")
+                return []
+            }
+            for result in try query.execute() {
+                print("document Property \(result.toDictionary())")
+                let result = (result.toDictionary().keys.first ?? "") + ": " + (result.toDictionary().values.first as? String ?? "")
+                resultArray.append(result)
+            }
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        return resultArray
     }
 }
