@@ -12,33 +12,11 @@ import UIKit
 class FLCachedImageView: UIImageView {
     
     public static let imageCache = NSCache<NSString, FLDiscardableImageCacheItem>()
-    var shouldUseEmptyImage = true
     private var urlStringForChecking: String?
     private var emptyImage: UIImage?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    }
-    
-    public convenience init(cornerRadius: CGFloat = 0, tapCallback: @escaping (() ->())) {
-        self.init(cornerRadius: cornerRadius, emptyImage: nil)
-        self.tapCallback = tapCallback
-        isUserInteractionEnabled = true
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
-    }
-    
-    @objc func handleTap() {
-        tapCallback?()
-    }
-    
-    private var tapCallback: (() -> ())?
-    
-    public init(cornerRadius: CGFloat = 0, emptyImage: UIImage? = nil) {
-        super.init(frame: .zero)
-        contentMode = .scaleAspectFill
-        clipsToBounds = true
-        layer.cornerRadius = cornerRadius
-        self.emptyImage = emptyImage
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -52,12 +30,15 @@ class FLCachedImageView: UIImageView {
      - parameter completion: Optionally execute some task after the image download completes
      */
     
-    open func loadImage(urlString: String, completion: (() -> ())? = nil) {
+    func loadImage(urlString: String, placehoderImage: String? = nil, completion: (() -> ())? = nil) {
         image = nil
         
         self.urlStringForChecking = urlString
-        
         let urlKey = urlString as NSString
+        
+        if let image = placehoderImage {
+            emptyImage = UIImage(named: image)
+        }
         
         if let cachedItem = FLCachedImageView.imageCache.object(forKey: urlKey) {
             image = cachedItem.image
@@ -65,12 +46,11 @@ class FLCachedImageView: UIImageView {
             return
         }
         
+        image = emptyImage
         guard let url = URL(string: urlString) else {
-            if shouldUseEmptyImage {
-                image = emptyImage
-            }
             return
         }
+        
         URLSession.shared.dataTask(with: url, completionHandler: { [weak self] (data, response, error) in
             if error != nil {
                 return

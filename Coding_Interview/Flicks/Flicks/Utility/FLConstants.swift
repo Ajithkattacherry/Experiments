@@ -20,6 +20,7 @@ struct Errors {
 struct Constants {
     static let appName = "Flicks"
     static let emptyString = ""
+    static let placeholderImage = "placeholder"
     static let searchBarPlaceholderText = "Search images"
     static let photoDetailsSegue = "PhotoDetailsSegue"
     static let alertDismissTitle = "Dismiss"
