@@ -19,6 +19,8 @@
 		E0F5EC2C2376C12800F836E8 /* FLSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC2B2376C12800F836E8 /* FLSearchResultCell.swift */; };
 		E0F5EC2E2376C18A00F836E8 /* FLNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC2D2376C18A00F836E8 /* FLNetworkManager.swift */; };
 		E0F5EC312376C70200F836E8 /* FLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC302376C70200F836E8 /* FLConstants.swift */; };
+		E0F5EC3323770F7300F836E8 /* FLCachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC3223770F7300F836E8 /* FLCachedImageView.swift */; };
+		E0F5EC352377102500F836E8 /* FLDiscardableImageCacheItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC342377102500F836E8 /* FLDiscardableImageCacheItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		E0F5EC2B2376C12800F836E8 /* FLSearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLSearchResultCell.swift; sourceTree = "<group>"; };
 		E0F5EC2D2376C18A00F836E8 /* FLNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLNetworkManager.swift; sourceTree = "<group>"; };
 		E0F5EC302376C70200F836E8 /* FLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLConstants.swift; sourceTree = "<group>"; };
+		E0F5EC3223770F7300F836E8 /* FLCachedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLCachedImageView.swift; sourceTree = "<group>"; };
+		E0F5EC342377102500F836E8 /* FLDiscardableImageCacheItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLDiscardableImageCacheItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				E0F5EC302376C70200F836E8 /* FLConstants.swift */,
+				E0F5EC3223770F7300F836E8 /* FLCachedImageView.swift */,
+				E0F5EC342377102500F836E8 /* FLDiscardableImageCacheItem.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -321,8 +327,10 @@
 			files = (
 				E0F5EBCC2376949300F836E8 /* AppDelegate.swift in Sources */,
 				E0F5EC262376C09500F836E8 /* FLPhotosSearchViewController.swift in Sources */,
+				E0F5EC3323770F7300F836E8 /* FLCachedImageView.swift in Sources */,
 				E0F5EC2E2376C18A00F836E8 /* FLNetworkManager.swift in Sources */,
 				E0F5EC2A2376C0EA00F836E8 /* FLPhotoListDataModel.swift in Sources */,
+				E0F5EC352377102500F836E8 /* FLDiscardableImageCacheItem.swift in Sources */,
 				E0F5EC2C2376C12800F836E8 /* FLSearchResultCell.swift in Sources */,
 				E0F5EC282376C0A900F836E8 /* FLPhotosDetailViewController.swift in Sources */,
 				E0F5EC312376C70200F836E8 /* FLConstants.swift in Sources */,

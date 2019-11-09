@@ -11,14 +11,14 @@ import UIKit
 class FLSearchResultCell: UITableViewCell {
 
     @IBOutlet weak var resultTitleLabel: UILabel!
-    @IBOutlet weak var resultImageView: UIImageView!
+    @IBOutlet weak var resultImageView: FLCachedImageView!
     
     func setupWithPhoto(photoDataModel: FLPhotoDataModel?) {
-        guard let photos = photoDataModel else {
+        guard let photo = photoDataModel else {
             return
         }
-        resultTitleLabel.text = photos.title
-        //resultImageView.sd_setImage(with: photos.url as? URL)
+        resultTitleLabel.text = photo.title
+        resultImageView.loadImage(urlString: photo.thumbnailUrl)
     }
 
 }

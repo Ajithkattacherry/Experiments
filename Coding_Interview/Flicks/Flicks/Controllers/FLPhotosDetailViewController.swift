@@ -10,15 +10,15 @@ import UIKit
 
 class FLPhotosDetailViewController: UIViewController {
 
-    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var photoImageView: FLCachedImageView!
     
     var photoDataModel: FLPhotoDataModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard photoDataModel != nil else { return }
-        //photoImageView.sd_setImage(with: photoListDataModel!.photoUrl as? URL)
+        guard let photo = photoDataModel else { return }
+        photoImageView.loadImage(urlString: photo.url)
     }
 
 }

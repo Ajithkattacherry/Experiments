@@ -47,14 +47,14 @@ class FLNetworkManager {
 
                 let flickrPhoto: [FLPhotoDataModel] = photosArray.map { photoDictionary in
                     let id = photoDictionary["id"] as? String ?? ""
-                    let owner = photoDictionary["owner"] as? Int ?? 0
+                    let owner = photoDictionary["owner"] as? String ?? ""
                     let secret = photoDictionary["secret"] as? String ?? ""
                     let server = photoDictionary["server"] as? String ?? ""
                     let farm = photoDictionary["farm"] as? Int ?? 0
                     let title = photoDictionary["title"] as? String ?? ""
-                    let ispublic = photoDictionary["ispublic"] as? String ?? ""
-                    let isfriend = photoDictionary["isfriend"] as? String ?? ""
-                    let isfamily = photoDictionary["isfamily"] as? String ?? ""
+                    let ispublic = photoDictionary["ispublic"] as? Int ?? 0
+                    let isfriend = photoDictionary["isfriend"] as? Int ?? 0
+                    let isfamily = photoDictionary["isfamily"] as? Int ?? 0
                     return FLPhotoDataModel(id: id, owner: owner, secret: secret, server: server, farm: farm, title: title, ispublic: ispublic, isfriend: isfriend, isfamily: isfamily)
                 }
                 onCompletion(nil, FLPhotoListDataModel(page: page, pages: pages, perpage: perpage, total: total, photos: flickrPhoto))
