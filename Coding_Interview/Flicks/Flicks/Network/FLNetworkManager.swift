@@ -9,9 +9,8 @@
 import UIKit
 
 class FLNetworkManager {
-    
     typealias FlickrResponse = (NSError?, FLPhotoListDataModel?) -> Void
-    
+
     class func fetchPhotosForSearchText(searchText: String, onCompletion: @escaping FlickrResponse) -> Void {
         let escapedSearchText: String = searchText.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
         //let urlString: String = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(Keys.flickrKey)&tags=\(escapedSearchText)&per_page=25&format=json&nojsoncallback=1"

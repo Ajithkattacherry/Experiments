@@ -9,9 +9,7 @@
 import UIKit
 
 class FLPhotosDetailViewController: UIViewController {
-
     @IBOutlet weak var photoImageView: FLCachedImageView!
-    
     var photoDataModel: FLPhotoDataModel?
     
     override func viewDidLoad() {

@@ -9,7 +9,6 @@
 import UIKit
 
 class FLDiscardableImageCacheItem: NSObject, NSDiscardableContent {
-    
     private(set) public var image: UIImage?
     var accessCount: UInt = 0
     
