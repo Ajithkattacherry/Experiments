@@ -12,7 +12,7 @@
         <!--Flicks-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="FlicksViewController" customModule="Flicks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="FLPhotosSearchViewController" customModule="Flicks" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -33,7 +33,7 @@
                                     </connections>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" id="A78-eY-eg4" customClass="SearchResultCell" customModule="Flicks" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FLSearchResultCell" id="A78-eY-eg4" customClass="FLSearchResultCell" customModule="Flicks" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="66" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A78-eY-eg4" id="7Ko-CO-8zY">
@@ -41,7 +41,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Result" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loL-1f-eKU">
-                                                    <rect key="frame" x="20" y="15" width="872" height="60.5"/>
+                                                    <rect key="frame" x="20" y="15" width="286" height="60.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="472" id="pj7-XH-Szw"/>
                                                     </constraints>
@@ -55,7 +55,7 @@
                                                     </variation>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WGv-an-3Nk" userLabel="Result Image View">
-                                                    <rect key="frame" x="900" y="5" width="80" height="80.5"/>
+                                                    <rect key="frame" x="314" y="5" width="80" height="80.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="0Do-Li-9iM"/>
                                                         <constraint firstAttribute="height" constant="80" id="jUe-ng-1HW"/>
@@ -152,7 +152,7 @@
         <!--Flicks-->
         <scene sceneID="Oce-Zr-axy">
             <objects>
-                <viewController id="rzo-l8-yI1" customClass="FlicksDetailViewController" customModule="Flicks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rzo-l8-yI1" customClass="FLPhotosDetailViewController" customModule="Flicks" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cTK-dP-80k"/>
                         <viewControllerLayoutGuide type="bottom" id="z2N-IN-pyk"/>

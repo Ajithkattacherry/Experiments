@@ -10,7 +10,7 @@ import UIKit
 
 class FlicksNetworkManager {
     
-    typealias FlickrResponse = (NSError?, FlicksDataModel?) -> Void
+    typealias FlickrResponse = (NSError?, FLPhotoListDataModel?) -> Void
     
     struct Keys {
         static let flickrKey = "YOUR_API_KEY"
@@ -53,7 +53,7 @@ class FlicksNetworkManager {
                 
                 guard let photosArray = photosContainer["photo"] as? [NSDictionary] else { return }
 
-                let flickrPhoto: [FlickerPhotos] = photosArray.map { photoDictionary in
+                let flickrPhoto: [FLPhotoDataModel] = photosArray.map { photoDictionary in
                     let id = photoDictionary["id"] as? String ?? ""
                     let owner = photoDictionary["owner"] as? Int ?? 0
                     let secret = photoDictionary["secret"] as? String ?? ""
@@ -63,9 +63,9 @@ class FlicksNetworkManager {
                     let ispublic = photoDictionary["ispublic"] as? String ?? ""
                     let isfriend = photoDictionary["isfriend"] as? String ?? ""
                     let isfamily = photoDictionary["isfamily"] as? String ?? ""
-                    return FlickerPhotos(id: id, owner: owner, secret: secret, server: server, farm: farm, title: title, ispublic: ispublic, isfriend: isfriend, isfamily: isfamily)
+                    return FLPhotoDataModel(id: id, owner: owner, secret: secret, server: server, farm: farm, title: title, ispublic: ispublic, isfriend: isfriend, isfamily: isfamily)
                 }
-                onCompletion(nil, FlicksDataModel(page: page, pages: pages, perpage: perpage, total: total, photos: flickrPhoto))
+                onCompletion(nil, FLPhotoListDataModel(page: page, pages: pages, perpage: perpage, total: total, photos: flickrPhoto))
                 
             } catch let error as NSError {
                 print("Error parsing JSON: \(error)")

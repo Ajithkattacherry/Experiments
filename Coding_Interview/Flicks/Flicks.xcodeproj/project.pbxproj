@@ -13,11 +13,11 @@
 		E0F5EC062376A27500F836E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0F5EBFE2376A27400F836E8 /* Assets.xcassets */; };
 		E0F5EC0F2376A8EF00F836E8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0F5EC0B2376A8EF00F836E8 /* LaunchScreen.xib */; };
 		E0F5EC102376A8EF00F836E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0F5EC0D2376A8EF00F836E8 /* Main.storyboard */; };
-		E0F5EC122376A97E00F836E8 /* FlicksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC112376A97E00F836E8 /* FlicksViewController.swift */; };
-		E0F5EC142376AA0F00F836E8 /* FlicksDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC132376AA0F00F836E8 /* FlicksDetailViewController.swift */; };
-		E0F5EC162376AA6900F836E8 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC152376AA6900F836E8 /* SearchResultCell.swift */; };
-		E0F5EC182376AAD500F836E8 /* FlicksDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC172376AAD500F836E8 /* FlicksDataModel.swift */; };
 		E0F5EC1A2376ACB000F836E8 /* FlicksNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC192376ACB000F836E8 /* FlicksNetworkManager.swift */; };
+		E0F5EC262376C09500F836E8 /* FLPhotosSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC252376C09500F836E8 /* FLPhotosSearchViewController.swift */; };
+		E0F5EC282376C0A900F836E8 /* FLPhotosDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC272376C0A900F836E8 /* FLPhotosDetailViewController.swift */; };
+		E0F5EC2A2376C0EA00F836E8 /* FLPhotoListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC292376C0EA00F836E8 /* FLPhotoListDataModel.swift */; };
+		E0F5EC2C2376C12800F836E8 /* FLSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC2B2376C12800F836E8 /* FLSearchResultCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,11 +50,11 @@
 		E0F5EBFF2376A27400F836E8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0F5EC0C2376A8EF00F836E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		E0F5EC0E2376A8EF00F836E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E0F5EC112376A97E00F836E8 /* FlicksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlicksViewController.swift; sourceTree = "<group>"; };
-		E0F5EC132376AA0F00F836E8 /* FlicksDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlicksDetailViewController.swift; sourceTree = "<group>"; };
-		E0F5EC152376AA6900F836E8 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
-		E0F5EC172376AAD500F836E8 /* FlicksDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlicksDataModel.swift; sourceTree = "<group>"; };
 		E0F5EC192376ACB000F836E8 /* FlicksNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlicksNetworkManager.swift; sourceTree = "<group>"; };
+		E0F5EC252376C09500F836E8 /* FLPhotosSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLPhotosSearchViewController.swift; sourceTree = "<group>"; };
+		E0F5EC272376C0A900F836E8 /* FLPhotosDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLPhotosDetailViewController.swift; sourceTree = "<group>"; };
+		E0F5EC292376C0EA00F836E8 /* FLPhotoListDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLPhotoListDataModel.swift; sourceTree = "<group>"; };
+		E0F5EC2B2376C12800F836E8 /* FLSearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLSearchResultCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +136,7 @@
 		E0F5EBF92376A27400F836E8 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				E0F5EC172376AAD500F836E8 /* FlicksDataModel.swift */,
+				E0F5EC292376C0EA00F836E8 /* FLPhotoListDataModel.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -152,8 +152,8 @@
 		E0F5EBFB2376A27400F836E8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E0F5EC112376A97E00F836E8 /* FlicksViewController.swift */,
-				E0F5EC132376AA0F00F836E8 /* FlicksDetailViewController.swift */,
+				E0F5EC252376C09500F836E8 /* FLPhotosSearchViewController.swift */,
+				E0F5EC272376C0A900F836E8 /* FLPhotosDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -172,7 +172,7 @@
 			children = (
 				E0F5EC0B2376A8EF00F836E8 /* LaunchScreen.xib */,
 				E0F5EC0D2376A8EF00F836E8 /* Main.storyboard */,
-				E0F5EC152376AA6900F836E8 /* SearchResultCell.swift */,
+				E0F5EC2B2376C12800F836E8 /* FLSearchResultCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,11 +309,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0F5EC1A2376ACB000F836E8 /* FlicksNetworkManager.swift in Sources */,
-				E0F5EC122376A97E00F836E8 /* FlicksViewController.swift in Sources */,
-				E0F5EC142376AA0F00F836E8 /* FlicksDetailViewController.swift in Sources */,
-				E0F5EC162376AA6900F836E8 /* SearchResultCell.swift in Sources */,
 				E0F5EBCC2376949300F836E8 /* AppDelegate.swift in Sources */,
-				E0F5EC182376AAD500F836E8 /* FlicksDataModel.swift in Sources */,
+				E0F5EC262376C09500F836E8 /* FLPhotosSearchViewController.swift in Sources */,
+				E0F5EC2A2376C0EA00F836E8 /* FLPhotoListDataModel.swift in Sources */,
+				E0F5EC2C2376C12800F836E8 /* FLSearchResultCell.swift in Sources */,
+				E0F5EC282376C0A900F836E8 /* FLPhotosDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
