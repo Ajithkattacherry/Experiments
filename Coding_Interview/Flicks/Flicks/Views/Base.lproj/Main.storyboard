@@ -36,56 +36,37 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FLSearchResultCell" id="A78-eY-eg4" customClass="FLSearchResultCell" customModule="Flicks" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="66" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A78-eY-eg4" id="7Ko-CO-8zY">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="A78-eY-eg4" id="7Ko-CO-8zY">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Result" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loL-1f-eKU">
-                                                    <rect key="frame" x="20" y="15" width="286" height="60.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WGv-an-3Nk" userLabel="Result Image View" customClass="FLCachedImageView" customModule="Flicks" customModuleProvider="target">
+                                                    <rect key="frame" x="4" y="4" width="80" height="80.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="472" id="pj7-XH-Szw"/>
+                                                        <constraint firstAttribute="width" constant="80" id="agd-yd-GfQ"/>
+                                                        <constraint firstAttribute="height" constant="80.5" id="fSe-4V-QWa"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Result" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loL-1f-eKU">
+                                                    <rect key="frame" x="92" y="34" width="310" height="20.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="pj7-XH-Szw"/>
-                                                        </mask>
-                                                    </variation>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WGv-an-3Nk" userLabel="Result Image View" customClass="FLCachedImageView" customModule="Flicks" customModuleProvider="target">
-                                                    <rect key="frame" x="314" y="5" width="80" height="80.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="0Do-Li-9iM"/>
-                                                        <constraint firstAttribute="height" constant="80" id="jUe-ng-1HW"/>
-                                                    </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="jUe-ng-1HW"/>
-                                                        </mask>
-                                                    </variation>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="WGv-an-3Nk" firstAttribute="leading" secondItem="loL-1f-eKU" secondAttribute="trailing" constant="8" id="34t-yI-drx"/>
-                                                <constraint firstItem="loL-1f-eKU" firstAttribute="top" secondItem="7Ko-CO-8zY" secondAttribute="topMargin" id="6w4-zg-f5L"/>
-                                                <constraint firstAttribute="bottom" secondItem="loL-1f-eKU" secondAttribute="bottom" constant="14" id="GJ8-20-5M5"/>
-                                                <constraint firstAttribute="trailing" secondItem="WGv-an-3Nk" secondAttribute="trailing" constant="20" id="YVa-fN-b0w"/>
-                                                <constraint firstItem="WGv-an-3Nk" firstAttribute="top" secondItem="7Ko-CO-8zY" secondAttribute="top" constant="5" id="cXo-mE-RMc"/>
-                                                <constraint firstItem="loL-1f-eKU" firstAttribute="leading" secondItem="7Ko-CO-8zY" secondAttribute="leading" constant="20" id="dY1-NP-3UN"/>
-                                                <constraint firstItem="loL-1f-eKU" firstAttribute="leading" secondItem="7Ko-CO-8zY" secondAttribute="leadingMargin" constant="12" id="drm-yM-Bpa"/>
-                                                <constraint firstItem="loL-1f-eKU" firstAttribute="bottom" secondItem="7Ko-CO-8zY" secondAttribute="bottomMargin" id="hHC-cA-uzJ"/>
-                                                <constraint firstItem="loL-1f-eKU" firstAttribute="top" secondItem="7Ko-CO-8zY" secondAttribute="top" constant="15" id="kXc-4h-Aim"/>
-                                                <constraint firstAttribute="bottom" secondItem="WGv-an-3Nk" secondAttribute="bottom" constant="4" id="x2A-Sp-Wga"/>
+                                                <constraint firstItem="WGv-an-3Nk" firstAttribute="leading" secondItem="7Ko-CO-8zY" secondAttribute="leading" constant="4" id="3vR-0d-mxz"/>
+                                                <constraint firstItem="loL-1f-eKU" firstAttribute="leading" secondItem="WGv-an-3Nk" secondAttribute="trailing" constant="8" id="8ML-SL-Rlp"/>
+                                                <constraint firstItem="WGv-an-3Nk" firstAttribute="top" secondItem="7Ko-CO-8zY" secondAttribute="top" constant="4" id="TiD-W2-srZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="WGv-an-3Nk" secondAttribute="bottom" constant="4" id="nD0-s5-nub"/>
+                                                <constraint firstItem="loL-1f-eKU" firstAttribute="centerY" secondItem="WGv-an-3Nk" secondAttribute="centerY" id="rTw-Qr-KBO"/>
+                                                <constraint firstItem="loL-1f-eKU" firstAttribute="trailing" secondItem="7Ko-CO-8zY" secondAttribute="trailingMargin" constant="8" id="ye2-tH-Mwy"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="6w4-zg-f5L"/>
-                                                    <exclude reference="drm-yM-Bpa"/>
-                                                    <exclude reference="hHC-cA-uzJ"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="resultImageView" destination="WGv-an-3Nk" id="5q5-Ga-YaK"/>
