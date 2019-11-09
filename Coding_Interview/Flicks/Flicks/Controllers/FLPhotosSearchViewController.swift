@@ -32,9 +32,10 @@ class FLPhotosSearchViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func resetSearch(sender: Any) {
+    @IBAction func resetSearch(sender: Any? = nil) {
         photoListDataModel?.photos.removeAll(keepingCapacity: false)
         searchBar.text = Constants.emptyString
+        searchText = Constants.emptyString
         searchBar.resignFirstResponder()
         tableView.reloadData()
         self.title = Constants.appName
@@ -44,28 +45,37 @@ class FLPhotosSearchViewController: UIViewController {
     private func performSearch(with text: String, page: Int = 1) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         FLNetworkManager.fetchPhotosForSearchText(searchText: text, page: page) { (error, photoListDataModel) in
-            DispatchQueue.main.async(execute: { () -> Void in
+            DispatchQueue.main.async {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            })
-            
+            }
             guard let dataModel = photoListDataModel else {
                 if error?.code == Errors.invalidAccessErrorCode {
-                    DispatchQueue.main.async(execute: { () -> Void in
+                    DispatchQueue.main.async {
                         self.showErrorAlert(title: Errors.invalidAPIKeyTitle, message: Errors.invalidAPIKey)
-                    })
+                    }
                 }
                 return
             }
+            
             if self.photoListDataModel == nil {
               self.photoListDataModel = dataModel
             } else {
                 self.photoListDataModel?.page = dataModel.page
                 self.photoListDataModel?.photos.append(contentsOf: dataModel.photos)
             }
-            DispatchQueue.main.async(execute: { () -> Void in
+            
+            guard photoListDataModel?.photos.count ?? 0 > 0 else {
+                DispatchQueue.main.async {
+                    self.showErrorAlert(title: Constants.alertTitle, message: Constants.noResultFound)
+                    self.resetSearch()
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
                 self.title = text
                 self.tableView.reloadData()
-            })
+            }
         }
     }
     
@@ -113,6 +123,7 @@ extension FLPhotosSearchViewController: UISearchControllerDelegate, UISearchBarD
             showErrorAlert(title: Constants.alertTitle, message: Errors.emptySearchString)
             return
         }
+        photoListDataModel?.photos.removeAll(keepingCapacity: false)
         searchText = text
         performSearch(with: text)
     }

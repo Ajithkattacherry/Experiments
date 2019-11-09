@@ -30,5 +30,6 @@ struct Constants {
     static let photoDetailsSegue = "PhotoDetailsSegue"
     static let alertDismissTitle = "Dismiss"
     static let alertTitle = "Alert"
+    static let noResultFound = "No Result Found"
     static let searchResultCellIdentifier = "FLSearchResultCell"
 }
