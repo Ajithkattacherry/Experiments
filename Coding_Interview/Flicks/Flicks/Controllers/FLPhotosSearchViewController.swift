@@ -51,9 +51,9 @@ class FLPhotosSearchViewController: UIViewController {
     ///
     /// - parameter text: search keyword
     /// - parameter page: next page number for the search request
-    private func performSearch(with text: String, page: Int = 1) {
+    private func performSearch(for text: String, page: Int = 1) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        FLNetworkManager.fetchPhotosForSearchText(searchText: text, page: page) { result in
+        FLNetworkManager.fetchPhotos(for: text, on: page) { result in
             DispatchQueue.main.async {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
@@ -68,7 +68,7 @@ class FLPhotosSearchViewController: UIViewController {
                 }
                 
                 // If the search for the keyword no more giving photos we should stop calling the api
-                // Otherwise everytime when you scroll to bottom, unneccessary api call will happen
+                // otherwise everytime when you scroll to bottom, unneccessary api call will happen
                 if dataModel.photos.count == 0 {
                     self.shouldPaginate = false
                 }
@@ -137,7 +137,7 @@ extension FLPhotosSearchViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastRowIndex = tableView.numberOfRows(inSection: 0) - 1
         if indexPath.row == lastRowIndex && shouldPaginate {
-            performSearch(with: searchText ?? "", page: (photoListDataModel?.page ?? 0) + 1)
+            performSearch(for: searchText ?? "", page: (photoListDataModel?.page ?? 0) + 1)
         }
     }
 }
@@ -153,7 +153,7 @@ extension FLPhotosSearchViewController: UISearchControllerDelegate, UISearchBarD
         photoListDataModel?.photos.removeAll(keepingCapacity: false)
         shouldPaginate = true
         searchText = text
-        performSearch(with: text)
+        performSearch(for: text)
     }
 }
 
