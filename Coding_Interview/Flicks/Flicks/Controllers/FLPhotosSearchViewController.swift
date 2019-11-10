@@ -42,6 +42,10 @@ class FLPhotosSearchViewController: UIViewController {
     }
     
     // MARK: - Private
+    /// Method to perform image search.
+    ///
+    /// - parameter text: search keyword
+    /// - parameter page: next page number for the search request
     private func performSearch(with text: String, page: Int = 1) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         FLNetworkManager.fetchPhotosForSearchText(searchText: text, page: page) { (error, photoListDataModel) in
@@ -58,7 +62,7 @@ class FLPhotosSearchViewController: UIViewController {
             }
             
             if self.photoListDataModel == nil {
-              self.photoListDataModel = dataModel
+                self.photoListDataModel = dataModel
             } else {
                 self.photoListDataModel?.page = dataModel.page
                 self.photoListDataModel?.photos.append(contentsOf: dataModel.photos)

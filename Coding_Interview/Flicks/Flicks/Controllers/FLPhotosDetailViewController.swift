@@ -16,7 +16,7 @@ class FLPhotosDetailViewController: UIViewController {
         super.viewDidLoad()
         
         guard let photo = photoDataModel else { return }
-        photoImageView.loadImage(urlString: photo.url, placehoderImage: Constants.placeholderImage)
+        photoImageView.loadImage(from: photo.url, placehoderImage: Constants.placeholderImage)
     }
 
 }

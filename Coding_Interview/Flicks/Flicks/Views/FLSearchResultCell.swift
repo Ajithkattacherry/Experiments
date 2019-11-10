@@ -18,7 +18,7 @@ class FLSearchResultCell: UITableViewCell {
             return
         }
         resultTitleLabel.text = photo.title
-        resultImageView.loadImage(urlString: photo.thumbnailUrl, placehoderImage: Constants.placeholderImage)
+        resultImageView.loadImage(from: photo.thumbnailUrl, placehoderImage: Constants.placeholderImage)
     }
 
 }

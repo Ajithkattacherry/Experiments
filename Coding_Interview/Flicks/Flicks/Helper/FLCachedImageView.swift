@@ -22,17 +22,14 @@ class FLCachedImageView: UIImageView {
         super.init(coder: aDecoder)
     }
     
-    /**
-     Easily load an image from a URL string and cache it to reduce network overhead later.
-     
-     - parameter urlString: The url location of your image, usually on a remote server somewhere.
-     - parameter completion: Optionally execute some task after the image download completes
-     */
-    
-    func loadImage(urlString: String, placehoderImage: String? = nil, completion: (() -> ())? = nil) {
+    /// Load an image from a URL String and cache it to reduce network overhead later.
+    ///
+    /// - parameter urlString: The url location of your image, usually on a remote server somewhere.
+    /// - parameter placehoderImage: to show placehoderImage till the originl image is downloaded
+    func loadImage(from urlString: String, placehoderImage: String? = nil) {
         image = nil
         
-        self.urlStringForChecking = urlString
+        urlStringForChecking = urlString
         let urlKey = urlString as NSString
         
         if let image = placehoderImage {
@@ -41,7 +38,6 @@ class FLCachedImageView: UIImageView {
         
         if let cachedItem = FLCachedImageView.imageCache.object(forKey: urlKey) {
             image = cachedItem.image
-            completion?()
             return
         }
         
@@ -66,7 +62,6 @@ class FLCachedImageView: UIImageView {
                 
                 if urlString == self?.urlStringForChecking {
                     self?.image = image
-                    completion?()
                 }
             }
         }).resume()
