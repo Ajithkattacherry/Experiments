@@ -17,7 +17,11 @@ struct Service {
 
 struct Errors {
     static let invalidAccessErrorCode = 100
+    static let invalidURLErrorCode = 101
+    static let operationFailedErrorCode = 102
     static let invalidAPIKey = "Invalid API Key"
+    static let invalidURL = "Invalid URL"
+    static let searchOperationFailed = "Search operation failed"
     static let invalidAPIKeyTitle = "Search Error"
     static let emptySearchString = "Search text is empty"
 }

@@ -8,40 +8,52 @@
 
 import UIKit
 
-class FLNetworkManager {
-    typealias FlickrResponse = (NSError?, FLPhotoListDataModel?) -> Void
+enum Result<Error, FLPhotoListDataModel> {
+    case success(FLPhotoListDataModel)
+    case failure(NSError)
+}
 
-    class func fetchPhotosForSearchText(searchText: String, page: Int, onCompletion: @escaping FlickrResponse) -> Void {
+class FLNetworkManager {
+    class func fetchPhotosForSearchText(searchText: String, page: Int, onCompletion: @escaping (Result<NSError, FLPhotoListDataModel>) -> Void) {
         let escapedSearchText: String = searchText.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
         let urlString: String = Service.host + Service.module + "\(Service.flickrKey)" + Service.text + "\(escapedSearchText)" + Service.format + "\(page)"
-        guard let url = URL(string: urlString) else { return }
+        guard let url = URL(string: urlString) else {
+            onCompletion(.failure(NSError(domain: "com.flickr.api", code: Errors.invalidURLErrorCode, userInfo: nil)))
+            return
+        }
         let searchTask = URLSession.shared.dataTask(with: url, completionHandler: {data, response, error -> Void in
             
             // Error fetching photos
-            if error != nil {
-                onCompletion(error as NSError?, nil)
+            if let error = error {
+                onCompletion(.failure(error as NSError))
                 return
             }
             
             do {
                 let resultsDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: AnyObject]
-                guard let results = resultsDictionary else { return }
+                guard let results = resultsDictionary else {
+                    onCompletion(.failure(NSError(domain: "com.flickr.api", code: Errors.operationFailedErrorCode, userInfo: nil)))
+                    return
+                }
                 
                 if let statusCode = results["code"] as? Int {
                     // Error code 100 - Invalid API key
                     if statusCode == Errors.invalidAccessErrorCode {
                         let invalidAccessError = NSError(domain: "com.flickr.api", code: statusCode, userInfo: nil)
-                        onCompletion(invalidAccessError, nil)
+                        onCompletion(.failure(invalidAccessError))
                         return
                     }
                 }
-                guard let data = data else { return }
+                guard let data = data else {
+                    onCompletion(.failure(NSError(domain: "com.flickr.api", code: Errors.operationFailedErrorCode, userInfo: nil)))
+                    return
+                }
                 let flPhotos = try FLPhotos.setData(data)
-                onCompletion(nil, flPhotos?.photoListDataModel)
+                onCompletion(.success(flPhotos.photoListDataModel))
                 
             } catch let error as NSError {
                 // Error parsing JSON
-                onCompletion(error, nil)
+                onCompletion(.failure(error))
                 return
             }
             

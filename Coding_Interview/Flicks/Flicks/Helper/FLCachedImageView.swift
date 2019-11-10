@@ -8,7 +8,6 @@
 
 import UIKit
 
-// UIImageView to load and cache images.
 class FLCachedImageView: UIImageView {
     public static let imageCache = NSCache<NSString, FLDiscardableImageCacheItem>()
     private var urlStringForChecking: String?

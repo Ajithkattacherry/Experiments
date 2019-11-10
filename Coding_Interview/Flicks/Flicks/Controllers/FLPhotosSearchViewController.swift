@@ -14,6 +14,7 @@ class FLPhotosSearchViewController: UIViewController {
     
     var photoListDataModel: FLPhotoListDataModel?
     var searchText: String?
+    var shouldPaginate: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +33,17 @@ class FLPhotosSearchViewController: UIViewController {
     }
     
     // MARK: - Actions
+    /// Method to reset image search.
+    ///
+    /// This method will reset all the post state after the previous search
     @IBAction func resetSearch(sender: Any? = nil) {
         photoListDataModel?.photos.removeAll(keepingCapacity: false)
         searchBar.text = Constants.emptyString
         searchText = Constants.emptyString
         searchBar.resignFirstResponder()
+        shouldPaginate = true
         tableView.reloadData()
-        self.title = Constants.appName
+        title = Constants.appName
     }
     
     // MARK: - Private
@@ -48,46 +53,64 @@ class FLPhotosSearchViewController: UIViewController {
     /// - parameter page: next page number for the search request
     private func performSearch(with text: String, page: Int = 1) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        FLNetworkManager.fetchPhotosForSearchText(searchText: text, page: page) { (error, photoListDataModel) in
+        FLNetworkManager.fetchPhotosForSearchText(searchText: text, page: page) { result in
             DispatchQueue.main.async {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
-            guard let dataModel = photoListDataModel else {
-                if error?.code == Errors.invalidAccessErrorCode {
+            
+            switch result {
+            case .success(let dataModel):
+                if self.photoListDataModel == nil {
+                    self.photoListDataModel = dataModel
+                } else {
+                    self.photoListDataModel?.page = dataModel.page
+                    self.photoListDataModel?.photos.append(contentsOf: dataModel.photos)
+                }
+                
+                // If the search for the keyword no more giving photos we should stop calling the api
+                // Otherwise everytime when you scroll to bottom, unneccessary api call will happen
+                if dataModel.photos.count == 0 {
+                    self.shouldPaginate = false
+                }
+                
+                // If the search result is empty we will show alert saying No Result Found
+                guard self.photoListDataModel?.photos.count ?? 0 > 0 else {
                     DispatchQueue.main.async {
-                        self.showErrorAlert(title: Errors.invalidAPIKeyTitle, message: Errors.invalidAPIKey)
+                        self.showErrorAlert(title: Constants.alertTitle, message: Constants.noResultFound)
+                        self.resetSearch()
                     }
+                    return
                 }
-                return
-            }
-            
-            if self.photoListDataModel == nil {
-                self.photoListDataModel = dataModel
-            } else {
-                self.photoListDataModel?.page = dataModel.page
-                self.photoListDataModel?.photos.append(contentsOf: dataModel.photos)
-            }
-            
-            guard photoListDataModel?.photos.count ?? 0 > 0 else {
+                
                 DispatchQueue.main.async {
-                    self.showErrorAlert(title: Constants.alertTitle, message: Constants.noResultFound)
-                    self.resetSearch()
+                    self.title = text
+                    self.tableView.reloadData()
                 }
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.title = text
-                self.tableView.reloadData()
+            case .failure(let error):
+                switch error.code {
+                case Errors.invalidAccessErrorCode:
+                    self.showErrorAlert(title: Errors.invalidAPIKeyTitle, message: Errors.invalidAPIKey)
+                case Errors.invalidURLErrorCode:
+                    self.showErrorAlert(title: Constants.alertTitle, message: Errors.invalidURL)
+                case Errors.operationFailedErrorCode:
+                    self.showErrorAlert(title: Constants.alertTitle, message: Errors.searchOperationFailed)
+                default: break
+                }
             }
         }
     }
     
+    /// Method to Show Alert
+    ///
+    /// - parameter title: Alert Title
+    /// - parameter message: Alert message
     private func showErrorAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: Constants.alertDismissTitle, style: .default, handler: nil)
-        alertController.addAction(dismissAction)
-        present(alertController, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let dismissAction = UIAlertAction(title: Constants.alertDismissTitle, style: .default, handler: nil)
+            alertController.addAction(dismissAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 }
 
@@ -113,7 +136,7 @@ extension FLPhotosSearchViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastRowIndex = tableView.numberOfRows(inSection: 0) - 1
-        if indexPath.row == lastRowIndex {
+        if indexPath.row == lastRowIndex && shouldPaginate {
             performSearch(with: searchText ?? "", page: (photoListDataModel?.page ?? 0) + 1)
         }
     }
@@ -128,6 +151,7 @@ extension FLPhotosSearchViewController: UISearchControllerDelegate, UISearchBarD
             return
         }
         photoListDataModel?.photos.removeAll(keepingCapacity: false)
+        shouldPaginate = true
         searchText = text
         performSearch(with: text)
     }

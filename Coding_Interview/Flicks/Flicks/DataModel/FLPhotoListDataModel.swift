@@ -20,7 +20,7 @@ struct FLPhotos: Decodable {
         photoListDataModel = try container.decode(FLPhotoListDataModel.self, forKey: .photoListDataModel)
     }
     
-    static func setData(_ data: Data) throws -> FLPhotos? {
+    static func setData(_ data: Data) throws -> FLPhotos {
         return try JSONDecoder().decode(FLPhotos.self, from: data)
     }
 }
