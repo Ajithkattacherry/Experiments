@@ -36,7 +36,7 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FLSearchResultCell" id="A78-eY-eg4" customClass="FLSearchResultCell" customModule="Flicks" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="66" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="A78-eY-eg4" id="7Ko-CO-8zY">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A78-eY-eg4" id="7Ko-CO-8zY">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -53,8 +53,8 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Result" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loL-1f-eKU">
-                                                    <rect key="frame" x="92" y="34" width="310" height="20.5"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                    <rect key="frame" x="92" y="4" width="310" height="80.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -63,8 +63,10 @@
                                                 <constraint firstItem="WGv-an-3Nk" firstAttribute="leading" secondItem="7Ko-CO-8zY" secondAttribute="leading" constant="4" id="3vR-0d-mxz"/>
                                                 <constraint firstItem="loL-1f-eKU" firstAttribute="leading" secondItem="WGv-an-3Nk" secondAttribute="trailing" constant="8" id="8ML-SL-Rlp"/>
                                                 <constraint firstItem="WGv-an-3Nk" firstAttribute="top" secondItem="7Ko-CO-8zY" secondAttribute="top" constant="4" id="TiD-W2-srZ"/>
+                                                <constraint firstItem="loL-1f-eKU" firstAttribute="top" secondItem="7Ko-CO-8zY" secondAttribute="top" constant="4" id="a12-US-EyY"/>
                                                 <constraint firstAttribute="bottom" secondItem="WGv-an-3Nk" secondAttribute="bottom" constant="4" id="nD0-s5-nub"/>
                                                 <constraint firstItem="loL-1f-eKU" firstAttribute="centerY" secondItem="WGv-an-3Nk" secondAttribute="centerY" id="rTw-Qr-KBO"/>
+                                                <constraint firstAttribute="bottom" secondItem="loL-1f-eKU" secondAttribute="bottom" constant="4" id="v2M-VC-EGx"/>
                                                 <constraint firstItem="loL-1f-eKU" firstAttribute="trailing" secondItem="7Ko-CO-8zY" secondAttribute="trailingMargin" constant="8" id="ye2-tH-Mwy"/>
                                             </constraints>
                                         </tableViewCellContentView>
