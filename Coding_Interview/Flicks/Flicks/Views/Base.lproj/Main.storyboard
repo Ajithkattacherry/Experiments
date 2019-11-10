@@ -58,7 +58,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Result" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loL-1f-eKU">
-                                                            <rect key="frame" x="92" y="4" width="270" height="80.5"/>
+                                                            <rect key="frame" x="92" y="4" width="302" height="80.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                             <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -109,13 +109,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Flicks" id="ix4-Y2-eiX">
-                        <barButtonItem key="rightBarButtonItem" title="Clear" id="Di7-nF-vom">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" id="Di7-nF-vom">
                             <connections>
                                 <action selector="resetSearchWithSender:" destination="vXZ-lx-hvc" id="vKk-Uk-2g8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="clearBautton" destination="Di7-nF-vom" id="nwo-pB-zW9"/>
                         <outlet property="searchBar" destination="yLr-UH-3Ka" id="tPU-3P-0hy"/>
                         <outlet property="searchDisplayController" destination="xUE-PC-3UZ" id="WO1-6G-9Co"/>
                         <outlet property="tableView" destination="qGx-Ea-vRM" id="1ys-0k-HY3"/>

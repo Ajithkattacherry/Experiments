@@ -11,6 +11,7 @@ import UIKit
 class FLPhotosSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var clearBautton: UIBarButtonItem!
     
     var photoListDataModel: FLPhotoListDataModel?
     var searchText: String?
@@ -27,8 +28,8 @@ class FLPhotosSearchViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.photoDetailsSegue {
             let photoViewController = segue.destination as! FLPhotosDetailViewController
-            let selectedIndexPath = tableView.indexPathForSelectedRow
-            photoViewController.photoDataModel = photoListDataModel?.photos[selectedIndexPath!.row]
+            guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
+            photoViewController.photoDataModel = photoListDataModel?.photos[selectedIndexPath.row]
         }
     }
     
@@ -44,6 +45,8 @@ class FLPhotosSearchViewController: UIViewController {
         shouldPaginate = true
         tableView.reloadData()
         title = Constants.appName
+        clearBautton.isEnabled = false
+        clearBautton.title = ""
     }
     
     // MARK: - Private
@@ -84,6 +87,8 @@ class FLPhotosSearchViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     self.title = text
+                    self.clearBautton.isEnabled = true
+                    self.clearBautton.title = "Clear"
                     self.tableView.reloadData()
                 }
             case .failure(let error):
