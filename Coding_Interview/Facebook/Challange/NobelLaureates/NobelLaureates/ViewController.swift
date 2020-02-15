@@ -13,7 +13,6 @@ class ViewController : UIViewController {
     private let locationManager = CLLocationManager()
     private var selectedPin: MKPlacemark?
     private var resultSearchController:UISearchController!
-    private var annotation:MKAnnotation!
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -48,6 +47,7 @@ class ViewController : UIViewController {
     }
 }
 
+// MARK: Location Manager Delegate
 extension ViewController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
@@ -56,7 +56,7 @@ extension ViewController : CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last{
+        if let location = locations.last {
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             mapView.setRegion(region, animated: true)
@@ -68,7 +68,8 @@ extension ViewController : CLLocationManagerDelegate {
     }   
 }
 
-extension ViewController: HandleMapSearch {
+// MARK: Map SearchResult Handler Delegate
+extension ViewController: MapSearchResultHandlerDelegate {
     func dropPinZoomIn(placemark: MKPlacemark){
         // cache the pin
         selectedPin = placemark

@@ -9,14 +9,14 @@
 import UIKit
 import MapKit
 
-protocol HandleMapSearch: class {
+protocol MapSearchResultHandlerDelegate: class {
     func dropPinZoomIn(placemark: MKPlacemark)
 }
 
 class LocationSearchTableViewController: UITableViewController {
     var matchingItems: [MKMapItem] = []
     var mapView: MKMapView? = nil
-    weak var handleMapSearchDelegate: HandleMapSearch?
+    weak var handleMapSearchDelegate: MapSearchResultHandlerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
