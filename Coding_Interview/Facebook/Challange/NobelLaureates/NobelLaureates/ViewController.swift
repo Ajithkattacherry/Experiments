@@ -12,7 +12,9 @@ import MapKit
 class ViewController : UIViewController {
     private let locationManager = CLLocationManager()
     private var selectedPin: MKPlacemark?
+    private var selectedAnnotation: MKPointAnnotation?
     private var resultSearchController:UISearchController!
+    private var nobelPrizeLaureatesListModel: NobelPrizeLaureatesListModel?
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -21,6 +23,7 @@ class ViewController : UIViewController {
         
         setUpLocationManager()
         setUpLocationResultView()
+        loadNobelPrizeData()
     }
     
     // MARK: Local methods
@@ -37,6 +40,34 @@ class ViewController : UIViewController {
         locationSearchTable.handleMapSearchDelegate = self
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable
+    }
+    
+    func addAnnotations(from nobelPrizeLaureatesListModel: NobelPrizeLaureatesListModel?) {
+        guard let nobelPrizeLaureatesList = nobelPrizeLaureatesListModel else {
+            return
+        }
+        
+        for nobelPrizeLaureatesData in nobelPrizeLaureatesList.nobelPrizeLaureates {
+            let annotation = MKPointAnnotation()
+            let location = CLLocationCoordinate2D(latitude: nobelPrizeLaureatesData.location.lat, longitude: nobelPrizeLaureatesData.location.lng)
+            annotation.coordinate = location
+            annotation.title = nobelPrizeLaureatesData.name
+            annotation.subtitle = "\(nobelPrizeLaureatesData.borncity) \(nobelPrizeLaureatesData.country)"
+            mapView.addAnnotation(annotation)
+        }
+    }
+    
+    func loadNobelPrizeData() {
+        if let fileURL = Bundle.main.url(forResource: "nobel-prize-laureates", withExtension: "json") {
+            do {
+                let data = try Data.init(contentsOf: fileURL, options: .mappedIfSafe)
+                let decoder = JSONDecoder()
+                nobelPrizeLaureatesListModel = try decoder.decode(NobelPrizeLaureatesListModel.self, from: data)
+                addAnnotations(from: nobelPrizeLaureatesListModel)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     @IBAction func showSearchBar(_ sender: AnyObject) {
@@ -71,10 +102,12 @@ extension ViewController : CLLocationManagerDelegate {
 // MARK: Map SearchResult Handler Delegate
 extension ViewController: MapSearchResultHandlerDelegate {
     func dropPinZoomIn(placemark: MKPlacemark){
+        // clear existing pins
+        if let annotation = selectedAnnotation {
+            mapView.removeAnnotation(annotation)
+        }
         // cache the pin
         selectedPin = placemark
-        // clear existing pins
-        mapView.removeAnnotations(mapView.annotations)
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
         annotation.title = placemark.name
@@ -83,7 +116,7 @@ extension ViewController: MapSearchResultHandlerDelegate {
             let state = placemark.administrativeArea {
                 annotation.subtitle = "\(city) \(state)"
         }
-        
+        selectedAnnotation = annotation
         mapView.addAnnotation(annotation)
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: placemark.coordinate, span: span)

@@ -14,6 +14,8 @@
 		E0BA82AE23F84FE10024F1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0BA82AD23F84FE10024F1F1 /* Assets.xcassets */; };
 		E0BA82B123F84FE10024F1F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0BA82AF23F84FE10024F1F1 /* LaunchScreen.storyboard */; };
 		E0FCE34423F8733D00C5D42C /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FCE34323F8733D00C5D42C /* LocationSearchTableViewController.swift */; };
+		E0FCE34623F8C0C300C5D42C /* nobel-prize-laureates.json in Resources */ = {isa = PBXBuildFile; fileRef = E0FCE34523F8C0C300C5D42C /* nobel-prize-laureates.json */; };
+		E0FCE34A23F8C31A00C5D42C /* NobelPrizeLaureatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FCE34923F8C31A00C5D42C /* NobelPrizeLaureatesModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		E0BA82B023F84FE10024F1F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0BA82B223F84FE10024F1F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0FCE34323F8733D00C5D42C /* LocationSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewController.swift; sourceTree = "<group>"; };
+		E0FCE34523F8C0C300C5D42C /* nobel-prize-laureates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "nobel-prize-laureates.json"; path = "../../../NobelLaureatFinder/nobel-prize-laureates.json"; sourceTree = "<group>"; };
+		E0FCE34923F8C31A00C5D42C /* NobelPrizeLaureatesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NobelPrizeLaureatesModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,13 +63,15 @@
 			isa = PBXGroup;
 			children = (
 				E0BA82A423F84FDF0024F1F1 /* AppDelegate.swift */,
-				E0BA82A623F84FDF0024F1F1 /* SceneDelegate.swift */,
-				E0BA82A823F84FDF0024F1F1 /* ViewController.swift */,
+				E0BA82AD23F84FE10024F1F1 /* Assets.xcassets */,
+				E0BA82B223F84FE10024F1F1 /* Info.plist */,
+				E0BA82AF23F84FE10024F1F1 /* LaunchScreen.storyboard */,
 				E0FCE34323F8733D00C5D42C /* LocationSearchTableViewController.swift */,
 				E0BA82AA23F84FE00024F1F1 /* Main.storyboard */,
-				E0BA82AD23F84FE10024F1F1 /* Assets.xcassets */,
-				E0BA82AF23F84FE10024F1F1 /* LaunchScreen.storyboard */,
-				E0BA82B223F84FE10024F1F1 /* Info.plist */,
+				E0FCE34523F8C0C300C5D42C /* nobel-prize-laureates.json */,
+				E0FCE34923F8C31A00C5D42C /* NobelPrizeLaureatesModel.swift */,
+				E0BA82A623F84FDF0024F1F1 /* SceneDelegate.swift */,
+				E0BA82A823F84FDF0024F1F1 /* ViewController.swift */,
 			);
 			path = NobelLaureates;
 			sourceTree = "<group>";
@@ -128,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0FCE34623F8C0C300C5D42C /* nobel-prize-laureates.json in Resources */,
 				E0BA82B123F84FE10024F1F1 /* LaunchScreen.storyboard in Resources */,
 				E0BA82AE23F84FE10024F1F1 /* Assets.xcassets in Resources */,
 				E0BA82AC23F84FE00024F1F1 /* Main.storyboard in Resources */,
@@ -145,6 +152,7 @@
 				E0BA82A923F84FDF0024F1F1 /* ViewController.swift in Sources */,
 				E0BA82A523F84FDF0024F1F1 /* AppDelegate.swift in Sources */,
 				E0BA82A723F84FDF0024F1F1 /* SceneDelegate.swift in Sources */,
+				E0FCE34A23F8C31A00C5D42C /* NobelPrizeLaureatesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
