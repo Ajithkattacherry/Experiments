@@ -14,7 +14,7 @@ class ViewController : UIViewController {
     private var selectedPin: MKPlacemark?
     private var selectedAnnotation: MKPointAnnotation?
     private var selectedLocation: CLLocation?
-    private var selectedYear: Int?
+    private var selectedYear: Int = 2020
     private var resultSearchController:UISearchController!
     private var nobelPrizeLaureatesListModel: NobelPrizeLaureatesListModel?
     private var pickerView: UIPickerView!
@@ -63,7 +63,7 @@ class ViewController : UIViewController {
     
     @objc func datePickerValueChanged(_ sender: UIDatePicker){
         let calanderDate = Calendar.current.dateComponents([.day, .year, .month], from: sender.date)
-        selectedYear = calanderDate.year
+        selectedYear = calanderDate.year ?? 2020
     }
     
     func addAnnotations(from nobelPrizeLaureatesListModel: NobelPrizeLaureatesListModel?) {
@@ -76,9 +76,12 @@ class ViewController : UIViewController {
                                   longitude: annotation.coordinate.longitude)
             selectedLocation = location
         }
-        nobelPrizeLaureatesList.nobelPrizeLaureates.sort(by: { $0.distance(to: location) < $1.distance(to: location) })
+        nobelPrizeLaureatesList.nobelPrizeLaureates.sort(by: { $0.distance(to: location, year: selectedYear) < $1.distance(to: location, year: selectedYear) })
         for i in 0..<nobelPrizeLaureatesList.nobelPrizeLaureates.count {
             let nobelPrizeLaureatesData = nobelPrizeLaureatesList.nobelPrizeLaureates[i]
+            print(nobelPrizeLaureatesData.city)
+            print(nobelPrizeLaureatesData.year)
+            print(nobelPrizeLaureatesData.distance(to: location, year: selectedYear))
             let annotation = MKPointAnnotation()
             let location = CLLocationCoordinate2D(latitude: nobelPrizeLaureatesData.location.lat, longitude: nobelPrizeLaureatesData.location.lng)
             annotation.coordinate = location
@@ -161,6 +164,7 @@ extension ViewController: MapSearchResultHandlerDelegate {
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
         mapView.setRegion(region, animated: true)
+        addAnnotations(from: nobelPrizeLaureatesListModel)
     }
 }
 
@@ -179,6 +183,7 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedYear = titles[row]
+        addAnnotations(from: nobelPrizeLaureatesListModel)
         pickerView.isHidden = true
     }
 }
@@ -186,14 +191,13 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 //MARK: — MKMapView Delegate Methods
 extension ViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
-        let Identifier = "pin"
-        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: Identifier) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: Identifier)
-        
+        let identifier = "pin"
+        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
         annotationView.canShowCallout = true
         annotationView.displayPriority = .required
+        
         if annotation is MKPointAnnotation {
-            annotationView.image =  UIImage(imageLiteralResourceName: "pin")
+            annotationView.image =  UIImage(imageLiteralResourceName: identifier)
             return annotationView
         } else {
             return nil
