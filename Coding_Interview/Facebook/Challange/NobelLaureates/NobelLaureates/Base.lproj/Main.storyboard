@@ -34,6 +34,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Nobel Laureates" id="cfX-Dk-HrH">
+                        <barButtonItem key="leftBarButtonItem" title="Year" id="OHZ-KA-GYD">
+                            <connections>
+                                <action selector="showNobelPrizeYears:" destination="BYZ-38-t0r" id="N4k-hZ-4cy"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="fQd-QF-6BQ">
                             <connections>
                                 <action selector="showSearchBar:" destination="BYZ-38-t0r" id="eZk-kF-yO8"/>

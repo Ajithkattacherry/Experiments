@@ -13,8 +13,12 @@ class ViewController : UIViewController {
     private let locationManager = CLLocationManager()
     private var selectedPin: MKPlacemark?
     private var selectedAnnotation: MKPointAnnotation?
+    private var selectedLocation: CLLocation?
+    private var selectedYear: Int?
     private var resultSearchController:UISearchController!
     private var nobelPrizeLaureatesListModel: NobelPrizeLaureatesListModel?
+    private var pickerView: UIPickerView!
+    private let titles = Array(1900...2020)
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -23,6 +27,7 @@ class ViewController : UIViewController {
         
         setUpLocationManager()
         setUpLocationResultView()
+        setUpPickerView()
         loadNobelPrizeData()
     }
     
@@ -42,12 +47,38 @@ class ViewController : UIViewController {
         resultSearchController?.searchResultsUpdater = locationSearchTable
     }
     
+    private func setUpPickerView() {
+        pickerView = UIPickerView(frame: CGRect(x: 0,
+                                                y: self.view.frame.height - 200,
+                                                width: self.view.frame.width,
+                                                height: 200))
+        self.pickerView.backgroundColor = .white
+        self.pickerView.dataSource = self
+        self.pickerView.delegate = self
+        self.pickerView.reloadAllComponents()
+        self.pickerView.selectRow(120, inComponent: 0, animated: false)
+        self.view.addSubview(pickerView)
+        pickerView.isHidden = true
+    }
+    
+    @objc func datePickerValueChanged(_ sender: UIDatePicker){
+        let calanderDate = Calendar.current.dateComponents([.day, .year, .month], from: sender.date)
+        selectedYear = calanderDate.year
+    }
+    
     func addAnnotations(from nobelPrizeLaureatesListModel: NobelPrizeLaureatesListModel?) {
-        guard let nobelPrizeLaureatesList = nobelPrizeLaureatesListModel else {
-            return
+        guard var nobelPrizeLaureatesList = nobelPrizeLaureatesListModel,
+            var location = selectedLocation else {
+                return
         }
-        
-        for nobelPrizeLaureatesData in nobelPrizeLaureatesList.nobelPrizeLaureates {
+        if let annotation = selectedAnnotation {
+            location = CLLocation(latitude: annotation.coordinate.latitude,
+                                  longitude: annotation.coordinate.longitude)
+            selectedLocation = location
+        }
+        nobelPrizeLaureatesList.nobelPrizeLaureates.sort(by: { $0.distance(to: location) < $1.distance(to: location) })
+        for i in 0..<nobelPrizeLaureatesList.nobelPrizeLaureates.count {
+            let nobelPrizeLaureatesData = nobelPrizeLaureatesList.nobelPrizeLaureates[i]
             let annotation = MKPointAnnotation()
             let location = CLLocationCoordinate2D(latitude: nobelPrizeLaureatesData.location.lat, longitude: nobelPrizeLaureatesData.location.lng)
             annotation.coordinate = location
@@ -76,6 +107,10 @@ class ViewController : UIViewController {
         resultSearchController.searchBar.placeholder = "Search for Nobel Laureates"
         present(resultSearchController, animated: true, completion: nil)
     }
+    
+    @IBAction func showNobelPrizeYears(_ sender: AnyObject) {
+        pickerView.isHidden = false
+    }
 }
 
 // MARK: Location Manager Delegate
@@ -90,6 +125,11 @@ extension ViewController : CLLocationManagerDelegate {
         if let location = locations.last {
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            if selectedAnnotation == nil {
+                selectedLocation = CLLocation(latitude: location.coordinate.latitude,
+                                              longitude: location.coordinate.longitude)
+                addAnnotations(from: nobelPrizeLaureatesListModel)
+            }
             mapView.setRegion(region, animated: true)
         }
     }
@@ -114,12 +154,49 @@ extension ViewController: MapSearchResultHandlerDelegate {
         
         if let city = placemark.locality,
             let state = placemark.administrativeArea {
-                annotation.subtitle = "\(city) \(state)"
+            annotation.subtitle = "\(city) \(state)"
         }
         selectedAnnotation = annotation
         mapView.addAnnotation(annotation)
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
         mapView.setRegion(region, animated: true)
+    }
+}
+
+extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.titles.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(titles[row])
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedYear = titles[row]
+        pickerView.isHidden = true
+    }
+}
+
+//MARK: — MKMapView Delegate Methods
+extension ViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let Identifier = "pin"
+        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: Identifier) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: Identifier)
+        
+        annotationView.canShowCallout = true
+        annotationView.displayPriority = .required
+        if annotation is MKPointAnnotation {
+            annotationView.image =  UIImage(imageLiteralResourceName: "pin")
+            return annotationView
+        } else {
+            return nil
+        }
     }
 }

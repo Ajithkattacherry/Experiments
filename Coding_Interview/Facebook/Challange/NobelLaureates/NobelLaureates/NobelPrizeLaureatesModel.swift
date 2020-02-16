@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 struct NobelPrizeLaureatesListModel: Decodable {
     var nobelPrizeLaureates: [NobelPrizeLaureatesModel]
@@ -34,6 +35,14 @@ struct NobelPrizeLaureatesModel: Decodable {
     var country: String
     var gender: String
     var name: String
+    
+    var eventLocation: CLLocation {
+        return CLLocation(latitude: location.lat, longitude: location.lng)
+    }
+    
+    func distance(to location: CLLocation) -> CLLocationDistance {
+        return eventLocation.distance(from: location)
+    }
 }
 
 struct Location: Decodable {
