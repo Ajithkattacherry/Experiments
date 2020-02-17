@@ -41,8 +41,8 @@ struct NobelPrizeLaureatesModel: Decodable {
     }
     
     func distance(to location: CLLocation, year selectedYear: Int) -> CLLocationDistance {
-        let costOfYear = Double(abs(selectedYear - (Int(year) ?? 0)) * 10 * 100)
-        let locationDistance = eventLocation.distance(from: location)
+        let costOfYear = Double(abs(selectedYear - (Int(year) ?? 0)) * 10)
+        let locationDistance = eventLocation.distance(from: location) / 100
         return locationDistance + costOfYear
     }
 }

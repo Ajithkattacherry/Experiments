@@ -10,55 +10,50 @@ import UIKit
 import MapKit
 
 class ViewController : UIViewController {
-    private let locationManager = CLLocationManager()
-    private var selectedPin: MKPlacemark?
     private var selectedAnnotation: MKPointAnnotation?
     private var selectedLocation: CLLocation?
     private var selectedYear: Int = 2020
-    private var resultSearchController:UISearchController!
+    private var resultSearchController: UISearchController!
     private var nobelPrizeLaureatesListModel: NobelPrizeLaureatesListModel?
-    private var pickerView: UIPickerView!
-    private let titles = Array(1900...2020)
+    private let yearPickerData = Array(1900...2020)
+    
+    lazy private var yearPickerView: UIPickerView = {
+        let yearPickerView = UIPickerView(frame: CGRect(x: 0, y: view.frame.height - 200, width: view.frame.width, height: 200))
+        yearPickerView.backgroundColor = .white
+        yearPickerView.dataSource = self
+        yearPickerView.delegate = self
+        yearPickerView.selectRow(yearPickerData.count - 1, inComponent: 0, animated: false)
+        yearPickerView.isHidden = true
+        view.addSubview(yearPickerView)
+        return yearPickerView
+    }()
+    
+    private var locationManager: CLLocationManager = {
+        let locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        return locationManager
+    }()
     
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpLocationManager()
+        locationManager.delegate = self
+        locationManager.requestLocation()
+        
         setUpLocationResultView()
-        setUpPickerView()
         loadNobelPrizeData()
     }
     
     // MARK: Local methods
-    private func setUpLocationManager() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
-    }
-    
     private func setUpLocationResultView() {
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: Constants.locationSearchTable) as! LocationSearchTableViewController
         locationSearchTable.mapView = mapView
         locationSearchTable.handleMapSearchDelegate = self
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable
-    }
-    
-    private func setUpPickerView() {
-        pickerView = UIPickerView(frame: CGRect(x: 0,
-                                                y: self.view.frame.height - 200,
-                                                width: self.view.frame.width,
-                                                height: 200))
-        self.pickerView.backgroundColor = .white
-        self.pickerView.dataSource = self
-        self.pickerView.delegate = self
-        self.pickerView.reloadAllComponents()
-        self.pickerView.selectRow(120, inComponent: 0, animated: false)
-        self.view.addSubview(pickerView)
-        pickerView.isHidden = true
     }
     
     @objc func datePickerValueChanged(_ sender: UIDatePicker){
@@ -83,9 +78,11 @@ class ViewController : UIViewController {
         nobelPrizeLaureatesList.nobelPrizeLaureates.sort(by: { $0.distance(to: location, year: selectedYear) < $1.distance(to: location, year: selectedYear) })
         for i in 0..<20 {
             let nobelPrizeLaureatesData = nobelPrizeLaureatesList.nobelPrizeLaureates[i]
+            
             print(nobelPrizeLaureatesData.city)
             print(nobelPrizeLaureatesData.year)
             print(nobelPrizeLaureatesData.distance(to: location, year: selectedYear))
+            
             let annotation = MKPointAnnotation()
             let location = CLLocationCoordinate2D(latitude: nobelPrizeLaureatesData.location.lat, longitude: nobelPrizeLaureatesData.location.lng)
             annotation.coordinate = location
@@ -116,7 +113,7 @@ class ViewController : UIViewController {
     }
     
     @IBAction func showNobelPrizeYears(_ sender: AnyObject) {
-        pickerView.isHidden = false
+        yearPickerView.isHidden = false
     }
 }
 
@@ -154,8 +151,6 @@ extension ViewController: MapSearchResultHandlerDelegate {
             mapView.removeAnnotation(annotation)
         }
         
-        // Last selected location
-        selectedPin = placemark
         let annotation = CustomPointAnnotation()
         annotation.coordinate = placemark.coordinate
         annotation.title = Constants.selectedLocation
@@ -178,7 +173,7 @@ extension ViewController: MapSearchResultHandlerDelegate {
 //MARK: — UIPickerView Delegate and Datasource Methods
 extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.titles.count
+        return self.yearPickerData.count
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -186,11 +181,11 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(titles[row])
+        return String(yearPickerData[row])
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedYear = titles[row]
+        selectedYear = yearPickerData[row]
         addAnnotations(from: nobelPrizeLaureatesListModel)
         pickerView.isHidden = true
     }
