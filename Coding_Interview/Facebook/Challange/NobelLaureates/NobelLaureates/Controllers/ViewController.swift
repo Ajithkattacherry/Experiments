@@ -11,12 +11,22 @@ import MapKit
 
 class ViewController : UIViewController {
     private var selectedAnnotation: MKPointAnnotation?
-    private var selectedLocation: CLLocation?
-    private var selectedYear: Int = 2020
     private var resultSearchController: UISearchController!
     private var nobelPrizeLaureatesListModel: NobelPrizeLaureatesListModel?
     private var sortedNobelPrizeLaureatesList: [NobelPrizeLaureatesModel]?
     private let yearPickerData = Array(1900...2020)
+    
+    private var selectedLocation: CLLocation? {
+        didSet {
+            lblSelectedlocation.text = "Coordinates: \(selectedLocation?.coordinate.latitude ?? 0), \(selectedLocation?.coordinate.longitude ?? 0)"
+        }
+    }
+    
+    private var selectedYear: Int = 2020 {
+        didSet {
+            lblSelectedYear.text = "Year: \(selectedYear)"
+        }
+    }
     
     lazy private var yearPickerView: UIPickerView = {
         let yearPickerView = UIPickerView(frame: CGRect(x: 0, y: view.frame.height - 200, width: view.frame.width, height: 200))
@@ -37,13 +47,15 @@ class ViewController : UIViewController {
     }()
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var inputDataView: UIView!
+    @IBOutlet weak var lblSelectedYear: UILabel!
+    @IBOutlet weak var lblSelectedlocation: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         locationManager.delegate = self
         locationManager.requestLocation()
-        
         setUpLocationResultView()
         loadNobelPrizeData()
     }

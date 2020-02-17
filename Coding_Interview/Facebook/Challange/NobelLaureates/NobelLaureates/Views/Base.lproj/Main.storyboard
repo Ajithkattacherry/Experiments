@@ -24,12 +24,46 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="EN9-GT-ogk"/>
                                 </connections>
                             </mapView>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gu4-Cv-ie2">
+                                <rect key="frame" x="20" y="746" width="374" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Location: Menlo Park" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkr-G1-0xe">
+                                        <rect key="frame" x="104.5" y="63" width="165" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="Igg-mp-H98"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year: 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rV-4b-kgi">
+                                        <rect key="frame" x="145" y="34" width="84" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="J76-76-0rg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="5rV-4b-kgi" firstAttribute="centerX" secondItem="Gu4-Cv-ie2" secondAttribute="centerX" id="6Fb-tN-Sqx"/>
+                                    <constraint firstItem="vkr-G1-0xe" firstAttribute="centerX" secondItem="Gu4-Cv-ie2" secondAttribute="centerX" id="OLJ-2b-Cku"/>
+                                    <constraint firstItem="vkr-G1-0xe" firstAttribute="top" secondItem="5rV-4b-kgi" secondAttribute="bottom" constant="8" id="VMe-Oc-RRx"/>
+                                    <constraint firstAttribute="bottom" secondItem="vkr-G1-0xe" secondAttribute="bottom" constant="16" id="f3b-RF-9Dk"/>
+                                    <constraint firstAttribute="height" constant="100" id="zSZ-9V-8HX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="J16-xE-R9W" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="CS9-T8-iiD"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="J16-xE-R9W" secondAttribute="bottom" id="LId-rq-JCS"/>
                             <constraint firstItem="J16-xE-R9W" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZCi-pI-duf"/>
+                            <constraint firstItem="Gu4-Cv-ie2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="d40-Db-5Sn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Gu4-Cv-ie2" secondAttribute="trailing" id="hMu-Y3-zMX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Gu4-Cv-ie2" secondAttribute="bottom" constant="16" id="kKO-JS-18a"/>
                             <constraint firstAttribute="trailing" secondItem="J16-xE-R9W" secondAttribute="trailing" id="y5y-ch-Led"/>
                         </constraints>
                     </view>
@@ -53,6 +87,9 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="inputDataView" destination="Gu4-Cv-ie2" id="uoL-C3-Te7"/>
+                        <outlet property="lblSelectedYear" destination="5rV-4b-kgi" id="PR0-bf-6YG"/>
+                        <outlet property="lblSelectedlocation" destination="vkr-G1-0xe" id="Ork-xW-M2n"/>
                         <outlet property="mapView" destination="J16-xE-R9W" id="hvr-j3-Yxb"/>
                     </connections>
                 </viewController>
