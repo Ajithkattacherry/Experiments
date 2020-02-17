@@ -9,10 +9,6 @@
 import UIKit
 import MapKit
 
-class CustomPointAnnotation: MKPointAnnotation {
-    var imageName: String!
-}
-
 class ViewController : UIViewController {
     private let locationManager = CLLocationManager()
     private var selectedPin: MKPlacemark?
@@ -44,7 +40,7 @@ class ViewController : UIViewController {
     }
     
     private func setUpLocationResultView() {
-        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTableViewController
+        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: Constants.locationSearchTable) as! LocationSearchTableViewController
         locationSearchTable.mapView = mapView
         locationSearchTable.handleMapSearchDelegate = self
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
@@ -96,7 +92,7 @@ class ViewController : UIViewController {
     }
     
     func loadNobelPrizeData() {
-        if let fileURL = Bundle.main.url(forResource: "nobel-prize-laureates", withExtension: "json") {
+        if let fileURL = Bundle.main.url(forResource: Constants.nobelPrizeLaureates, withExtension: Constants.fileType) {
             do {
                 let data = try Data.init(contentsOf: fileURL, options: .mappedIfSafe)
                 let decoder = JSONDecoder()
@@ -111,7 +107,7 @@ class ViewController : UIViewController {
     @IBAction func showSearchBar(_ sender: AnyObject) {
         resultSearchController.hidesNavigationBarDuringPresentation = false
         resultSearchController.searchBar.delegate = self as? UISearchBarDelegate
-        resultSearchController.searchBar.placeholder = "Search for Nobel Laureates"
+        resultSearchController.searchBar.placeholder = Constants.searchBarPlaceHoderText
         present(resultSearchController, animated: true, completion: nil)
     }
     
@@ -153,17 +149,19 @@ extension ViewController: MapSearchResultHandlerDelegate {
         if let annotation = selectedAnnotation {
             mapView.removeAnnotation(annotation)
         }
-        // cache the pin
+        
+        // Last selected location
         selectedPin = placemark
         let annotation = CustomPointAnnotation()
         annotation.coordinate = placemark.coordinate
-        annotation.title = "Selected Location"
+        annotation.title = Constants.selectedLocation
         
         if let name = placemark.name,
             let city = placemark.locality,
             let state = placemark.administrativeArea {
             annotation.subtitle = "\(name), \(city) \(state)"
         }
+        
         selectedAnnotation = annotation
         mapView.addAnnotation(annotation)
         let span = MKCoordinateSpan(latitudeDelta: 50.0, longitudeDelta: 50.0)
@@ -196,16 +194,15 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 //MARK: — MKMapView Delegate Methods
 extension ViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let identifier = "pin"
-        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: Constants.mapPin) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: Constants.mapPin)
         annotationView.canShowCallout = true
         annotationView.displayPriority = .required
         
         if annotation is CustomPointAnnotation {
-            annotationView.image =  UIImage(imageLiteralResourceName: "custom")
+            annotationView.image =  UIImage(imageLiteralResourceName: Constants.selectedMapPin)
             return annotationView
         } else if annotation is MKPointAnnotation {
-            annotationView.image =  UIImage(imageLiteralResourceName: identifier)
+            annotationView.image =  UIImage(imageLiteralResourceName: Constants.mapPin)
             return annotationView
         } else {
             return nil

@@ -36,16 +36,13 @@ class LocationSearchTableViewController: UITableViewController {
         let secondSpace = (selectedItem.subAdministrativeArea != nil &&
                             selectedItem.administrativeArea != nil) ? " " : ""
         
-        let addressLine = String(
-            format:"%@%@%@%@%@%@%@",
-            selectedItem.subThoroughfare ?? "",
-            firstSpace,
-            selectedItem.thoroughfare ?? "",
-            comma,
-            selectedItem.locality ?? "",
-            secondSpace,
-            selectedItem.administrativeArea ?? ""
-        )
+        let addressLine = String(format:"%@%@%@%@%@%@%@",
+                                 selectedItem.subThoroughfare ?? "",
+                                 firstSpace, selectedItem.thoroughfare ?? "",
+                                 comma,
+                                 selectedItem.locality ?? "",
+                                 secondSpace,
+                                 selectedItem.administrativeArea ?? "")
         
         return addressLine
     }
@@ -62,7 +59,7 @@ extension LocationSearchTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier)!
         let selectedItem = matchingItems[indexPath.row].placemark
         cell.textLabel?.text = selectedItem.name
         cell.detailTextLabel?.text = getAddress(from: selectedItem)
