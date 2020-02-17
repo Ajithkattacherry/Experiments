@@ -23,28 +23,27 @@ class LocationSearchTableViewController: UITableViewController {
     }
     
     // MARK: Methods
-    func getAddress(from selectedItem:MKPlacemark) -> String {
-        // put a space between "4" and "Melrose Place"
-        let firstSpace = (selectedItem.subThoroughfare != nil &&
-                            selectedItem.thoroughfare != nil) ? " " : ""
-        
-        // put a comma between street and city/state
-        let comma = (selectedItem.subThoroughfare != nil || selectedItem.thoroughfare != nil) &&
-                    (selectedItem.subAdministrativeArea != nil || selectedItem.administrativeArea != nil) ? ", " : ""
-        
-        // put a space between "Washington" and "DC"
-        let secondSpace = (selectedItem.subAdministrativeArea != nil &&
-                            selectedItem.administrativeArea != nil) ? " " : ""
-        
-        let addressLine = String(format:"%@%@%@%@%@%@%@",
-                                 selectedItem.subThoroughfare ?? "",
-                                 firstSpace, selectedItem.thoroughfare ?? "",
-                                 comma,
-                                 selectedItem.locality ?? "",
-                                 secondSpace,
-                                 selectedItem.administrativeArea ?? "")
-        
-        return addressLine
+    func getAddress(from placemark:MKPlacemark) -> String {
+        var addressString : String = ""
+        if let subThoroughfare = placemark.subThoroughfare {
+            addressString = subThoroughfare + " "
+        }
+        if let thoroughfare = placemark.thoroughfare {
+            addressString = addressString + thoroughfare + ", "
+        }
+        if let postalCode = placemark.postalCode {
+            addressString = addressString + postalCode + " "
+        }
+        if let locality = placemark.locality {
+            addressString = addressString + locality + ", "
+        }
+        if let administrativeArea = placemark.administrativeArea {
+            addressString = addressString + administrativeArea
+        }
+        if let country = placemark.country {
+            addressString = addressString + ", " + country
+        }
+        return addressString
     }
 }
 
@@ -60,9 +59,9 @@ extension LocationSearchTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier)!
-        let selectedItem = matchingItems[indexPath.row].placemark
-        cell.textLabel?.text = selectedItem.name
-        cell.detailTextLabel?.text = getAddress(from: selectedItem)
+        let placemark = matchingItems[indexPath.row].placemark
+        cell.textLabel?.text = placemark.name
+        cell.detailTextLabel?.text = getAddress(from: placemark)
         return cell
     }
     
