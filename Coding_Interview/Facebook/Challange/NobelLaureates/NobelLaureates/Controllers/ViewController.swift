@@ -97,8 +97,8 @@ class ViewController : UIViewController {
             let annotation = MKPointAnnotation()
             let location = CLLocationCoordinate2D(latitude: nobelPrizeLaureatesData.location.lat, longitude: nobelPrizeLaureatesData.location.lng)
             annotation.coordinate = location
-            annotation.title = nobelPrizeLaureatesData.name
-            annotation.subtitle = "\(nobelPrizeLaureatesData.borncity) \(nobelPrizeLaureatesData.country)"
+            annotation.title = nobelPrizeLaureatesData.firstname
+            annotation.subtitle = "\(nobelPrizeLaureatesData.category), \(nobelPrizeLaureatesData.city) \(nobelPrizeLaureatesData.country)"
             mapView.addAnnotation(annotation)
         }
     }
