@@ -34,16 +34,23 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Nobel Laureates" id="cfX-Dk-HrH">
-                        <barButtonItem key="leftBarButtonItem" title="Year" id="OHZ-KA-GYD">
+                        <barButtonItem key="leftBarButtonItem" title="List" image="list" id="OHZ-KA-GYD">
                             <connections>
-                                <action selector="showNobelPrizeYears:" destination="BYZ-38-t0r" id="N4k-hZ-4cy"/>
+                                <action selector="showNobelPrizeList:" destination="BYZ-38-t0r" id="Pph-nw-HXQ"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="fQd-QF-6BQ">
-                            <connections>
-                                <action selector="showSearchBar:" destination="BYZ-38-t0r" id="eZk-kF-yO8"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="search" id="fQd-QF-6BQ">
+                                <connections>
+                                    <action selector="showSearchBar:" destination="BYZ-38-t0r" id="eZk-kF-yO8"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Year" image="calendar" catalog="system" id="Tap-Ph-jao">
+                                <connections>
+                                    <action selector="showNobelPrizeYears:" destination="BYZ-38-t0r" id="eSl-TS-aci"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="J16-xE-R9W" id="hvr-j3-Yxb"/>
@@ -51,7 +58,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056.8" y="123.68815592203899"/>
+            <point key="canvasLocation" x="1072" y="777"/>
         </scene>
         <!--Location Search Table View Controller-->
         <scene sceneID="iTO-Fm-1MK">
@@ -95,7 +102,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAF-Dl-Qoe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1870" y="114"/>
+            <point key="canvasLocation" x="1951" y="417"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mvA-1z-ztj">
@@ -115,5 +122,37 @@
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="777.66116941529242"/>
         </scene>
+        <!--Nobel List Table View Controller-->
+        <scene sceneID="Gg3-iG-Yoz">
+            <objects>
+                <tableViewController id="4gy-hi-lil" customClass="NobelListTableViewController" customModule="NobelLaureates" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qyG-sx-IUo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Q8E-fl-XfE">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q8E-fl-XfE" id="o7w-It-CEk">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4gy-hi-lil" id="EdW-jj-T5z"/>
+                            <outlet property="delegate" destination="4gy-hi-lil" id="TgG-pp-Hen"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QBz-u2-qzP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1951" y="1110"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="calendar" catalog="system" width="64" height="52"/>
+        <image name="list" width="32" height="32"/>
+    </resources>
 </document>
