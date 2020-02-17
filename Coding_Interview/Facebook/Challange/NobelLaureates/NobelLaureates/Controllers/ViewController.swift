@@ -66,6 +66,10 @@ class ViewController : UIViewController {
         selectedYear = calanderDate.year ?? 2020
     }
     
+    /// Calculate the cost for each new search
+    ///
+    /// This involves the cost calculation and annotation of result location
+    /// - parameter key: nobelPrizeLaureatesListModel
     func addAnnotations(from nobelPrizeLaureatesListModel: NobelPrizeLaureatesListModel?) {
         guard var nobelPrizeLaureatesList = nobelPrizeLaureatesListModel,
             var location = selectedLocation else {
@@ -171,6 +175,7 @@ extension ViewController: MapSearchResultHandlerDelegate {
     }
 }
 
+//MARK: — UIPickerView Delegate and Datasource Methods
 extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return self.titles.count
