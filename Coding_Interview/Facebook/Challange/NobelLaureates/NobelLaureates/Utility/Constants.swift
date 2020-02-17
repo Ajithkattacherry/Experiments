@@ -7,8 +7,9 @@
 //
 
 struct Constants {
-    static let searchBarPlaceHoderText = "Search for Nobel Laureates"
+    static let searchBarPlaceHoderText = "Choose location"
     static let locationSearchTable = "LocationSearchTable"
+    static let nobelListTable = "NobelListTable"
     static let nobelPrizeLaureates = "nobel-prize-laureates"
     static let fileType = "json"
     static let selectedLocation = "Selected Location"

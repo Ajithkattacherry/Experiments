@@ -15,6 +15,7 @@ class ViewController : UIViewController {
     private var selectedYear: Int = 2020
     private var resultSearchController: UISearchController!
     private var nobelPrizeLaureatesListModel: NobelPrizeLaureatesListModel?
+    private var sortedNobelPrizeLaureatesList: [NobelPrizeLaureatesModel]?
     private let yearPickerData = Array(1900...2020)
     
     lazy private var yearPickerView: UIPickerView = {
@@ -88,15 +89,11 @@ class ViewController : UIViewController {
         nobelPrizeLaureatesList.nobelPrizeLaureates.sort(by: {
             $0.distance(to: location, year: selectedYear) < $1.distance(to: location, year: selectedYear)
         })
+        sortedNobelPrizeLaureatesList = nobelPrizeLaureatesList.nobelPrizeLaureates
         
         // Displaying first 20 Nobel laureates on Map
         for i in 0..<20 {
             let nobelPrizeLaureatesData = nobelPrizeLaureatesList.nobelPrizeLaureates[i]
-            
-            print("\n******* \(i + 1) ********\nCity: \(nobelPrizeLaureatesData.city)")
-            print("Year: \(nobelPrizeLaureatesData.year)")
-            print("Distance: \(nobelPrizeLaureatesData.distance(to: location, year: selectedYear).rounded()) km")
-            
             let annotation = MKPointAnnotation()
             let location = CLLocationCoordinate2D(latitude: nobelPrizeLaureatesData.location.lat, longitude: nobelPrizeLaureatesData.location.lng)
             annotation.coordinate = location
@@ -118,7 +115,11 @@ class ViewController : UIViewController {
     }
     
     @IBAction func showNobelPrizeList(_ sender: AnyObject) {
-        
+        let nobelListTableVC = storyboard!.instantiateViewController(withIdentifier: Constants.nobelListTable) as! NobelListTableViewController
+        nobelListTableVC.nobelPrizeLaureates = Array(sortedNobelPrizeLaureatesList?[0..<20] ?? [])
+        nobelListTableVC.selectedLocation = selectedLocation
+        nobelListTableVC.selectedYear = selectedYear
+        self.navigationController?.pushViewController(nobelListTableVC, animated: true)
     }
 }
 
@@ -133,7 +134,7 @@ extension ViewController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 50.0, longitudeDelta: 50.0))
+            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0))
             if selectedLocation == nil {
                 selectedLocation = CLLocation(latitude: location.coordinate.latitude,
                                               longitude: location.coordinate.longitude)
@@ -173,7 +174,7 @@ extension ViewController: MapSearchResultHandlerDelegate {
         // Selcted location - This is used to calculate the cost of each Nobel prize laureates.
         selectedLocation = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
         
-        let span = MKCoordinateSpan(latitudeDelta: 50.0, longitudeDelta: 50.0)
+        let span = MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
         let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
         mapView.setRegion(region, animated: true)
         

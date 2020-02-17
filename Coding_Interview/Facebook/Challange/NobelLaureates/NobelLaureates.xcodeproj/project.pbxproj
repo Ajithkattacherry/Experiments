@@ -19,6 +19,7 @@
 		E0FCE37123FA44D000C5D42C /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FCE37023FA44D000C5D42C /* CustomPointAnnotation.swift */; };
 		E0FCE37323FA458F00C5D42C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FCE37223FA458F00C5D42C /* Constants.swift */; };
 		E0FCE37523FA6DA100C5D42C /* NobelListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FCE37423FA6DA100C5D42C /* NobelListTableViewController.swift */; };
+		E0FCE37723FA755900C5D42C /* NobelListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FCE37623FA755900C5D42C /* NobelListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		E0FCE37023FA44D000C5D42C /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		E0FCE37223FA458F00C5D42C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E0FCE37423FA6DA100C5D42C /* NobelListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NobelListTableViewController.swift; sourceTree = "<group>"; };
+		E0FCE37623FA755900C5D42C /* NobelListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NobelListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,11 +72,11 @@
 			children = (
 				E0FCE36D23FA428000C5D42C /* AppDelegate.swift */,
 				E0FCE36C23FA428000C5D42C /* SceneDelegate.swift */,
-				E0FCE36B23FA427900C5D42C /* Helper */,
 				E0FCE36623FA427500C5D42C /* Controllers */,
-				E0FCE36523FA427500C5D42C /* Utility */,
-				E0FCE35E23FA426E00C5D42C /* Resources */,
 				E0FCE35B23FA426900C5D42C /* DataModel */,
+				E0FCE36B23FA427900C5D42C /* Helper */,
+				E0FCE35E23FA426E00C5D42C /* Resources */,
+				E0FCE36523FA427500C5D42C /* Utility */,
 				E0FCE35423FA426500C5D42C /* Views */,
 			);
 			path = NobelLaureates;
@@ -121,6 +123,7 @@
 				E0FCE36823FA427500C5D42C /* LocationSearchTableViewController.swift */,
 				E0FCE37423FA6DA100C5D42C /* NobelListTableViewController.swift */,
 				E0FCE36723FA427500C5D42C /* ViewController.swift */,
+				E0FCE37623FA755900C5D42C /* NobelListTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				E0FCE36923FA427500C5D42C /* ViewController.swift in Sources */,
 				E0FCE36F23FA428000C5D42C /* AppDelegate.swift in Sources */,
 				E0FCE37123FA44D000C5D42C /* CustomPointAnnotation.swift in Sources */,
+				E0FCE37723FA755900C5D42C /* NobelListTableViewCell.swift in Sources */,
 				E0FCE36E23FA428000C5D42C /* SceneDelegate.swift in Sources */,
 				E0FCE37323FA458F00C5D42C /* Constants.swift in Sources */,
 			);
