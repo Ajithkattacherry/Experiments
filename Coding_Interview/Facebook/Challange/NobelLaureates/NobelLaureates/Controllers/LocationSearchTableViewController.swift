@@ -47,7 +47,7 @@ class LocationSearchTableViewController: UITableViewController {
     }
 }
 
-// MARK: Table view delegates and data source
+// MARK: TableView delegates and datasource
 extension LocationSearchTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -72,7 +72,7 @@ extension LocationSearchTableViewController {
     }
 }
 
-// MARK:
+// MARK: UISearchResultsUpdating delegate
 extension LocationSearchTableViewController : UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let mapView = mapView,
