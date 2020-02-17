@@ -33,7 +33,7 @@ class NobelListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "ListItemCell") as? NobelListTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.listItemCell) as? NobelListTableViewCell {
             var distance = 0
             if let location = selectedLocation, let year = selectedYear {
                 distance = Int(nobelPrizeLaureates[indexPath.row].distance(to: location, year: year).rounded())

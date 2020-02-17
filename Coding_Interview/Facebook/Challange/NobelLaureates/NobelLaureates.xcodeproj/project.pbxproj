@@ -120,9 +120,9 @@
 		E0FCE36623FA427500C5D42C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E0FCE36823FA427500C5D42C /* LocationSearchTableViewController.swift */,
-				E0FCE37423FA6DA100C5D42C /* NobelListTableViewController.swift */,
 				E0FCE36723FA427500C5D42C /* ViewController.swift */,
+				E0FCE37423FA6DA100C5D42C /* NobelListTableViewController.swift */,
+				E0FCE36823FA427500C5D42C /* LocationSearchTableViewController.swift */,
 				E0FCE37623FA755900C5D42C /* NobelListTableViewCell.swift */,
 			);
 			path = Controllers;

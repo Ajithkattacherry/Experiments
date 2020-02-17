@@ -18,13 +18,13 @@ class ViewController : UIViewController {
     
     private var selectedLocation: CLLocation? {
         didSet {
-            lblSelectedlocation.text = "Coordinates: \(selectedLocation?.coordinate.latitude ?? 0), \(selectedLocation?.coordinate.longitude ?? 0)"
+            lblSelectedlocation.text = Constants.coordinates + "\(selectedLocation?.coordinate.latitude ?? 0), \(selectedLocation?.coordinate.longitude ?? 0)"
         }
     }
     
     private var selectedYear: Int = 2020 {
         didSet {
-            lblSelectedYear.text = "Year: \(selectedYear)"
+            lblSelectedYear.text = Constants.year + "\(selectedYear)"
         }
     }
     

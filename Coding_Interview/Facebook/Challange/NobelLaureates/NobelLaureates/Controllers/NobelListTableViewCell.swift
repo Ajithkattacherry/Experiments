@@ -32,11 +32,11 @@ class NobelListTableViewCell: UITableViewCell {
              universityName: String,
              location: String,
              distance: String) {
-        lblFirstName.text = "Name: " + firstName
-        lblCategory.text = "Category: " + category
-        lblYear.text = "Nobel Year: " + year
-        lblUniversityName.text = "University Name: " + universityName
-        lblLocation.text = "Location: " + location
-        lblDistance.text = "Distance from selected Location: " + distance + "Km"
+        lblFirstName.text = Constants.nameDescription + firstName
+        lblCategory.text = Constants.categoryDescription + category
+        lblYear.text = Constants.nobelYearDescription + year
+        lblUniversityName.text = Constants.universityNameDescription + universityName
+        lblLocation.text = Constants.locationDescription + location
+        lblDistance.text = Constants.distanceDescription + distance + Constants.km
     }
 }
