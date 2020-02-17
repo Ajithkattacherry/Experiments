@@ -9,6 +9,10 @@
 import UIKit
 import MapKit
 
+class CustomPointAnnotation: MKPointAnnotation {
+    var imageName: String!
+}
+
 class ViewController : UIViewController {
     private let locationManager = CLLocationManager()
     private var selectedPin: MKPlacemark?
@@ -77,7 +81,7 @@ class ViewController : UIViewController {
             selectedLocation = location
         }
         nobelPrizeLaureatesList.nobelPrizeLaureates.sort(by: { $0.distance(to: location, year: selectedYear) < $1.distance(to: location, year: selectedYear) })
-        for i in 0..<nobelPrizeLaureatesList.nobelPrizeLaureates.count {
+        for i in 0..<20 {
             let nobelPrizeLaureatesData = nobelPrizeLaureatesList.nobelPrizeLaureates[i]
             print(nobelPrizeLaureatesData.city)
             print(nobelPrizeLaureatesData.year)
@@ -127,7 +131,7 @@ extension ViewController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 50.0, longitudeDelta: 50.0))
             if selectedAnnotation == nil {
                 selectedLocation = CLLocation(latitude: location.coordinate.latitude,
                                               longitude: location.coordinate.longitude)
@@ -151,17 +155,18 @@ extension ViewController: MapSearchResultHandlerDelegate {
         }
         // cache the pin
         selectedPin = placemark
-        let annotation = MKPointAnnotation()
+        let annotation = CustomPointAnnotation()
         annotation.coordinate = placemark.coordinate
-        annotation.title = placemark.name
+        annotation.title = "Selected Location"
         
-        if let city = placemark.locality,
+        if let name = placemark.name,
+            let city = placemark.locality,
             let state = placemark.administrativeArea {
-            annotation.subtitle = "\(city) \(state)"
+            annotation.subtitle = "\(name), \(city) \(state)"
         }
         selectedAnnotation = annotation
         mapView.addAnnotation(annotation)
-        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let span = MKCoordinateSpan(latitudeDelta: 50.0, longitudeDelta: 50.0)
         let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
         mapView.setRegion(region, animated: true)
         addAnnotations(from: nobelPrizeLaureatesListModel)
@@ -196,7 +201,10 @@ extension ViewController: MKMapViewDelegate {
         annotationView.canShowCallout = true
         annotationView.displayPriority = .required
         
-        if annotation is MKPointAnnotation {
+        if annotation is CustomPointAnnotation {
+            annotationView.image =  UIImage(imageLiteralResourceName: "custom")
+            return annotationView
+        } else if annotation is MKPointAnnotation {
             annotationView.image =  UIImage(imageLiteralResourceName: identifier)
             return annotationView
         } else {
