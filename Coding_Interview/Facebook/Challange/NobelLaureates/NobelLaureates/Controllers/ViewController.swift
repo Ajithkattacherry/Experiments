@@ -151,6 +151,7 @@ extension ViewController : CLLocationManagerDelegate {
                 selectedLocation = CLLocation(latitude: location.coordinate.latitude,
                                               longitude: location.coordinate.longitude)
                 renderAnnotations()
+                inputDataView.isHidden = false
             }
             mapView.setRegion(region, animated: true)
         }

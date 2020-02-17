@@ -27,8 +27,8 @@
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gu4-Cv-ie2">
                                 <rect key="frame" x="20" y="746" width="374" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Location: Menlo Park" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkr-G1-0xe">
-                                        <rect key="frame" x="104.5" y="63" width="165" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkr-G1-0xe">
+                                        <rect key="frame" x="152" y="63" width="70" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="Igg-mp-H98"/>
                                         </constraints>
@@ -37,7 +37,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year: 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rV-4b-kgi">
-                                        <rect key="frame" x="145" y="34" width="84" height="21"/>
+                                        <rect key="frame" x="145.5" y="34" width="83.5" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="J76-76-0rg"/>
                                         </constraints>
