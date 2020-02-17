@@ -61,27 +61,41 @@ class ViewController : UIViewController {
         selectedYear = calanderDate.year ?? 2020
     }
     
-    /// Calculate the cost for each new search
+    /// Loading Nobel Prize Laureates from Json
+    func loadNobelPrizeData() {
+        if let fileURL = Bundle.main.url(forResource: Constants.nobelPrizeLaureates, withExtension: Constants.fileType) {
+            do {
+                let data = try Data.init(contentsOf: fileURL, options: .mappedIfSafe)
+                let decoder = JSONDecoder()
+                nobelPrizeLaureatesListModel = try decoder.decode(NobelPrizeLaureatesListModel.self, from: data)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    /// Calculate the cost for displaying Nobel Prize Laureates each based on new search
     ///
     /// This involves the cost calculation and annotation of result location
     /// - parameter key: nobelPrizeLaureatesListModel
-    func addAnnotations(from nobelPrizeLaureatesListModel: NobelPrizeLaureatesListModel?) {
+    func renderAnnotations() {
         guard var nobelPrizeLaureatesList = nobelPrizeLaureatesListModel,
-            var location = selectedLocation else {
+            let location = selectedLocation else {
                 return
         }
-        if let annotation = selectedAnnotation {
-            location = CLLocation(latitude: annotation.coordinate.latitude,
-                                  longitude: annotation.coordinate.longitude)
-            selectedLocation = location
-        }
-        nobelPrizeLaureatesList.nobelPrizeLaureates.sort(by: { $0.distance(to: location, year: selectedYear) < $1.distance(to: location, year: selectedYear) })
+        
+        // Sorting the Nobel laureates in order of ascending cost.
+        nobelPrizeLaureatesList.nobelPrizeLaureates.sort(by: {
+            $0.distance(to: location, year: selectedYear) < $1.distance(to: location, year: selectedYear)
+        })
+        
+        // Displaying first 20 Nobel laureates on Map
         for i in 0..<20 {
             let nobelPrizeLaureatesData = nobelPrizeLaureatesList.nobelPrizeLaureates[i]
             
-            print(nobelPrizeLaureatesData.city)
-            print(nobelPrizeLaureatesData.year)
-            print(nobelPrizeLaureatesData.distance(to: location, year: selectedYear))
+            print("\n******* \(i + 1) ********\nCity: \(nobelPrizeLaureatesData.city)")
+            print("Year: \(nobelPrizeLaureatesData.year)")
+            print("Distance: \(nobelPrizeLaureatesData.distance(to: location, year: selectedYear).rounded()) km")
             
             let annotation = MKPointAnnotation()
             let location = CLLocationCoordinate2D(latitude: nobelPrizeLaureatesData.location.lat, longitude: nobelPrizeLaureatesData.location.lng)
@@ -89,19 +103,6 @@ class ViewController : UIViewController {
             annotation.title = nobelPrizeLaureatesData.name
             annotation.subtitle = "\(nobelPrizeLaureatesData.borncity) \(nobelPrizeLaureatesData.country)"
             mapView.addAnnotation(annotation)
-        }
-    }
-    
-    func loadNobelPrizeData() {
-        if let fileURL = Bundle.main.url(forResource: Constants.nobelPrizeLaureates, withExtension: Constants.fileType) {
-            do {
-                let data = try Data.init(contentsOf: fileURL, options: .mappedIfSafe)
-                let decoder = JSONDecoder()
-                nobelPrizeLaureatesListModel = try decoder.decode(NobelPrizeLaureatesListModel.self, from: data)
-                addAnnotations(from: nobelPrizeLaureatesListModel)
-            } catch {
-                print(error.localizedDescription)
-            }
         }
     }
     
@@ -129,44 +130,51 @@ extension ViewController : CLLocationManagerDelegate {
         if let location = locations.last {
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 50.0, longitudeDelta: 50.0))
-            if selectedAnnotation == nil {
+            if selectedLocation == nil {
                 selectedLocation = CLLocation(latitude: location.coordinate.latitude,
                                               longitude: location.coordinate.longitude)
-                addAnnotations(from: nobelPrizeLaureatesListModel)
+                renderAnnotations()
             }
             mapView.setRegion(region, animated: true)
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("error:: (error)")
+        print(error.localizedDescription)
     }   
 }
 
 // MARK: Map SearchResult Handler Delegate
 extension ViewController: MapSearchResultHandlerDelegate {
     func dropPinZoomIn(placemark: MKPlacemark){
-        // clear existing pins
+        // Removing the old location annotation from Map
         if let annotation = selectedAnnotation {
             mapView.removeAnnotation(annotation)
         }
         
+        // Add location result as map annotation
         let annotation = CustomPointAnnotation()
         annotation.coordinate = placemark.coordinate
         annotation.title = Constants.selectedLocation
-        
         if let name = placemark.name,
             let city = placemark.locality,
             let state = placemark.administrativeArea {
             annotation.subtitle = "\(name), \(city) \(state)"
         }
-        
-        selectedAnnotation = annotation
         mapView.addAnnotation(annotation)
+        
+        // Storing the selected annotation so that we can remove it from map when search for a new location
+        selectedAnnotation = annotation
+
+        // Selcted location - This is used to calculate the cost of each Nobel prize laureates.
+        selectedLocation = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+        
         let span = MKCoordinateSpan(latitudeDelta: 50.0, longitudeDelta: 50.0)
         let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
         mapView.setRegion(region, animated: true)
-        addAnnotations(from: nobelPrizeLaureatesListModel)
+        
+        // Recalculate the cost and re-render the Annotations based on new location
+        renderAnnotations()
     }
 }
 
@@ -186,8 +194,10 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedYear = yearPickerData[row]
-        addAnnotations(from: nobelPrizeLaureatesListModel)
         pickerView.isHidden = true
+        
+        // Recalculate the cost and re-render the Annotations based on selected year
+        renderAnnotations()
     }
 }
 
