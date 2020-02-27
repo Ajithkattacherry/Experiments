@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import CLImageDownloader
 
 class FLSearchResultCell: UITableViewCell {
 
     @IBOutlet weak var resultTitleLabel: UILabel!
-    @IBOutlet weak var resultImageView: FLCachedImageView!
+    @IBOutlet weak var resultImageView: CLCachedImageView!
     
     func setupWithPhoto(photoDataModel: FLPhotoDataModel?) {
         guard let photo = photoDataModel else {

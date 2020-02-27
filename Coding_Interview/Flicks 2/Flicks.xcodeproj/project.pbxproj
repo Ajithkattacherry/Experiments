@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E052EF2A24083552008D4C77 /* CLImageDownloader in Frameworks */ = {isa = PBXBuildFile; productRef = E052EF2924083552008D4C77 /* CLImageDownloader */; };
 		E0F5EBCC2376949300F836E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EBCB2376949300F836E8 /* AppDelegate.swift */; };
 		E0F5EBE12376949500F836E8 /* FlicksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EBE02376949500F836E8 /* FlicksTests.swift */; };
 		E0F5EBEC2376949600F836E8 /* FlicksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EBEB2376949600F836E8 /* FlicksUITests.swift */; };
@@ -19,8 +20,6 @@
 		E0F5EC2C2376C12800F836E8 /* FLSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC2B2376C12800F836E8 /* FLSearchResultCell.swift */; };
 		E0F5EC2E2376C18A00F836E8 /* FLNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC2D2376C18A00F836E8 /* FLNetworkManager.swift */; };
 		E0F5EC312376C70200F836E8 /* FLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC302376C70200F836E8 /* FLConstants.swift */; };
-		E0F5EC3B2377888A00F836E8 /* FLDiscardableImageCacheItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC392377888A00F836E8 /* FLDiscardableImageCacheItem.swift */; };
-		E0F5EC3C2377888A00F836E8 /* FLCachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC3A2377888A00F836E8 /* FLCachedImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +58,6 @@
 		E0F5EC2B2376C12800F836E8 /* FLSearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLSearchResultCell.swift; sourceTree = "<group>"; };
 		E0F5EC2D2376C18A00F836E8 /* FLNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLNetworkManager.swift; sourceTree = "<group>"; };
 		E0F5EC302376C70200F836E8 /* FLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLConstants.swift; sourceTree = "<group>"; };
-		E0F5EC392377888A00F836E8 /* FLDiscardableImageCacheItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLDiscardableImageCacheItem.swift; sourceTree = "<group>"; };
-		E0F5EC3A2377888A00F836E8 /* FLCachedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLCachedImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E052EF2A24083552008D4C77 /* CLImageDownloader in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +112,6 @@
 				E0F5EBCB2376949300F836E8 /* AppDelegate.swift */,
 				E0F5EBFB2376A27400F836E8 /* Controllers */,
 				E0F5EBF92376A27400F836E8 /* DataModel */,
-				E0F5EC382377888A00F836E8 /* Helper */,
 				E0F5EBFA2376A27400F836E8 /* Network */,
 				E0F5EBFD2376A27400F836E8 /* Resources */,
 				E0F5EC2F2376C6EC00F836E8 /* Utility */,
@@ -193,15 +190,6 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		E0F5EC382377888A00F836E8 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				E0F5EC392377888A00F836E8 /* FLDiscardableImageCacheItem.swift */,
-				E0F5EC3A2377888A00F836E8 /* FLCachedImageView.swift */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -218,6 +206,9 @@
 			dependencies = (
 			);
 			name = Flicks;
+			packageProductDependencies = (
+				E052EF2924083552008D4C77 /* CLImageDownloader */,
+			);
 			productName = Flicks;
 			productReference = E0F5EBC82376949300F836E8 /* Flicks.app */;
 			productType = "com.apple.product-type.application";
@@ -290,6 +281,9 @@
 				Base,
 			);
 			mainGroup = E0F5EBBF2376949300F836E8;
+			packageReferences = (
+				E052EF2824083552008D4C77 /* XCRemoteSwiftPackageReference "CLImageDownloader" */,
+			);
 			productRefGroup = E0F5EBC92376949300F836E8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -336,12 +330,10 @@
 				E0F5EBCC2376949300F836E8 /* AppDelegate.swift in Sources */,
 				E0F5EC262376C09500F836E8 /* FLPhotosSearchViewController.swift in Sources */,
 				E0F5EC2E2376C18A00F836E8 /* FLNetworkManager.swift in Sources */,
-				E0F5EC3B2377888A00F836E8 /* FLDiscardableImageCacheItem.swift in Sources */,
 				E0F5EC2A2376C0EA00F836E8 /* FLPhotoListDataModel.swift in Sources */,
 				E0F5EC2C2376C12800F836E8 /* FLSearchResultCell.swift in Sources */,
 				E0F5EC282376C0A900F836E8 /* FLPhotosDetailViewController.swift in Sources */,
 				E0F5EC312376C70200F836E8 /* FLConstants.swift in Sources */,
-				E0F5EC3C2377888A00F836E8 /* FLCachedImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,6 +664,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E052EF2824083552008D4C77 /* XCRemoteSwiftPackageReference "CLImageDownloader" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Ajithkattacherry/CLImageDownloader.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E052EF2924083552008D4C77 /* CLImageDownloader */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E052EF2824083552008D4C77 /* XCRemoteSwiftPackageReference "CLImageDownloader" */;
+			productName = CLImageDownloader;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E0F5EBC02376949300F836E8 /* Project object */;
 }

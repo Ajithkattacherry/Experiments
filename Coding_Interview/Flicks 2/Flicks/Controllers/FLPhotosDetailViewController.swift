@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import CLImageDownloader
 
 class FLPhotosDetailViewController: UIViewController {
-    @IBOutlet weak var photoImageView: FLCachedImageView!
+    @IBOutlet weak var photoImageView: CLCachedImageView!
     var photoDataModel: FLPhotoDataModel?
     
     override func viewDidLoad() {

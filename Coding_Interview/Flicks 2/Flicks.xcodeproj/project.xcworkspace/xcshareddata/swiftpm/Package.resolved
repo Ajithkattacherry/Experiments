@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CLImageDownloader",
+        "repositoryURL": "https://github.com/Ajithkattacherry/CLImageDownloader.git",
+        "state": {
+          "branch": null,
+          "revision": "2a980a503ca5f96171cecaf7ce4fef2c32ce2c9f",
+          "version": "1.0.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
