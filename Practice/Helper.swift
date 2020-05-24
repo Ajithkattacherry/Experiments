@@ -65,22 +65,6 @@ class Helper {
         // OUTPUT: ["This", "is", "a", "big", "day"]
     }
     
-    func integerOperations() {
-        // 1. Int to Binary
-        let intValue = 5
-        let binary = String(intValue, radix: 2)
-        
-        print("binary: \(binary)")
-        
-        // 2. XOR two numbers
-        let num1 = 10
-        let num2 = 2
-        print(String(num1, radix: 2))
-        print(String(num2, radix: 2))
-        let xorNum = num1 ^ num2
-        print(String(xorNum, radix: 2))
-    }
-    
     // MARK: 2. DICTIONARY
     /*********************************
      ********DICTIONARY OPERATIONS*****
@@ -132,6 +116,20 @@ class Helper {
         print("\(Array(subKeys).contains("74"))")
     }
     
+    func testCreateDictionaryByGrouping() {
+        let students = ["Kofi", "Abena", "Efua", "Kweku", "Akosua"]
+        var studentsByLetter = Dictionary(grouping: students, by: { $0.first! })
+        print(studentsByLetter)
+        // ["A": ["Abena", "Akosua"], "E": ["Efua"], "K": ["Kofi", "Kweku"]]
+        
+        studentsByLetter = Dictionary(grouping: stringArray, by: { value in
+            let key = value.split(separator: " ").last!
+            return key.first!
+        })
+        print(studentsByLetter)
+        //["K": ["21 Kivi"], "O": ["21 Orange"], "P": ["32 Pineapple"], "B": ["43 Banana"], "C": ["23 Cherry", "74 Coconut"], "A": ["45 Apple"]]
+    }
+    
     // MARK: 3. ARRAY
     /*********************************
      ********ARRAY OPERATIONS*****
@@ -180,6 +178,27 @@ class Helper {
         let employees: Set = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
         let attendees: Set = ["Alicia", "Bethany", "Diana"]
         print(attendees.isSubset(of: employees))
+    }
+    
+    
+    // MARK: 5. INTEGER
+    /*********************************
+     ********INTEGER OPERATIONS*****
+     *********************************/
+    func integerOperations() {
+        // 1. Int to Binary
+        let intValue = 5
+        let binary = String(intValue, radix: 2)
+        
+        print("binary: \(binary)")
+        
+        // 2. XOR two numbers
+        let num1 = 10
+        let num2 = 2
+        print(String(num1, radix: 2))
+        print(String(num2, radix: 2))
+        let xorNum = num1 ^ num2
+        print(String(xorNum, radix: 2))
     }
 }
 
