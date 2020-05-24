@@ -21,3 +21,16 @@ func isPalindrom(_ string: String) -> Bool {
     }
     return true
 }
+
+// MARK: 2.
+func getAllComments(for adID: Int) {
+    let data = ["1": "test comment1",
+                "2": "test comment2",
+                "3": "test comment3",
+                "4": "test comment4",
+                "5": "test comment5"]
+    let keys = data.keys
+    let values = data.values
+    print(Array(keys)[adID])
+    print(Array(values)[adID])
+}

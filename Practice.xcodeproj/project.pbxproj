@@ -16,6 +16,7 @@
 		E08AD94F2473BA8A006897B3 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08AD94E2473BA8A006897B3 /* Helper.swift */; };
 		E0E5D76624799F4900698FE0 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E5D76524799F4900698FE0 /* Array.swift */; };
 		E0E5D768247A542D00698FE0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E5D767247A542D00698FE0 /* String.swift */; };
+		E0E5D76A247B090E00698FE0 /* Collections_Docs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E5D769247B090E00698FE0 /* Collections_Docs.swift */; };
 		E0EC6C322468E6E000A79B39 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EC6C312468E6E000A79B39 /* Tree.swift */; };
 		E0EC6C342468E70A00A79B39 /* Generic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EC6C332468E70A00A79B39 /* Generic.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		E08AD94E2473BA8A006897B3 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		E0E5D76524799F4900698FE0 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		E0E5D767247A542D00698FE0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		E0E5D769247B090E00698FE0 /* Collections_Docs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections_Docs.swift; sourceTree = "<group>"; };
 		E0EC6C312468E6E000A79B39 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		E0EC6C332468E70A00A79B39 /* Generic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +76,7 @@
 				E0E5D76524799F4900698FE0 /* Array.swift */,
 				E0EC6C312468E6E000A79B39 /* Tree.swift */,
 				E08AD94E2473BA8A006897B3 /* Helper.swift */,
+				E0E5D769247B090E00698FE0 /* Collections_Docs.swift */,
 				E06FCCC72432B48C00163600 /* Main.storyboard */,
 				E06FCCCA2432B48E00163600 /* Assets.xcassets */,
 				E06FCCCC2432B48E00163600 /* LaunchScreen.storyboard */,
@@ -155,6 +158,7 @@
 			files = (
 				E0EC6C342468E70A00A79B39 /* Generic.swift in Sources */,
 				E0EC6C322468E6E000A79B39 /* Tree.swift in Sources */,
+				E0E5D76A247B090E00698FE0 /* Collections_Docs.swift in Sources */,
 				E0E5D76624799F4900698FE0 /* Array.swift in Sources */,
 				E06FCCC62432B48C00163600 /* ViewController.swift in Sources */,
 				E06FCCC22432B48C00163600 /* AppDelegate.swift in Sources */,

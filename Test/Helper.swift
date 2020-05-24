@@ -9,44 +9,60 @@
 import Foundation
 import UIKit
 
-
-/*********************************
- ********STRING OPERATIONS********
- *********************************/
 class Helper {
     let stringArray = ["45 Apple",
-                        "32 Pineapple",
-                        "21 Orange",
-                        "43 Banana",
-                        "23 Cherry",
-                        "21 Kivi",
-                        "74 Coconut"]
-     var dicyionary = [String: String]()
+                       "32 Pineapple",
+                       "21 Orange",
+                       "43 Banana",
+                       "23 Cherry",
+                       "21 Kivi",
+                       "74 Coconut"]
+    var dictionary = [String: String]()
     
-    func stringOperations() {
+    
+    // MARK: 1. STRING
+    /*********************************
+     ********STRING OPERATIONS********
+     *********************************/
+    func testStringOperations() {
         //1. String to Char array
         let sample = "Sample"
         let charArray = Array(sample)
         print(charArray)
-
-        //2. Array of string to Dictionary
-        for item in stringArray {
-            let itemValues = item.components(separatedBy: " ")
-            dicyionary[itemValues[0]] = itemValues[1]
+    }
+    
+    func testStringArrayToDictionary() {
+        for string in stringArray {
+            let data = string.split(separator: " ")
+            dictionary[String(data[0])] = String(data[1])
         }
-        print(dicyionary)
-
-        //3. Search for string from a string
+        print(dictionary)
+    }
+    
+    func testStringContains() {
         let string = "This is a sample search test"
         print(string.contains("test"))
-
-        //4. Components SEPERATED BY A CHAR
+    }
+    
+    func testStringTrimmingCharacters() {
+        let string = "This is a big day"
+        print(string.trimmingCharacters(in: .whitespaces))
+    }
+    
+    func testComponentsSeparatedBy() {
+        // Split always returns a string array
+        let string = " This is  a  big  day "
         let array = string.components(separatedBy: " ")
         print(array)
-
-        //5. TRIMMING CHAR
-        string.trimmingCharacters(in: .whitespaces)
-        print(string)
+        // OUTPUT: ["", "This", "is", "", "a", "", "big", "", "day", ""]
+    }
+    
+    func testStringSplitByChar() {
+        // Split always returns a substring array
+        let string = " This is  a  big  day "
+        let array = string.split(separator: " ")
+        print(array)
+        // OUTPUT: ["This", "is", "a", "big", "day"]
     }
     
     func integerOperations() {
@@ -64,54 +80,107 @@ class Helper {
         let xorNum = num1 ^ num2
         print(String(xorNum, radix: 2))
     }
-
+    
+    // MARK: 2. DICTIONARY
     /*********************************
-    ********DICTIONARY OPERATIONS*****
-    *********************************/
-    func dictionaryOperations() {
-        // All Keys
-        let dicKeys = dicyionary.keys
-        let dicValues = dicyionary.values
+     ********DICTIONARY OPERATIONS*****
+     *********************************/
+    func testAllKeys() {
+        testStringArrayToDictionary()
+        let dicKeys = dictionary.keys
+        let dicValues = dictionary.values
         print("Dic Keys: \(dicKeys)")
         print("Dic Keys: \(dicValues)")
-
-        // Sort Dictionary by Key
-        var sortedDictionary = dicyionary.sorted { $0.0 > $1.0 }
+    }
+    
+    func testSortByKey() {
+        testStringArrayToDictionary()
+        let sortedDictionary = dictionary.sorted { $0.0 > $1.0 }
         print(sortedDictionary)
-
-        // Sort Dictionary by Value
-        sortedDictionary = dicyionary.sorted { $0.1 > $1.1 }
+    }
+    
+    func testSortByValue() {
+        testStringArrayToDictionary()
+        let sortedDictionary = dictionary.sorted { $0.1 > $1.1 }
         print(sortedDictionary)
-
-        // Key and Values from dictionary
+    }
+    
+    func testAllKeysAndValue() {
+        testStringArrayToDictionary()
         var keys = [String]()
         var values = [String]()
-        for (key, value) in sortedDictionary {
+        for (key, value) in dictionary {
             keys.append(key)
             values.append(value)
         }
         print(keys)
         print(values)
-
+    }
+    
+    func testFilterDictionary() {
+        testStringArrayToDictionary()
+        var data = dictionary.filter { $0.value == "Coconut" }
+        print(data)
+        data = dictionary.filter { $0.key == "23" }
+        print(data)
+    }
+    
+    func testFilterDicioanryKeys() {
         // Filter keys based on condition
-        let subKeys = dicyionary.keys.filter { Int($0) ?? 0 > 40 }
+        let subKeys = dictionary.keys.filter { Int($0) ?? 0 > 40 }
         print("keys: \(Array(subKeys))")
         print("\(Array(subKeys).contains("74"))")
     }
-
+    
+    // MARK: 3. ARRAY
     /*********************************
-    ********ARRAY OPERATIONS*****
-    *********************************/
-    func arrayTest() {
+     ********ARRAY OPERATIONS*****
+     *********************************/
+    // Array Slice will give you the sub array fro an array
+    // It will keep the indices of the parent array
+    func testArraySlice() {
         let array = [1,3,4,5,6,7]
-        let slice = array[...2]
+        let slice: ArraySlice = array[2...5]
         print(slice)
-        print(array.sorted { $0 < $1 })
+        print(slice.firstIndex(of: 4) ?? 0)
     }
     
+    func testArraySort() {
+        let array = [1,9,3,5,4,1,6,7]
+        print(array.sorted { $0 < $1 })
+        // Output: [1, 1, 3, 4, 5, 6, 7, 9]
+    }
+    
+    func testArrayReduce() {
+        let primes: Set = [2, 3, 5, 7]
+        let primesSum = primes.reduce(0, +)
+        print(primesSum)
+        // Output:17
+    }
+    
+    func testArrayMap() {
+        let primes: Set = [2, 3, 5, 7]
+        let primeStrings = primes.sorted().map(String.init)
+        print(primeStrings)
+        // Output: ["2", "3", "5", "7"]
+    }
+    
+    func testArrayFilter() {
+        let primes: Set = [2, 3, 5, 7]
+        let result = primes.filter { $0 > 4 }
+        print(result)
+        // Output:[7, 5]
+    }
+    
+    // MARK: 4. SET
     /*********************************
-    ********SET OPERATIONS*****
-    *********************************/
+     ********SET OPERATIONS*****
+     *********************************/
+    func testIsSubset() {
+        let employees: Set = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
+        let attendees: Set = ["Alicia", "Bethany", "Diana"]
+        print(attendees.isSubset(of: employees))
+    }
 }
 
 
