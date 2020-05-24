@@ -62,7 +62,7 @@ extension TreeNode {
     }
 }
 
-// Minimum Depth of Binary Tree
+//MARK: 1. Minimum Depth of Binary Tree
 func minDepth(_ root: TreeNode?) -> Int {
     guard let root = root else {
         return 0
@@ -89,7 +89,7 @@ func minDepth(_ root: TreeNode?) -> Int {
     return minLevel
 }
 
-// Maximum Depth of Binary Tree
+//MARK: 2. Maximum Depth of Binary Tree
 func maxDepth(_ root: TreeNode?) -> Int {
     guard let root = root else {
         return 0
@@ -113,7 +113,7 @@ func maxDepth(_ root: TreeNode?) -> Int {
     return maxLevel
 }
 
-// Range Sum of BST: Sum of node value between L & R
+//MARK: 3. Range Sum of BST: Sum of node value between L & R
 func rangeSumBST(_ root: TreeNode?, _ L: Int, _ R: Int) -> Int {
     guard let root = root else {
         return 0
@@ -136,7 +136,7 @@ func rangeSumBST(_ root: TreeNode?, _ L: Int, _ R: Int) -> Int {
     return sum
 }
 
-// Merge two arays
+//MARK: 4. Merge two arays
 func mergeTrees(_ t1: TreeNode?, _ t2: TreeNode?) -> TreeNode? {
        guard let t1 = t1 else {
            return t2
@@ -153,7 +153,7 @@ func mergeTrees(_ t1: TreeNode?, _ t2: TreeNode?) -> TreeNode? {
    }
 
 
-// Search in a Binary Search Tree
+//MARK: 5. Search in a Binary Search Tree
 func searchBST(_ root: TreeNode?, _ val: Int) -> TreeNode? {
     root?.preOrderTraversal(visit: {
         print($0.val)
@@ -162,3 +162,46 @@ func searchBST(_ root: TreeNode?, _ val: Int) -> TreeNode? {
     return nil
 }
 
+//MARK: 6. Minimum Distance Between BST Nodes
+func minDiffInBST(_ root: TreeNode?) -> Int {
+    var array = [Int]()
+    root?.inOrderTraversal {
+        array.append($0.val)
+    }
+    var result = Int.max
+    for i in 1 ..< array.count {
+        result = min(result, array[i] - array[i-1])
+    }
+    return result
+}
+
+//MARK: 7. Kth Smallest Element in a BST
+func kthSmallest(_ root: TreeNode?, _ k: Int) -> Int {
+    var array = [Int]()
+    root?.inOrderTraversal {
+        array.append($0.val)
+    }
+    array = array.sorted { $0 < $1 }
+    return array[k-1]
+}
+
+//MARK: 8. Second Minimum Node In a Binary Tree
+func findSecondMinimumValue(_ root: TreeNode?) -> Int {
+    var array = [Int]()
+    root?.inOrderTraversal {
+        array.append($0.val)
+    }
+    array = array.sorted { $0 < $1 }
+    if array.count == 1 {
+        return -1
+    }
+    var i = 1
+    while array[i] <= array[i - 1] {
+        if i < array.count - 1 {
+            i += 1
+        } else {
+            return -1
+        }
+    }
+    return array[i]
+}

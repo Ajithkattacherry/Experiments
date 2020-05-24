@@ -48,6 +48,22 @@ class Helper {
         string.trimmingCharacters(in: .whitespaces)
         print(string)
     }
+    
+    func integerOperations() {
+        // 1. Int to Binary
+        let intValue = 5
+        let binary = String(intValue, radix: 2)
+        
+        print("binary: \(binary)")
+        
+        // 2. XOR two numbers
+        let num1 = 10
+        let num2 = 2
+        print(String(num1, radix: 2))
+        print(String(num2, radix: 2))
+        let xorNum = num1 ^ num2
+        print(String(xorNum, radix: 2))
+    }
 
     /*********************************
     ********DICTIONARY OPERATIONS*****
@@ -86,8 +102,13 @@ class Helper {
     /*********************************
     ********ARRAY OPERATIONS*****
     *********************************/
-
-
+    func arrayTest() {
+        let array = [1,3,4,5,6,7]
+        let slice = array[...2]
+        print(slice)
+        print(array.sorted { $0 < $1 })
+    }
+    
     /*********************************
     ********SET OPERATIONS*****
     *********************************/

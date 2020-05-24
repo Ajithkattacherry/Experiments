@@ -14,12 +14,14 @@
 		E06FCCCB2432B48E00163600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06FCCCA2432B48E00163600 /* Assets.xcassets */; };
 		E06FCCCE2432B48E00163600 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E06FCCCC2432B48E00163600 /* LaunchScreen.storyboard */; };
 		E08AD94F2473BA8A006897B3 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08AD94E2473BA8A006897B3 /* Helper.swift */; };
+		E0E5D76624799F4900698FE0 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E5D76524799F4900698FE0 /* Array.swift */; };
+		E0E5D768247A542D00698FE0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E5D767247A542D00698FE0 /* String.swift */; };
 		E0EC6C322468E6E000A79B39 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EC6C312468E6E000A79B39 /* Tree.swift */; };
 		E0EC6C342468E70A00A79B39 /* Generic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EC6C332468E70A00A79B39 /* Generic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E06FCCBE2432B48C00163600 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E06FCCBE2432B48C00163600 /* Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06FCCC12432B48C00163600 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E06FCCC32432B48C00163600 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E06FCCC52432B48C00163600 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +30,8 @@
 		E06FCCCD2432B48E00163600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E06FCCCF2432B48E00163600 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E08AD94E2473BA8A006897B3 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		E0E5D76524799F4900698FE0 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		E0E5D767247A542D00698FE0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		E0EC6C312468E6E000A79B39 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		E0EC6C332468E70A00A79B39 /* Generic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,7 +58,7 @@
 		E06FCCBF2432B48C00163600 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E06FCCBE2432B48C00163600 /* Test.app */,
+				E06FCCBE2432B48C00163600 /* Practice.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,6 +70,8 @@
 				E06FCCC32432B48C00163600 /* SceneDelegate.swift */,
 				E06FCCC52432B48C00163600 /* ViewController.swift */,
 				E0EC6C332468E70A00A79B39 /* Generic.swift */,
+				E0E5D767247A542D00698FE0 /* String.swift */,
+				E0E5D76524799F4900698FE0 /* Array.swift */,
 				E0EC6C312468E6E000A79B39 /* Tree.swift */,
 				E08AD94E2473BA8A006897B3 /* Helper.swift */,
 				E06FCCC72432B48C00163600 /* Main.storyboard */,
@@ -79,9 +85,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E06FCCBD2432B48C00163600 /* Test */ = {
+		E06FCCBD2432B48C00163600 /* Practice */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E06FCCD22432B48E00163600 /* Build configuration list for PBXNativeTarget "Test" */;
+			buildConfigurationList = E06FCCD22432B48E00163600 /* Build configuration list for PBXNativeTarget "Practice" */;
 			buildPhases = (
 				E06FCCBA2432B48C00163600 /* Sources */,
 				E06FCCBB2432B48C00163600 /* Frameworks */,
@@ -91,9 +97,9 @@
 			);
 			dependencies = (
 			);
-			name = Test;
+			name = Practice;
 			productName = Test;
-			productReference = E06FCCBE2432B48C00163600 /* Test.app */;
+			productReference = E06FCCBE2432B48C00163600 /* Practice.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -111,7 +117,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E06FCCB92432B48C00163600 /* Build configuration list for PBXProject "Test" */;
+			buildConfigurationList = E06FCCB92432B48C00163600 /* Build configuration list for PBXProject "Practice" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -124,7 +130,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E06FCCBD2432B48C00163600 /* Test */,
+				E06FCCBD2432B48C00163600 /* Practice */,
 			);
 		};
 /* End PBXProject section */
@@ -149,9 +155,11 @@
 			files = (
 				E0EC6C342468E70A00A79B39 /* Generic.swift in Sources */,
 				E0EC6C322468E6E000A79B39 /* Tree.swift in Sources */,
+				E0E5D76624799F4900698FE0 /* Array.swift in Sources */,
 				E06FCCC62432B48C00163600 /* ViewController.swift in Sources */,
 				E06FCCC22432B48C00163600 /* AppDelegate.swift in Sources */,
 				E06FCCC42432B48C00163600 /* SceneDelegate.swift in Sources */,
+				E0E5D768247A542D00698FE0 /* String.swift in Sources */,
 				E08AD94F2473BA8A006897B3 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,7 +339,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E06FCCB92432B48C00163600 /* Build configuration list for PBXProject "Test" */ = {
+		E06FCCB92432B48C00163600 /* Build configuration list for PBXProject "Practice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E06FCCD02432B48E00163600 /* Debug */,
@@ -340,7 +348,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E06FCCD22432B48E00163600 /* Build configuration list for PBXNativeTarget "Test" */ = {
+		E06FCCD22432B48E00163600 /* Build configuration list for PBXNativeTarget "Practice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E06FCCD32432B48E00163600 /* Debug */,
