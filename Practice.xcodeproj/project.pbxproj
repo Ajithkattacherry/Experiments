@@ -52,7 +52,7 @@
 		E06FCCB52432B48C00163600 = {
 			isa = PBXGroup;
 			children = (
-				E06FCCC02432B48C00163600 /* Test */,
+				E06FCCC02432B48C00163600 /* Practice */,
 				E06FCCBF2432B48C00163600 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,7 +65,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E06FCCC02432B48C00163600 /* Test */ = {
+		E06FCCC02432B48C00163600 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
 				E06FCCC12432B48C00163600 /* AppDelegate.swift */,
@@ -82,7 +82,7 @@
 				E06FCCCC2432B48E00163600 /* LaunchScreen.storyboard */,
 				E06FCCCF2432B48E00163600 /* Info.plist */,
 			);
-			path = Test;
+			path = Practice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,7 +310,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FPQGW73C56;
-				INFOPLIST_FILE = Test/Info.plist;
+				INFOPLIST_FILE = Practice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -328,7 +328,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FPQGW73C56;
-				INFOPLIST_FILE = Test/Info.plist;
+				INFOPLIST_FILE = Practice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
