@@ -120,17 +120,9 @@ func rangeSumBST(_ root: TreeNode?, _ L: Int, _ R: Int) -> Int {
     }
     
     var sum = 0
-    var queue: [TreeNode] = [root]
-    while !queue.isEmpty {
-        let node = queue.removeFirst()
-        if node.val >= L && node.val <= R {
-            sum += node.val
-        }
-        if let left = node.left {
-            queue.append(left)
-        }
-        if let right = node.right {
-            queue.append(right)
+    root.inOrderTraversal {
+        if $0.val >= L && $0.val <= R {
+            sum += $0.val
         }
     }
     return sum

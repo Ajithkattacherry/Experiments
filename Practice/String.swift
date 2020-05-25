@@ -22,7 +22,34 @@ func isPalindrom(_ string: String) -> Bool {
     return true
 }
 
-// MARK: 2.
+// MARK: 2. Palindrome Permutation
+// If a set of characters can form a palindrome if at most one character
+// occurs odd number of times and all characters occur even number of times.
+func isPalindromPermutation(_ string: String) -> Bool {
+    var hashMap = [Character: Int]()
+    if string.isEmpty {
+        return false
+    }
+    
+    let strArray = Array(string)
+    for char in strArray {
+        if let count = hashMap[char] {
+            hashMap[char] = count + 1
+        } else {
+            hashMap[char] = 1
+        }
+    }
+    
+    if (hashMap.values.filter { $0 > 2 }).count > 0 {
+        return false
+    }
+    if (hashMap.values.filter { $0 == 1 }).count != 1 {
+        return false
+    }
+    return true
+}
+
+// MARK:
 func getAllComments(for adID: Int) {
     let data = ["1": "test comment1",
                 "2": "test comment2",

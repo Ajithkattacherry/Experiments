@@ -14,6 +14,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        Helper().testCreateDictionaryByGrouping()
+        print(permute([1,2,3]))
     }
 }
