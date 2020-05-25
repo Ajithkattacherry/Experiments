@@ -14,6 +14,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print(permute([1,2,3]))
+        print(isAnagram("ajith", "jitah"))
     }
 }

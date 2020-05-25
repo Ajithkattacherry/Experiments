@@ -170,6 +170,11 @@ class Helper {
         // Output:[7, 5]
     }
     
+    func testArrayJoin() {
+        let array = ["a", "b", "c"]
+        print(array.joined())
+    }
+    
     // MARK: 4. SET
     /*********************************
      ********SET OPERATIONS*****

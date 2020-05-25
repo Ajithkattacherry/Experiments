@@ -9,6 +9,7 @@
 import Foundation
 
 // MARK: 1. Palindrom string check
+// Eg: MALAYALAM
 func isPalindrom(_ string: String) -> Bool {
     let strArray = Array(string)
     var i = 0
@@ -25,6 +26,7 @@ func isPalindrom(_ string: String) -> Bool {
 // MARK: 2. Palindrome Permutation
 // If a set of characters can form a palindrome if at most one character
 // occurs odd number of times and all characters occur even number of times.
+// Eg: MALAYALAM -> Count of M,A,L is 2 and Y is 1.
 func isPalindromPermutation(_ string: String) -> Bool {
     var hashMap = [Character: Int]()
     if string.isEmpty {
@@ -47,6 +49,42 @@ func isPalindromPermutation(_ string: String) -> Bool {
         return false
     }
     return true
+}
+
+// MARK: 3. Valid Anagram
+// Input: s = "anagram", t = "nagaram"
+// Output: true
+func isAnagram(_ s: String, _ t: String) -> Bool {
+    return s.sorted() == t.sorted()
+}
+
+// MARK: 4. Find All Anagrams in a String
+// The idea is to get each substring of size p.count and check the sorted S string
+// is matching to the sorted P string
+/*Input:
+s: "cbaebabacd" p: "abc"
+
+Output:
+[0, 6]
+
+Explanation:
+The substring with start index = 0 is "cba", which is an anagram of "abc".
+The substring with start index = 6 is "bac", which is an anagram of "abc".
+*/
+func findAnagrams(_ s: String, _ p: String) -> [Int] {
+    let charArray = Array(s)
+    let pArray = Array(p)
+    var outPut = [Int]()
+    var i = 0
+    let count = pArray.count - 1
+    while (i + count) < charArray.count {
+        let subArray = charArray[i...(i + count)]
+        if pArray.sorted() == subArray.sorted() {
+            outPut.append(i)
+        }
+        i += 1
+    }
+    return outPut
 }
 
 // MARK:
