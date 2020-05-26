@@ -8,8 +8,11 @@
 
 import Foundation
 
-//MARK: 1. SubArray in an array
-func subarraySum(_ nums: [Int], _ k: Int) {
+//*****CATEGORY******
+//**1. SubArray
+
+//MARK: 1. SubArray: SubArray in an array
+func allSubArrayList(_ nums: [Int], _ k: Int) {
     var level = 0
     while level < nums.count {
         for i in 0..<nums.count {
@@ -22,7 +25,7 @@ func subarraySum(_ nums: [Int], _ k: Int) {
 }
 
 
-//MARK: 2. Subarray Sum Equals K
+//MARK: 2. SubArray: Subarray Sum Equals K
 func subarraySum(_ nums: [Int], _ k: Int) -> Int {
     var level = 0
     var validSubset = 0
@@ -39,7 +42,52 @@ func subarraySum(_ nums: [Int], _ k: Int) -> Int {
     return validSubset
 }
 
-//MARK: 3. Remove Duplicates from a list
+// MARK: 3. SubArray: Continuous Subarray Sum which can be a multple of K
+/* Given a list of non-negative numbers and a target integer k, write a function to check if the array has a continuous subarray of size at least 2 that sums up to a multiple of k, that is, sums up to n*k where n is also an integer.
+*/
+func checkSubarraySum(_ nums: [Int], _ k: Int) -> Bool {
+    var level = 1
+    var i = 0
+    var result = [[Int]]()
+    for _ in 0..<nums.count {
+       while i + level < nums.count {
+            if nums[i...i+level].reduce(0, +) % k == 0 {
+                result.append(Array(nums[i...i+level]))
+            }
+            i += 1
+       }
+        level += 1
+        i = 0
+    }
+    return !result.isEmpty
+}
+
+// MARK: 4. Maximum Sum Contigous Subarray in an array
+func maxSubArray(_ nums: [Int]) -> Int {
+    var maxSum = 0
+    if nums.count == 1 {
+        maxSum = nums[0]
+        return maxSum
+    }
+    
+    var i = 0, k = 0, sum = 0
+    for j in 0..<nums.count {
+        if sum + nums[j] > nums[j] {
+            sum += nums[j]
+        } else {
+            sum = nums[j]
+            i = j
+        }
+        if sum > maxSum {
+            maxSum = sum
+            k = j
+        }
+    }
+    print(nums[i...k])
+    return maxSum
+}
+
+//MARK: 5. Remove Duplicates from a list
 // Approach 1
 func removeDuplicates1(from list: [Int]) -> [Int] {
     guard list.count > 0 else {
@@ -70,32 +118,7 @@ func removeDuplicates2(from list: inout [Int]) -> [Int] {
     return list
 }
 
-// MARK: 4. Maximum Sum Contigous Subarray in an array
-func maxSubArray(_ nums: [Int]) -> Int {
-    var maxSum = 0
-    if nums.count == 1 {
-        maxSum = nums[0]
-        return maxSum
-    }
-    
-    var i = 0, k = 0, sum = 0
-    for j in 0..<nums.count {
-        if sum + nums[j] > nums[j] {
-            sum += nums[j]
-        } else {
-            sum = nums[j]
-            i = j
-        }
-        if sum > maxSum {
-            maxSum = sum
-            k = j
-        }
-    }
-    print(nums[i...k])
-    return maxSum
-}
-
-// MARK: 5. Move Zeroes to right end
+// MARK: 6. Move Zeroes to right end
 // Given an array nums, write a function to move all 0's to the end of it while maintaining the
 // relative order of the non-zero elements.
 func moveZeroes(_ nums: inout [Int]) {
@@ -110,7 +133,7 @@ func moveZeroes(_ nums: inout [Int]) {
     }
 }
 
-// MARK: 6. Valid Parentheses
+// MARK: 7. Valid Parentheses
 func isValid(_ s: String) -> Bool {
     let stringArray = Array(s)
     var stack = [String]()
@@ -142,7 +165,7 @@ func isValidParanthesis(_ left: String, _ right: String) -> Bool {
     }
 }
 
-// MARK: 7. Permutation of an Ineger array
+// MARK: 8. Permutation of an Ineger array
 func permute(_ nums: [Int]) -> [[Int]] {
     var result = [[Int]]()
     var nums = nums

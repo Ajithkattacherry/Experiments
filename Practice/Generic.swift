@@ -146,47 +146,6 @@ func containsNearbyAlmostDuplicate(_ nums: [Int], _ k: Int, _ t: Int) -> Bool {
     return false
 }
 
-
-func lengthOfLongestSubstring(_ string: String) -> Int {
-    var result = [Character]()
-    //var subStringArray = [String]()
-    let charArray = Array(string)
-    var max = 0
-    for i in 0..<charArray.count {
-        if result.contains(charArray[i]) {
-            //let subString = String(result)
-            //subStringArray.append(subString)
-            guard let index = result.firstIndex(of: charArray[i]) else { return 0 }
-            result.removeSubrange(0...index)
-        }
-        result.append(charArray[i])
-        if result.count > max {
-            max = result.count
-        }
-    }
-    return max
-}
-
-func isSubstring(_ substring: String, in string: String) -> Bool {
-    let charArray = Array(string)
-    let charSubstringArray = Array(substring)
-    var i = 0, j = 0
-    
-    while j < charArray.count && i < charSubstringArray.count {
-        if charSubstringArray[i] == charArray[j] {
-            i += 1
-        } else {
-            i = 0
-        }
-        j += 1
-        
-        if i == charSubstringArray.count {
-            return true
-        }
-    }
-    return false
-}
-
 func removeComments(_ source: [String]) -> [String] {
     print(source)
     var resultArray = [String]()

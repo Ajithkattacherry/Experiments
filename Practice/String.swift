@@ -87,6 +87,48 @@ func findAnagrams(_ s: String, _ p: String) -> [Int] {
     return outPut
 }
 
+// MARK: 5. Check Substring of a String
+func isSubstring(_ substring: String, in string: String) -> Bool {
+    let charArray = Array(string)
+    let charSubstringArray = Array(substring)
+    var i = 0, j = 0
+    
+    while j < charArray.count && i < charSubstringArray.count {
+        if charSubstringArray[i] == charArray[j] {
+            i += 1
+        } else {
+            i = 0
+        }
+        j += 1
+        
+        if i == charSubstringArray.count {
+            return true
+        }
+    }
+    return false
+}
+
+// MARK: 6. Length Of Longest Substring
+func lengthOfLongestSubstring(_ string: String) -> Int {
+    var result = [Character]()
+    //var subStringArray = [String]()
+    let charArray = Array(string)
+    var max = 0
+    for i in 0..<charArray.count {
+        if result.contains(charArray[i]) {
+            //let subString = String(result)
+            //subStringArray.append(subString)
+            guard let index = result.firstIndex(of: charArray[i]) else { return 0 }
+            result.removeSubrange(0...index)
+        }
+        result.append(charArray[i])
+        if result.count > max {
+            max = result.count
+        }
+    }
+    return max
+}
+
 // MARK:
 func getAllComments(for adID: Int) {
     let data = ["1": "test comment1",
