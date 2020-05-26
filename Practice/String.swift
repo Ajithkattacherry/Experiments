@@ -87,7 +87,7 @@ func findAnagrams(_ s: String, _ p: String) -> [Int] {
     return outPut
 }
 
-// MARK: 5. Check Substring of a String
+// MARK: 5. Check Substring of a String -> string contains in another string
 func isSubstring(_ substring: String, in string: String) -> Bool {
     let charArray = Array(string)
     let charSubstringArray = Array(substring)
@@ -127,6 +127,77 @@ func lengthOfLongestSubstring(_ string: String) -> Int {
         }
     }
     return max
+}
+
+// MARK: 7. Verifying an Alien Dictionary
+/*
+ * Given a sequence of words written in the alien language, and the order of the alphabet,
+ * return true if and only if the given words are sorted lexicographicaly in this alien language.
+ */
+func isAlienSorted(_ words: [String], _ order: String) -> Bool {
+    var hashMap = [Character: Int]()
+    var i = 0
+    // Creating a hashmap
+    for char in order {
+        hashMap[char] = i
+        i += 1
+    }
+    
+    // Looping each words using sliding window approach and compare each char
+    // to see they are in order
+    for i in 0..<words.count - 1 {
+        let word1 = Array(words[i])
+        let word2 = Array(words[i + 1])
+        var flag = false
+        for i in 0..<min(word1.count, word2.count) {
+            if hashMap[word1[i]] ?? 0 < hashMap[word2[i]] ?? 0 {
+                flag = true
+                break
+            } else if hashMap[word1[i]] ?? 0 == hashMap[word2[i]] ?? 0 {
+                continue
+            } else {
+                return false
+            }
+        }
+        if word1.count > word2.count && !flag {
+            return false
+        }
+    }
+    return true
+}
+
+// MARK: 8. Longest Palindromic Substring
+func longestPalindrome(_ s: String) -> String {
+    var maxPalimdrome = 0
+    var maxPalimdromeString = ""
+    let charArray = Array(s)
+    for i in 0..<charArray.count {
+        for j in i..<charArray.count {
+            let subString = String(charArray[i...j])
+            if isPalindrome(string: subString) {
+                if subString.count > maxPalimdrome {
+                    maxPalimdrome = subString.count
+                    maxPalimdromeString = subString
+                }
+            }
+        }
+    }
+    print("Ajith: \(maxPalimdromeString)")
+    return maxPalimdromeString
+}
+
+func isPalindrome(string: String) -> Bool {
+    let charArray = Array(string)
+    let strLen = charArray.count
+    var i = 0, j = strLen - 1
+    while i < strLen/2 {
+        if charArray[i] != charArray[j] {
+            return false
+        }
+        i += 1
+        j -= 1
+    }
+    return true
 }
 
 // MARK:
