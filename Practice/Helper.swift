@@ -175,6 +175,12 @@ class Helper {
         print(array.joined())
     }
     
+    func testArrayIndexAndValue() {
+        let array = ["a", "b", "c"]
+        for (index, element) in array.enumerated() {
+          print("Item \(index): \(element)")
+        }
+    }
     // MARK: 4. SET
     /*********************************
      ********SET OPERATIONS*****

@@ -11,8 +11,9 @@ import Foundation
 //*****CATEGORY******
 //**1. SubArray
 
-//MARK: 1. SubArray: SubArray in an array
-func allSubArrayList(_ nums: [Int], _ k: Int) {
+//MARK: 1. SubSet: SubSet from an array
+// Approach 1
+func allSubArray1(_ nums: [Int]) {
     var level = 0
     while level < nums.count {
         for i in 0..<nums.count {
@@ -24,46 +25,75 @@ func allSubArrayList(_ nums: [Int], _ k: Int) {
     }
 }
 
+// Approach 2
+func allSubArray2(_ nums: [Int]) {
+    for i in 0..<nums.count {
+        for j in i..<nums.count {
+            print(nums[i...j])
+        }
+    }
+}
 
 //MARK: 2. SubArray: Subarray Sum Equals K
 func subarraySum(_ nums: [Int], _ k: Int) -> Int {
-    var level = 0
     var validSubset = 0
-    while level < nums.count {
-        for i in 0..<nums.count {
-            if i+level < nums.count {
-                if nums[i...(i+level)].reduce(0, +) == k {
-                    validSubset += 1
-                }
+    for i in 0..<nums.count {
+        for j in i..<nums.count {
+            if nums[i...j].reduce(0, +) == k {
+                validSubset += 1
             }
         }
-        level += 1
     }
     return validSubset
+}
+
+func sumOfContinousSubArray(_ nums: [Int], _ k: Int) -> Bool {
+    for i in 0..<nums.count {
+        for j in i..<nums.count {
+            if nums[i...j].reduce(0, +) == k {
+                return true
+            }
+        }
+    }
+    return false
 }
 
 // MARK: 3. SubArray: Continuous Subarray Sum which can be a multple of K
 /* Given a list of non-negative numbers and a target integer k, write a function to check if the array has a continuous subarray of size at least 2 that sums up to a multiple of k, that is, sums up to n*k where n is also an integer.
 */
 func checkSubarraySum(_ nums: [Int], _ k: Int) -> Bool {
-    var level = 1
-    var i = 0
     var result = [[Int]]()
-    for _ in 0..<nums.count {
-       while i + level < nums.count {
-            if nums[i...i+level].reduce(0, +) % k == 0 {
-                result.append(Array(nums[i...i+level]))
+    for i in 0..<nums.count {
+        for j in i..<nums.count {
+            if nums[i...j].reduce(0, +) % k == 0 {
+                result.append(Array(nums[i...j]))
             }
-            i += 1
-       }
-        level += 1
-        i = 0
+        }
     }
+    print(result)
     return !result.isEmpty
 }
 
-// MARK: 4. Maximum Sum Contigous Subarray in an array
-func maxSubArray(_ nums: [Int]) -> Int {
+// MARK: 4. Subarray: Maximum Sum Contigous Subarray in an array
+// Approach 1
+func maxSubArray1(_ nums: [Int]) -> Int {
+    var maxSum = 0
+    var maxSumArray = [Int]()
+    for i in 0..<nums.count {
+        for j in i..<nums.count {
+            let sum = nums[i...j].reduce(0, +)
+            if sum > maxSum {
+                maxSum = sum
+                maxSumArray = Array(nums[i...j])
+            }
+        }
+    }
+    print(maxSumArray)
+    return maxSum
+}
+
+// Approach 2
+func maxSubArray2(_ nums: [Int]) -> Int {
     var maxSum = 0
     if nums.count == 1 {
         maxSum = nums[0]

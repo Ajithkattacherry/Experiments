@@ -172,3 +172,41 @@ func removeComments(_ source: [String]) -> [String] {
     }
     return resultArray.filter { !$0.isEmpty }
 }
+
+// MARK: Insert Delete GetRandom O(1)
+/*Design a data structure that supports all following operations in average O(1) time.
+
+insert(val): Inserts an item val to the set if not already present.
+remove(val): Removes an item val from the set if present.
+getRandom: Returns a random element from current set of elements. Each element must have the same probability of being returned.*/
+class RandomizedSet {
+
+    /** Initialize your data structure here. */
+    var array: [Int]
+    init() {
+        array = [Int]()
+    }
+    
+    /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
+    func insert(_ val: Int) -> Bool {
+        if array.contains(val) {
+            return false
+        }
+        array.append(val)
+        return true
+    }
+    
+    /** Removes a value from the set. Returns true if the set contained the specified element. */
+    func remove(_ val: Int) -> Bool {
+        guard let index = array.index(of: val) else {
+            return false
+        }
+        array.remove(at: index)
+        return true
+    }
+    
+    /** Get a random element from the set. */
+    func getRandom() -> Int {
+        return array.randomElement() ?? 0
+    }
+}

@@ -14,6 +14,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print(isAnagram("ajith", "jitah"))
+        print(maxSubArray1([-2,1,-3,4,-1,2,1,-5,4]))
     }
 }
