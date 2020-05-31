@@ -88,7 +88,19 @@ func findAnagrams(_ s: String, _ p: String) -> [Int] {
 }
 
 // MARK: 5. Check Substring of a String -> string contains in another string
-func isSubstring(_ substring: String, in string: String) -> Bool {
+func isSubString1(_ substring: String, in string: String) -> Bool {
+    let strArray = Array(string)
+    for i in 0..<strArray.count {
+        for j in i..<strArray.count {
+            if String(strArray[i...j]) == substring {
+                return true
+            }
+        }
+    }
+    
+    return false
+}
+func isSubstring2(_ substring: String, in string: String) -> Bool {
     let charArray = Array(string)
     let charSubstringArray = Array(substring)
     var i = 0, j = 0

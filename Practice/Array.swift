@@ -94,6 +94,25 @@ func maxSubArray1(_ nums: [Int]) -> Int {
 
 // Approach 2
 func maxSubArray2(_ nums: [Int]) -> Int {
+    guard nums.count > 0 else {
+        return 0
+    }
+    var sum = nums[0]
+    var maxSum = nums[0]
+    for i in 1..<nums.count {
+        let num = nums[i]
+        print(num)
+        sum = max(num, sum + num)
+        print(sum)
+        maxSum = max(maxSum, sum)
+        print(maxSum)
+        print("_______")
+    }
+    
+    return maxSum
+}
+
+func maxSubArray3(_ nums: [Int]) -> Int {
     var maxSum = 0
     if nums.count == 1 {
         maxSum = nums[0]
@@ -213,4 +232,75 @@ func recurse(_ first: Int, _ nums: inout [Int], _ result: inout [[Int]]) {
         recurse(first+1, &nums, &result)
         nums.swapAt(first, index)
     }
+}
+
+// MARK: 9. Custom Sort String
+/*S and T are strings composed of lowercase letters. In S, no letter occurs more than once.
+
+S was sorted in some custom order previously. We want to permute the characters of T so that they match the order that S was sorted. More specifically, if x occurs before y in S, then x should occur before y in the returned string.
+ 
+ Input:
+ S: "kqep"
+ T: "pekeq"
+ Output: "kqeep"
+ 
+ Input:
+ S = "cba"
+ T = "abcd"
+ Output: "cbad"
+ */
+
+func customSortString(_ S: String, _ T: String) -> String {
+    let sArray = Array(S)
+    var tArray = Array(T)
+    var resultString = [Character]()
+    
+    for char in sArray {
+        while tArray.firstIndex(of: char) != nil { // loop until the repeated elemet is not found
+            if tArray.contains(char) {
+                resultString.append(char)
+                guard let index = tArray.firstIndex(of: char) else {
+                    continue
+                }
+                tArray.remove(at: index)
+            }
+        }
+    }
+    resultString.append(contentsOf: tArray)
+    return String(resultString)
+}
+
+
+// MARK: 56. Merge Intervals
+/*Given a collection of intervals, merge all overlapping intervals.
+
+Example 1:
+
+Input: [[1,3],[2,6],[8,10],[15,18]]
+Output: [[1,6],[8,10],[15,18]]
+Explanation: Since intervals [1,3] and [2,6] overlaps, merge them into [1,6].
+Idea: Once we sort the given intervals always the current min interval will be grater/less
+      than previous interval. So if grater it can be treated as a new interval.
+ */
+func merge(_ intervals: [[Int]]) -> [[Int]] {
+    var result = [[Int]]()
+    guard intervals.count > 0 else {
+        return result
+    }
+    let intervals = intervals.sorted { $0[0] < $1[0] }
+    for interval in intervals {
+        if result.count == 0 {
+            result.append([interval[0], interval[1]])
+        } else {
+            let lastMax = result.last![1]
+            let lastMin = result.last![0]
+            if interval[0] > lastMax {
+                result.append([interval[0], interval[1]])
+            } else if interval[1] > lastMax {
+                result.removeLast()
+                result.append([lastMin, interval[1]])
+            }
+        }
+    }
+    return result
 }

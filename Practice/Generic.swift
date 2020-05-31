@@ -210,3 +210,16 @@ class RandomizedSet {
         return array.randomElement() ?? 0
     }
 }
+
+func isSplitPossible(for array: [Int]) -> Bool {
+    let sum = array.reduce(0, +)
+    for i in 0..<array.count {
+        for j in i..<array.count {
+            print(array[i...j])
+            if array[i...j].reduce(0, +) == sum/2 {
+                print(array[i...j])
+            }
+        }
+    }
+    return false
+}
