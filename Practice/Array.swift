@@ -58,6 +58,26 @@ func sumOfContinousSubArray(_ nums: [Int], _ k: Int) -> Bool {
     return false
 }
 
+func subarraySum2(_ nums: [Int], _ k: Int) -> Int {
+    var hashMap = [Int: Int]()
+    hashMap[0] = 1
+    var sum: Int = 0
+    var count: Int = 0
+    print("hashMap: \(hashMap)")
+    // O(n)
+    for num in nums {
+        sum += num
+        if let diffCount = hashMap[sum - k] {
+            count += diffCount
+        }
+        hashMap[sum] = (hashMap[sum] ?? 0) + 1
+        print("sum: \(sum)")
+        print("hashMap: \(hashMap)")
+    }
+    
+    return count
+}
+
 // MARK: 3. SubArray: Continuous Subarray Sum which can be a multple of K
 /* Given a list of non-negative numbers and a target integer k, write a function to check if the array has a continuous subarray of size at least 2 that sums up to a multiple of k, that is, sums up to n*k where n is also an integer.
 */
@@ -182,6 +202,7 @@ func moveZeroes(_ nums: inout [Int]) {
     }
 }
 
+// MARK: Parentheses
 // MARK: 7. Valid Parentheses
 func isValid(_ s: String) -> Bool {
     let stringArray = Array(s)
@@ -212,6 +233,35 @@ func isValidParanthesis(_ left: String, _ right: String) -> Bool {
         default:
             return false
     }
+}
+
+// MARK: 1249 - Minimum Remove to Make Valid Parentheses
+/*Given a string s of '(' , ')' and lowercase English characters.
+
+Your task is to remove the minimum number of parentheses ( '(' or ')', in any positions ) so that the resulting parentheses string is valid and return any valid string.*/
+func minRemoveToMakeValid(_ s: String) -> String {
+    let charArray = Array(s)
+    var newString = [Character]()
+    var stack = [Int]()
+    for (index, char) in charArray.enumerated() {
+        print(char)
+        if char == "(" {
+            stack.append(index)
+        } else if char == ")" {
+            if let last = stack.last, charArray[last] == "("  {
+                stack.removeLast()
+            } else {
+                stack.append(index)
+            }
+        }
+    }
+    print(stack)
+    for (index, char) in charArray.enumerated() {
+        if !stack.contains(index) {
+            newString.append(char)
+        }
+    }
+    return String(newString)
 }
 
 // MARK: 8. Permutation of an Ineger array
@@ -271,7 +321,7 @@ func customSortString(_ S: String, _ T: String) -> String {
 }
 
 
-// MARK: 56. Merge Intervals
+// MARK: 10. Merge Intervals
 /*Given a collection of intervals, merge all overlapping intervals.
 
 Example 1:
@@ -290,7 +340,7 @@ func merge(_ intervals: [[Int]]) -> [[Int]] {
     let intervals = intervals.sorted { $0[0] < $1[0] }
     for interval in intervals {
         if result.count == 0 {
-            result.append([interval[0], interval[1]])
+            result.append([interval[0], interval[1]]) // appending [1, 3]
         } else {
             let lastMax = result.last![1]
             let lastMin = result.last![0]

@@ -224,3 +224,45 @@ func getAllComments(for adID: Int) {
     print(Array(keys)[adID])
     print(Array(values)[adID])
 }
+
+// MARK: 9. 680 - Valid Palindrome II
+/*Given a non-empty string s, you may delete at most one character. Judge whether you can make it a palindrome.
+
+Example 1:
+Input: "aba"
+Output: True
+Example 2:
+Input: "abca"
+Output: True
+Explanation: You could delete the character 'c'.*/
+func validPalindrome(_ s: String) -> Bool {
+    var charArray = Array(s)
+    var i = 0
+    if charArray.count <= 2 {
+        return true
+    }
+    while i < charArray.count {
+        if charArray[i] != charArray[charArray.count - 1 - i] {
+            var tempArray = charArray
+            tempArray.remove(at: i)
+            charArray.remove(at: charArray.count - 1 - i)
+            return isPalindrom(tempArray) || isPalindrom(charArray)
+        }
+        i += 1
+    }
+    return true
+}
+
+func isPalindrom(_ charArray: [Character]) -> Bool {
+    if charArray.count < 3 {
+        return false
+    }
+    var i = 0
+    while i < charArray.count {
+        if charArray[i] != charArray[charArray.count - 1 - i] {
+            return false
+        }
+        i += 1
+    }
+    return true
+}

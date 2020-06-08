@@ -223,3 +223,51 @@ func isSplitPossible(for array: [Int]) -> Bool {
     }
     return false
 }
+
+
+// MARK: K Closest Points to Origin
+/*
+ We have a list of points on the plane.  Find the K closest points to the origin (0, 0).
+
+ (Here, the distance between two points on a plane is the Euclidean distance.)
+
+ You may return the answer in any order.  The answer is guaranteed to be unique (except for the order that it is in.)
+ Example 1:
+ Input: points = [[1,3],[-2,2]], K = 1
+ Output: [[-2,2]]
+ */
+func kClosest(_ points: [[Int]], _ K: Int) -> [[Int]] {
+    var result = [Int: Int]()
+    var closestPoint = [[Int]]()
+    for (index, value) in points.enumerated() {
+        result[index] = (value[0] * value[0]) + (value[1] * value[1])
+    }
+    let sortedResult = result.sorted { $0.1 < $1.1 }
+    var i = 0
+    for (key, _) in sortedResult where i < K {
+        closestPoint.append(points[key])
+        i += 1
+    }
+    return closestPoint
+}
+
+// MARK: String contains a substring
+func isSubstring(_ substring: String, in string: String) -> Bool {
+    let charArray = Array(string)
+    let charSubstringArray = Array(substring)
+    var i = 0, j = 0
+    
+    while j < charArray.count && i < charSubstringArray.count {
+        if charSubstringArray[i] == charArray[j] {
+            i += 1
+        } else {
+            i = 0
+        }
+        j += 1
+        
+        if i == charSubstringArray.count {
+            return true
+        }
+    }
+    return false
+}

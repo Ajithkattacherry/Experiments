@@ -14,6 +14,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print(merge( [[4,5],[2,4],[4,6],[3,4],[0,0],[1,1],[3,5],[2,2]]))
+        print(merge([[1,3],[2,6],[8,10],[15,18]]))
     }
 }
