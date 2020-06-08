@@ -173,6 +173,7 @@ class Helper {
     func testArrayJoin() {
         let array = ["a", "b", "c"]
         print(array.joined())
+        print(array.joined(separator: "->"))
     }
     
     func testArrayIndexAndValue() {

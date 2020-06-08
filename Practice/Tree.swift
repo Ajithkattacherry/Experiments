@@ -197,3 +197,40 @@ func findSecondMinimumValue(_ root: TreeNode?) -> Int {
     }
     return array[i]
 }
+
+//MARK: 9. Binary Tree Paths
+/*
+ Given a binary tree, return all root-to-leaf paths.
+
+ Note: A leaf is a node with no children.
+
+ Example:
+
+ Input:
+
+    1
+  /   \
+ 2     3
+  \
+   5
+
+ Output: ["1->2->5", "1->3"]
+*/
+func binaryTreePaths(_ root: TreeNode?) -> [String] {
+    var result = [String]()
+    var stack = [String]()
+    root?.traverse(&stack, &result)
+    return result
+}
+
+extension TreeNode {
+    func traverse(_ stack: inout [String], _ result: inout [String]) {
+        stack.append("\(self.val)")
+        if self.left == nil && self.right == nil {
+            result.append(stack.joined(separator: "->"))
+        }
+        self.left?.traverse(&stack, &result)
+        self.right?.traverse(&stack, &result)
+        stack.removeLast()
+    }
+}

@@ -15,5 +15,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print(merge([[1,3],[2,6],[8,10],[15,18]]))
+        Helper().testArrayJoin()
     }
 }
