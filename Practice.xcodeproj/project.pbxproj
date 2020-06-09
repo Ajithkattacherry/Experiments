@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E0119ED3248DD3CE007370C3 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0119ED2248DD3CE007370C3 /* Sort.swift */; };
 		E06FCCC22432B48C00163600 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FCCC12432B48C00163600 /* AppDelegate.swift */; };
 		E06FCCC42432B48C00163600 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FCCC32432B48C00163600 /* SceneDelegate.swift */; };
 		E06FCCC62432B48C00163600 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FCCC52432B48C00163600 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E0119ED2248DD3CE007370C3 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		E06FCCBE2432B48C00163600 /* Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06FCCC12432B48C00163600 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E06FCCC32432B48C00163600 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				E0E5D767247A542D00698FE0 /* String.swift */,
 				E0E5D76524799F4900698FE0 /* Array.swift */,
 				E0EC6C312468E6E000A79B39 /* Tree.swift */,
+				E0119ED2248DD3CE007370C3 /* Sort.swift */,
 				E08AD94E2473BA8A006897B3 /* Helper.swift */,
 				E0E5D769247B090E00698FE0 /* Collections_Docs.swift */,
 				E06FCCC72432B48C00163600 /* Main.storyboard */,
@@ -159,6 +162,7 @@
 				E0EC6C342468E70A00A79B39 /* Generic.swift in Sources */,
 				E0EC6C322468E6E000A79B39 /* Tree.swift in Sources */,
 				E0E5D76A247B090E00698FE0 /* Collections_Docs.swift in Sources */,
+				E0119ED3248DD3CE007370C3 /* Sort.swift in Sources */,
 				E0E5D76624799F4900698FE0 /* Array.swift in Sources */,
 				E06FCCC62432B48C00163600 /* ViewController.swift in Sources */,
 				E06FCCC22432B48C00163600 /* AppDelegate.swift in Sources */,

@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print(merge([[1,3],[2,6],[8,10],[15,18]]))
-        Helper().testArrayJoin()
+        //print(merge([[1,3],[2,6],[8,10],[15,18]]))
+        //Helper().testArrayJoin()
+        print(quickSort([4,2,6,7]))
     }
 }
