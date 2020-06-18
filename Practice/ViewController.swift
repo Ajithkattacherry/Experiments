@@ -16,6 +16,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         //print(merge([[1,3],[2,6],[8,10],[15,18]]))
         //Helper().testArrayJoin()
-        print(quickSort([4,2,6,7]))
+        print(binarySrarch([1,12,32,34,55,86], 32))
     }
 }

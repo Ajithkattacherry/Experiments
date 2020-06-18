@@ -266,3 +266,29 @@ func isPalindrom(_ charArray: [Character]) -> Bool {
     }
     return true
 }
+
+// MARK: 10. Reverse a string
+func reverseString(_ s: String) -> String {
+    var array = Array(s)
+    var i = 0
+    let n = array.count - 1
+    while i <= n/2 {
+        array.swapAt(i, n - i)
+        i += 1
+    }
+    return String(array)
+}
+
+func reverse(_ x: Int) -> Int {
+    var rev = 0
+    var number = x
+    while abs(number) > 0 {
+        let rem = number % 10
+        rev = (rev * 10) + rem
+        if rev > Int.max || rev < Int.min {
+            return 0
+        }
+        number = number / 10
+    }
+    return rev
+}
