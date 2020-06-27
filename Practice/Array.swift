@@ -354,3 +354,16 @@ func merge(_ intervals: [[Int]]) -> [[Int]] {
     }
     return result
 }
+
+// MARK: first and last position of element in sorted array
+func getPositionInArray(_ nums: [Int], _ target: Int) -> [Int] {
+    guard let index = nums.firstIndex(of: target) else {
+        return [-1, -1]
+    }
+    var startIndex = index
+    while startIndex < nums.count && nums[startIndex] == target {
+        startIndex += 1
+    }
+    
+    return [index, startIndex]
+}

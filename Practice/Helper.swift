@@ -45,10 +45,15 @@ class Helper {
     }
     
     func testStringTrimmingCharacters() {
-        let string = "This is a big day"
+        let string = " This is 1 * a big day "
         print(string.trimmingCharacters(in: .whitespaces))
     }
     
+    func testReplacingOccurrences() {
+        let string = "Hello World!"
+        let formattedString = string.replacingOccurrences(of: " ", with: "")
+        print(formattedString)
+    }
     func testComponentsSeparatedBy() {
         // Split always returns a string array
         let string = " This is  a  big  day "
@@ -190,6 +195,21 @@ class Helper {
         let employees: Set = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
         let attendees: Set = ["Alicia", "Bethany", "Diana"]
         print(attendees.isSubset(of: employees))
+    }
+    
+    func testArrayToSet() {
+        let array = [1,2,2,3,4,4,5,6,6]
+        var setArray = Set(array)
+        print(setArray.sorted())
+        
+        let array2 = [8,9,4,5,3,1,4]
+        let setArray2 = Set(array2)
+        
+        setArray = setArray.intersection(setArray2)
+        print(setArray.sorted())
+        
+        setArray = setArray.union(setArray2)
+        print(setArray.sorted())
     }
     
     

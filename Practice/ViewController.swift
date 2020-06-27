@@ -14,8 +14,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //print(merge([[1,3],[2,6],[8,10],[15,18]]))
-        //Helper().testArrayJoin()
-        print(binarySrarch([1,12,32,34,55,86], 32))
+    }
+    
+    func test() -> Bool {
+        var s = "A man, a plan, a canal: Panama"
+        s = s.filter { $0.isLetter || $0.isNumber }
+        let charArray = Array(s.lowercased())
+        print(charArray)
+        var i = 0, count = charArray.count - 1
+        while i < count / 2 {
+            if charArray[i] != charArray[count - i] {
+                return false
+            }
+            i += 1
+        }
+        return true
     }
 }
