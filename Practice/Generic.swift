@@ -271,3 +271,58 @@ func isSubstring(_ substring: String, in string: String) -> Bool {
     }
     return false
 }
+
+// MARK:
+//Given [2, 3, 4, 2, 3] return [3, 4, 4, 2]
+//Given [2, 3, 4, 2, 3, 2] return [3, 4, 4, 2, 3]
+func numberBetweenTheDuplicates(_ nums: [Int]) -> [Int] {
+    print(nums)
+    var hashMap = [Int: [Int]]()
+    var result = [Int]()
+    for (index, num) in nums.enumerated() {
+        if var indexArray = hashMap[num] {
+            indexArray.append(index)
+            hashMap[num] = indexArray
+        } else {
+            hashMap[num] = [index]
+        }
+    }
+    print(hashMap)
+    for (_, values) in hashMap where values.count >= 2 {
+        var i = 0
+        while i < values.count - 1 {
+            let firstIndex = values[i] + 1
+            let lastIndex = values[i+1] - 1
+            result.append(contentsOf: nums[firstIndex...lastIndex])
+            i += 1
+        }
+    }
+    
+    return result
+}
+
+// MARK: Subdomain Visit Count
+func subdomainVisits(_ cpdomains: [String]) -> [String] {
+    var hashMap = [String: Int]()
+    for domains in cpdomains {
+        let array = domains.split(separator: " ")
+        let count = Int(array.first ?? "") ?? 0
+        let domain = (array.last ?? "").split(separator: ".")
+        var i = 0
+        while i < domain.count {
+            let subDomain = domain[i..<domain.count]
+            let key = subDomain.joined(separator: ".")
+            if let totalCount = hashMap[key] {
+                hashMap[key] = totalCount + count
+            } else {
+                hashMap[key] = count
+            }
+            i += 1
+        }
+    }
+    var resultArray = [String]()
+    for (key, value) in hashMap {
+        resultArray.append("\(value) \(key)")
+    }
+    return resultArray
+}
