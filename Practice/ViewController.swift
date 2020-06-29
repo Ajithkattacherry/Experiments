@@ -33,28 +33,4 @@ class ViewController: UIViewController {
         }
         return true
     }
-    
-    func subdomainVisits(_ cpdomains: [String]) -> [String] {
-        var hashMap = [String: Int]()
-        for domains in cpdomains {
-            let array = domains.split(separator: " ")
-            let count = array.first ?? ""
-            let domain = (array.last ?? "").split(separator: ".")
-            var i = 0
-            print(Int(count) ?? 0)
-            print(domain[0..<domain.count])
-            while i < domain.count {
-                let subDomain = domain[i..<domain.count]
-                let value = subDomain.joined()
-                if let totalCount = hashMap[value] {
-                    hashMap[value] = totalCount + Int(count) ?? 0
-                } else {
-                    hashMap[value] = Int(count) ?? 0
-                }
-                i += 1
-            }
-        }
-        print(hashMap)
-        return [""]
-    }
 }

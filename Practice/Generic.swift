@@ -272,13 +272,14 @@ func isSubstring(_ substring: String, in string: String) -> Bool {
     return false
 }
 
-// MARK:
+// MARK: Number Between The Duplicates
 //Given [2, 3, 4, 2, 3] return [3, 4, 4, 2]
 //Given [2, 3, 4, 2, 3, 2] return [3, 4, 4, 2, 3]
 func numberBetweenTheDuplicates(_ nums: [Int]) -> [Int] {
     print(nums)
     var hashMap = [Int: [Int]]()
     var result = [Int]()
+    // Building a hashmap with number and its indexes
     for (index, num) in nums.enumerated() {
         if var indexArray = hashMap[num] {
             indexArray.append(index)
@@ -288,6 +289,8 @@ func numberBetweenTheDuplicates(_ nums: [Int]) -> [Int] {
         }
     }
     print(hashMap)
+    // If a number has more than one index, its a duplicate number.
+    // Then we will figure out the index position of this number and find the numbers between each indexes.
     for (_, values) in hashMap where values.count >= 2 {
         var i = 0
         while i < values.count - 1 {
@@ -302,8 +305,23 @@ func numberBetweenTheDuplicates(_ nums: [Int]) -> [Int] {
 }
 
 // MARK: Subdomain Visit Count
+/*A website domain like "discuss.leetcode.com" consists of various subdomains. At the top level, we have "com", at the next level, we have "leetcode.com", and at the lowest level, "discuss.leetcode.com". When we visit a domain like "discuss.leetcode.com", we will also visit the parent domains "leetcode.com" and "com" implicitly.
+
+Now, call a "count-paired domain" to be a count (representing the number of visits this domain received), followed by a space, followed by the address. An example of a count-paired domain might be "9001 discuss.leetcode.com".
+
+We are given a list cpdomains of count-paired domains. We would like a list of count-paired domains, (in the same format as the input, and in any order), that explicitly counts the number of visits to each subdomain.
+
+ Example 1:
+ Input:
+ ["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]
+ Output:
+ ["901 mail.com","50 yahoo.com","900 google.mail.com","5 wiki.org","5 org","1 intel.mail.com","951 com"]
+
+ */
 func subdomainVisits(_ cpdomains: [String]) -> [String] {
     var hashMap = [String: Int]()
+    
+    // Build a hasp map for each sub domain with count as its value.
     for domains in cpdomains {
         let array = domains.split(separator: " ")
         let count = Int(array.first ?? "") ?? 0

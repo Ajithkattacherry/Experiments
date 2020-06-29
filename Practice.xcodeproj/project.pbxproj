@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E00A830024A95A620099627D /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00A82FF24A95A620099627D /* Matrix.swift */; };
 		E0119ED3248DD3CE007370C3 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0119ED2248DD3CE007370C3 /* Sort.swift */; };
 		E06FCCC22432B48C00163600 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FCCC12432B48C00163600 /* AppDelegate.swift */; };
 		E06FCCC42432B48C00163600 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FCCC32432B48C00163600 /* SceneDelegate.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E00A82FF24A95A620099627D /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		E0119ED2248DD3CE007370C3 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		E06FCCBE2432B48C00163600 /* Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06FCCC12432B48C00163600 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				E0DC5CF624A6502B003FA513 /* BitManipulation.swift */,
 				E0DC5CF824A71C44003FA513 /* Permutation.swift */,
 				E08AD94E2473BA8A006897B3 /* Helper.swift */,
+				E00A82FF24A95A620099627D /* Matrix.swift */,
 				E0E5D769247B090E00698FE0 /* Collections_Docs.swift */,
 				E06FCCC72432B48C00163600 /* Main.storyboard */,
 				E06FCCCA2432B48E00163600 /* Assets.xcassets */,
@@ -168,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E00A830024A95A620099627D /* Matrix.swift in Sources */,
 				E0B06E31249B124600B7E9C0 /* Search.swift in Sources */,
 				E0EC6C342468E70A00A79B39 /* Generic.swift in Sources */,
 				E0EC6C322468E6E000A79B39 /* Tree.swift in Sources */,
