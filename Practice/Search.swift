@@ -26,25 +26,40 @@ func binarySrarch(_ nums: [Int], _ target: Int) -> Int {
     return -1
 }
 
-// MARK: Search RotatedArray
-func searchRotatedArray(_ array: [Int], _ target: Int) -> Int {
-    guard !array.isEmpty else {
-        return -1
-    }
-    
+// MARK: Search Rotated Sorted Array
+func searchRotatedArray(_ nums: [Int], _ target: Int) -> Int {
+    guard nums.count > 0 else { return -1 }
     var left = 0
-    var right = array.count - 1
-    
-    while left < right {
-        let mid = (left + right)/2
-        if array[mid] == target {
+    var right = nums.count - 1
+    var mid = 0
+    while left + 1 < right {
+        mid = left + (right - left) / 2
+        if nums[mid] == target {
             return mid
-        } else if target <= array[mid] {
-            right = mid
+        }
+        if nums[mid] > nums[left] {
+            if nums[left] <= target && target <= nums[mid] {
+                right = mid - 1
+            } else {
+                left = mid + 1
+            }
         } else {
-            left = mid + 1
+            if nums[mid] <= target && target <= nums[right] {
+                left = mid + 1
+            } else {
+                right = mid - 1
+            }
         }
     }
+    
+    if nums[left] == target {
+        return left
+    }
+    
+    if nums[right] == target {
+        return right
+    }
+    
     return -1
 }
 

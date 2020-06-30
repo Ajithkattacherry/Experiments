@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E00A830024A95A620099627D /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00A82FF24A95A620099627D /* Matrix.swift */; };
 		E0119ED3248DD3CE007370C3 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0119ED2248DD3CE007370C3 /* Sort.swift */; };
+		E05949A624ABE69F00DD0A9B /* TableviewDQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05949A524ABE69F00DD0A9B /* TableviewDQueue.swift */; };
 		E06FCCC22432B48C00163600 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FCCC12432B48C00163600 /* AppDelegate.swift */; };
 		E06FCCC42432B48C00163600 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FCCC32432B48C00163600 /* SceneDelegate.swift */; };
 		E06FCCC62432B48C00163600 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FCCC52432B48C00163600 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		E00A82FF24A95A620099627D /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		E0119ED2248DD3CE007370C3 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
+		E05949A524ABE69F00DD0A9B /* TableviewDQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableviewDQueue.swift; sourceTree = "<group>"; };
 		E06FCCBE2432B48C00163600 /* Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06FCCC12432B48C00163600 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E06FCCC32432B48C00163600 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				E0DC5CF624A6502B003FA513 /* BitManipulation.swift */,
 				E0DC5CF824A71C44003FA513 /* Permutation.swift */,
 				E00A82FF24A95A620099627D /* Matrix.swift */,
+				E05949A524ABE69F00DD0A9B /* TableviewDQueue.swift */,
 				E08AD94E2473BA8A006897B3 /* Helper.swift */,
 				E0E5D769247B090E00698FE0 /* Collections_Docs.swift */,
 				E06FCCC72432B48C00163600 /* Main.storyboard */,
@@ -177,6 +180,7 @@
 				E0EC6C322468E6E000A79B39 /* Tree.swift in Sources */,
 				E0E5D76A247B090E00698FE0 /* Collections_Docs.swift in Sources */,
 				E0119ED3248DD3CE007370C3 /* Sort.swift in Sources */,
+				E05949A624ABE69F00DD0A9B /* TableviewDQueue.swift in Sources */,
 				E0E5D76624799F4900698FE0 /* Array.swift in Sources */,
 				E06FCCC62432B48C00163600 /* ViewController.swift in Sources */,
 				E06FCCC22432B48C00163600 /* AppDelegate.swift in Sources */,
