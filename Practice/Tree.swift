@@ -234,3 +234,67 @@ extension TreeNode {
         stack.removeLast()
     }
 }
+
+// MARK: 10. Sorted Array to Binary Tree
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public var val: Int
+ *     public var left: TreeNode?
+ *     public var right: TreeNode?
+ *     public init(_ val: Int) {
+ *         self.val = val
+ *         self.left = nil
+ *         self.right = nil
+ *     }
+ * }
+ */
+func sortedArrayToBST(_ nums: [Int]) -> TreeNode? {
+    guard !nums.isEmpty else { return nil }
+    let root = bst(nums, start: 0, end: nums.count-1)
+    return root
+}
+
+private func bst(_ nums: [Int], start: Int, end: Int) -> TreeNode? {
+    guard start <= end else {
+        return nil
+    }
+    
+    let rootIndex = start + (end - start)/2
+    let rootNode = TreeNode(nums[rootIndex])
+    rootNode.left = bst(nums, start: start, end: rootIndex-1)
+    rootNode.right = bst(nums, start: rootIndex+1, end: end)
+    
+    return rootNode
+}
+
+// MARK: 11. Maximum Binary Tree
+/*
+ Input: [3,2,1,6,0,5]
+ Output: return the tree root node representing the following tree:
+
+       6
+     /   \
+    3     5
+     \    /
+      2  0
+        \
+         1
+ */
+func constructMaximumBinaryTree(_ nums: [Int]) -> TreeNode? {
+    guard nums.count > 0 else { return nil }
+    
+    var maxNum = 0
+    var maxIdx = 0
+    for (idx, num) in nums.enumerated() {
+        if num > maxNum {
+            maxNum = num
+            maxIdx = idx
+        }
+    }
+    
+    let root = TreeNode(maxNum)
+    root.left = constructMaximumBinaryTree(Array(nums[0..<maxIdx]))
+    root.right = constructMaximumBinaryTree(Array(nums[(maxIdx + 1)..<nums.count]))
+    return root
+}

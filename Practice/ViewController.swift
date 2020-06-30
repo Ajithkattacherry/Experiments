@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         //var arr = Array("ABC")
         //permutations(arr.count, &arr)
-        print(numberBetweenTheDuplicates([2, 3, 4, 2, 3, 2]))
+        Helper().testAllKeys()
     }
     
     func test() -> Bool {

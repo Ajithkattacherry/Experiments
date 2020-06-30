@@ -80,6 +80,9 @@ class Helper {
         let dicValues = dictionary.values
         print("Dic Keys: \(dicKeys)")
         print("Dic Keys: \(dicValues)")
+        for key in dicKeys {
+            print(Int(key) ?? 0)
+        }
     }
     
     func testSortByKey() {
