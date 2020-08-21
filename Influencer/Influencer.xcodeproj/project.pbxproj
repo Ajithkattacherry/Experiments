@@ -15,6 +15,7 @@
 		E02557FA24B1401700F47FBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E02557F824B1401700F47FBC /* LaunchScreen.storyboard */; };
 		E025580524B1401700F47FBC /* InfluencerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E025580424B1401700F47FBC /* InfluencerTests.swift */; };
 		E025581024B148E300F47FBC /* TableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E025580F24B148E300F47FBC /* TableviewCell.swift */; };
+		E07A10B824B25AFD00C7C42D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07A10B724B25AFD00C7C42D /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		E025580424B1401700F47FBC /* InfluencerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfluencerTests.swift; sourceTree = "<group>"; };
 		E025580624B1401700F47FBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E025580F24B148E300F47FBC /* TableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableviewCell.swift; sourceTree = "<group>"; };
+		E07A10B724B25AFD00C7C42D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				E02557ED24B1401300F47FBC /* AppDelegate.swift */,
 				E02557EF24B1401300F47FBC /* SceneDelegate.swift */,
 				E02557F124B1401300F47FBC /* ViewController.swift */,
+				E07A10B724B25AFD00C7C42D /* DetailViewController.swift */,
 				E025580F24B148E300F47FBC /* TableviewCell.swift */,
 				E02557F324B1401300F47FBC /* Main.storyboard */,
 				E02557F624B1401700F47FBC /* Assets.xcassets */,
@@ -205,6 +208,7 @@
 			files = (
 				E02557F224B1401300F47FBC /* ViewController.swift in Sources */,
 				E025581024B148E300F47FBC /* TableviewCell.swift in Sources */,
+				E07A10B824B25AFD00C7C42D /* DetailViewController.swift in Sources */,
 				E02557EE24B1401300F47FBC /* AppDelegate.swift in Sources */,
 				E02557F024B1401300F47FBC /* SceneDelegate.swift in Sources */,
 			);
