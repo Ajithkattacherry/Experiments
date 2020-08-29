@@ -8,26 +8,29 @@
 
 import Foundation
 
+enum LocalError: LocalizedError {
+    case message(failureReason: String?)
+}
+
 class NetworkManager {
-    static func getList(onComplete: @escaping (Swift.Result<DataModel, NSError>) -> Void) {
+    static func getList(onComplete: @escaping (Swift.Result<DataModel, Error>) -> Void) {
         
-        guard let url = URL(string: "https://demo0736356.mockable.io/contacts/userid/duplicates") else {
+        guard let url = URL(string: "https://demo0736356.mockable.io/getItems") else {
             return
         }
         
         let session = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if error != nil {
-                return onComplete(.failure(NSError()))
-            } else {
-                guard let data = data else {
-                    return
-                }
-                do {
-                    onComplete(.success(try DataModel.setData(data)))
-                } catch (let error) {
-                    onComplete(.failure(error as NSError))
-                    return
-                }
+            if let error = error {
+                return onComplete(.failure(error))
+            }
+            guard let data = data else {
+                return onComplete(.failure(LocalError.message(failureReason: "No data found")))
+            }
+            do {
+                onComplete(.success(try DataModel.setData(data)))
+            } catch (let error) {
+                onComplete(.failure(error as NSError))
+                return
             }
         }
         session.resume()

@@ -19,6 +19,10 @@ class ViewController: UIViewController {
         listTableView.estimatedRowHeight = 100
         listTableView.rowHeight = UITableView.automaticDimension
         
+        navigationController?.navigationBar.prefersLargeTitles = true
+        let searchbar = UISearchController(searchResultsController: nil)
+        self.navigationItem.searchController = searchbar
+        
         NetworkManager.getList(onComplete: { (result) in
             switch result {
                 case .success(let model):
@@ -27,7 +31,7 @@ class ViewController: UIViewController {
                         self.listTableView.reloadData()
                     }
                 case .failure(let error):
-                    error
+                    print(error)
             }
         })
     }
@@ -48,7 +52,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ListTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath) as? ListTableViewCell else {
             return UITableViewCell()
         }
         cell.setData(model?.categoryItems[indexPath.row])
