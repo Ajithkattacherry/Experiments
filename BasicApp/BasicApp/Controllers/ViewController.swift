@@ -52,9 +52,20 @@ class ViewController: UIViewController {
     
     func setUpSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search List"
+        definesPresentationContext = true
+        
+        // UISearchResultsUpdating
         searchController.searchResultsUpdater = self
+        // UITextFieldDelegate
         searchController.searchBar.searchTextField.delegate = self
-        self.navigationItem.searchController = searchController
+        // UISearchBarDelegate for Scope bar
+        searchController.searchBar.delegate = self
+        searchController.searchBar.scopeButtonTitles = ["Food", "Other"]
+        searchController.searchBar.showsScopeBar = true
+        
+        navigationItem.searchController = searchController
     }
 }
 
@@ -101,6 +112,12 @@ extension ViewController: UISearchResultsUpdating {
         $0.title.contains(searchBar.text!)
     }
   }
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        print(selectedScope)
+    }
 }
 
 extension ViewController: UITextFieldDelegate {
