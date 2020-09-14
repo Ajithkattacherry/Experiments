@@ -12,21 +12,35 @@ class ViewController: UIViewController {
     @IBOutlet var listTableView: UITableView!
     
     var model: DataModel?
+    var filteredCategoryItems: [ListDataModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         listTableView.estimatedRowHeight = 100
         listTableView.rowHeight = UITableView.automaticDimension
-        
         navigationController?.navigationBar.prefersLargeTitles = true
-        let searchbar = UISearchController(searchResultsController: nil)
-        self.navigationItem.searchController = searchbar
         
+        getList()
+        setUpSearchBar()
+    }
+    
+    // MARK - Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "DetailedViewSeque" {
+//            let detailViewController = segue.destination as! DetailViewController
+//            guard let selectedIndexPath = listTableView.indexPathForSelectedRow else { return }
+//            detailViewController.imageURL = model?.categoryItems[selectedIndexPath.row].values.imageName ?? ""
+//            detailViewController.delegate = self
+//        }
+    }
+    
+    func getList() {
         NetworkManager.getList(onComplete: { (result) in
             switch result {
                 case .success(let model):
                     self.model = model
+                    self.filteredCategoryItems = model.categoryItems
                     DispatchQueue.main.async {
                         self.listTableView.reloadData()
                     }
@@ -36,27 +50,63 @@ class ViewController: UIViewController {
         })
     }
     
-    // MARK - Segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "DetailedViewSeque" {
-            let detailViewController = segue.destination as! DetailViewController
-            guard let selectedIndexPath = listTableView.indexPathForSelectedRow else { return }
-            detailViewController.imageURL = model?.categoryItems[selectedIndexPath.row].values.imageName ?? ""
-        }
+    func setUpSearchBar() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.searchTextField.delegate = self
+        self.navigationItem.searchController = searchController
     }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model?.categoryItems.count ?? 0
+        return filteredCategoryItems?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath) as? ListTableViewCell else {
             return UITableViewCell()
         }
-        cell.setData(model?.categoryItems[indexPath.row])
+        cell.setData(filteredCategoryItems?[indexPath.row])
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailedViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerStoryBoard") as? DetailViewController
+        detailedViewController?.imageURL = filteredCategoryItems?[indexPath.row].values.imageName ?? ""
+        detailedViewController?.delegate = self
+        navigationController?.pushViewController(detailedViewController!, animated: true)
+        //present(detailedViewController!, animated: true, completion: nil)
+    }
 }
+
+extension ViewController: SampleProtocol {
+    func testMemoryLeak() {
+        print("Test My Leak")
+    }
+}
+
+extension ViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    defer {
+        listTableView.reloadData()
+        print(searchBar.text!)
+    }
+    let searchBar = searchController.searchBar
+    guard let text = searchBar.text, !text.isEmpty else {
+        filteredCategoryItems = model?.categoryItems
+        return
+    }
+    filteredCategoryItems = model?.categoryItems.filter {
+        $0.title.contains(searchBar.text!)
+    }
+  }
+}
+
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
+}
+
 

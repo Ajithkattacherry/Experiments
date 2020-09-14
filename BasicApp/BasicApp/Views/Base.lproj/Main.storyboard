@@ -63,7 +63,6 @@
                                             <outlet property="imgView" destination="kAh-Gi-64P" id="k8t-qW-Hi0"/>
                                             <outlet property="lblDescription" destination="uxs-Mm-f4T" id="oQt-iU-Cnn"/>
                                             <outlet property="lblTitle" destination="03W-Vz-MOM" id="sQf-Ie-5Vp"/>
-                                            <segue destination="5RI-KJ-IIe" kind="presentation" identifier="DetailedViewSeque" id="Sp4-yu-Raq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -94,13 +93,13 @@
         <!--Detail View Controller-->
         <scene sceneID="7IE-mC-KlI">
             <objects>
-                <viewController id="5RI-KJ-IIe" customClass="DetailViewController" customModule="BasicApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewControllerStoryBoard" id="5RI-KJ-IIe" customClass="DetailViewController" customModule="BasicApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XQR-eD-JWk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4j9-ir-hKd">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="400"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="nhz-KJ-Jri"/>
@@ -110,7 +109,7 @@
                                 </connections>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJ2-dP-mT8">
-                                <rect key="frame" x="0.0" y="400" width="414" height="408"/>
+                                <rect key="frame" x="0.0" y="444" width="414" height="418"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
