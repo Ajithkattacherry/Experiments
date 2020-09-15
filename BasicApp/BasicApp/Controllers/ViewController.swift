@@ -58,12 +58,20 @@ class ViewController: UIViewController {
         
         // UISearchResultsUpdating
         searchController.searchResultsUpdater = self
+        
         // UITextFieldDelegate
         searchController.searchBar.searchTextField.delegate = self
+        
         // UISearchBarDelegate for Scope bar
         searchController.searchBar.delegate = self
         searchController.searchBar.scopeButtonTitles = ["Food", "Other"]
         searchController.searchBar.showsScopeBar = true
+        
+        // Search Tokens
+        let purchasesToken = UISearchToken(icon: UIImage(systemName: "tag"), text: "Purchases")
+        let countryToken = UISearchToken(icon: UIImage(systemName: "flag"), text: "Country")
+        searchController.searchBar.searchTextField.insertToken(purchasesToken, at: 0)
+        searchController.searchBar.searchTextField.insertToken(countryToken, at: 0)
         
         navigationItem.searchController = searchController
     }

@@ -13,7 +13,7 @@ class ListTableViewCell: UITableViewCell {
 
     @IBOutlet var lblTitle: UILabel!
     @IBOutlet var lblDescription: UILabel!
-    @IBOutlet var imgView: UIImageView!
+    @IBOutlet var imgView: CachedImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,15 +32,16 @@ class ListTableViewCell: UITableViewCell {
         }
         lblTitle.text = list.title
         lblDescription.text = list.values.description
+        imgView.loadImage(from: list.values.imageName, placeholder: "Aji")
         //imgView.kf.setImage(with: URL(string: list.values.imageName))
-        loadImage(from: list.values.imageName) { [weak self] (image) in
-            DispatchQueue.main.async {
-                guard let self = self else { return }
-                self.imgView?.image = image ?? UIImage()
-                self.imgView?.contentMode = .scaleAspectFill
-                self.setNeedsLayout()
-            }
-        }
+//        loadImage(from: list.values.imageName) { [weak self] (image) in
+//            DispatchQueue.main.async {
+//                guard let self = self else { return }
+//                self.imgView?.image = image ?? UIImage()
+//                self.imgView?.contentMode = .scaleAspectFill
+//                self.setNeedsLayout()
+//            }
+//        }
     }
     
     func loadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {

@@ -14,10 +14,16 @@ enum Color {
     case yellow
 }
 
+protocol SampleProtocol: class {
+    func testMemoryLeak()
+}
+
 class DetailViewController: UIViewController {
     
     @IBOutlet var detailedImageView: UIImageView!
     @IBOutlet var colorView: UIView!
+    
+    weak var delegate: SampleProtocol?
     
     var imageURL: String = ""
     var currentBGColor: Color?
@@ -26,11 +32,16 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         detailedImageView.kf.setImage(with: URL(string: imageURL))
+        delegate?.testMemoryLeak()
         
         let date = Date().addingTimeInterval(0)
         let timer = Timer(fireAt: date, interval: 1, target: self, selector: #selector(didTap), userInfo: nil, repeats: true)
         RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
-
+        
+    }
+    
+    deinit {
+        print("DetailViewController Deinitialized")
     }
     
     @IBAction @objc func didTap(_ gesture: UITapGestureRecognizer? = nil) {

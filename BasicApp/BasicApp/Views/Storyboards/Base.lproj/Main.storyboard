@@ -26,7 +26,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="154"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kAh-Gi-64P">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kAh-Gi-64P" customClass="CachedImageView" customModule="BasicApp" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="13" width="117" height="133"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="117" id="JBD-qA-ncA"/>
