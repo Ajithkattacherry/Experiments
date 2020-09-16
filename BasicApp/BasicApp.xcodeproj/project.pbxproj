@@ -11,6 +11,7 @@
 		E0221E27250FE9790068F9F9 /* CachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0221E26250FE9790068F9F9 /* CachedImageView.swift */; };
 		E02DD79024B56E0700EB3A7C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02DD78F24B56E0700EB3A7C /* NetworkManager.swift */; };
 		E02DD79224B6EE5300EB3A7C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02DD79124B6EE5300EB3A7C /* DetailViewController.swift */; };
+		E088ACFE2511E36D00534F2A /* PostDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E088ACFD2511E36D00534F2A /* PostDataModel.swift */; };
 		E0C406B124B5209E00CB06FB /* BasicAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C406B024B5209E00CB06FB /* BasicAppTests.swift */; };
 		E0C406CB24B5228F00CB06FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C406BD24B5228F00CB06FB /* ViewController.swift */; };
 		E0C406CC24B5228F00CB06FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0C406BF24B5228F00CB06FB /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		E0221E26250FE9790068F9F9 /* CachedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedImageView.swift; sourceTree = "<group>"; };
 		E02DD78F24B56E0700EB3A7C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E02DD79124B6EE5300EB3A7C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E088ACFD2511E36D00534F2A /* PostDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDataModel.swift; sourceTree = "<group>"; };
 		E0C4069624B5209B00CB06FB /* BasicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C406AC24B5209E00CB06FB /* BasicAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasicAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C406B024B5209E00CB06FB /* BasicAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAppTests.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				E0C406D424B52B2F00CB06FB /* DataModel.swift */,
+				E088ACFD2511E36D00534F2A /* PostDataModel.swift */,
 			);
 			name = DataModel;
 			path = BasicApp/DataModel;
@@ -370,6 +373,7 @@
 				E0C406CF24B5228F00CB06FB /* SceneDelegate.swift in Sources */,
 				E0C406D724B5393100CB06FB /* ListTableViewCell.swift in Sources */,
 				E0221E27250FE9790068F9F9 /* CachedImageView.swift in Sources */,
+				E088ACFE2511E36D00534F2A /* PostDataModel.swift in Sources */,
 				E02DD79224B6EE5300EB3A7C /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

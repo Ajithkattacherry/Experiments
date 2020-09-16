@@ -8,31 +8,50 @@
 
 import Foundation
 
-enum LocalError: LocalizedError {
+enum NetworkManagerError: Error {
+    case invalidURL
+    case InvalidData
     case message(failureReason: String?)
 }
 
 class NetworkManager {
+    static let session = URLSession.shared
+    
+    // GET REQUEST
     static func getList(onComplete: @escaping (Swift.Result<DataModel, Error>) -> Void) {
         
         guard let url = URL(string: "https://demo0736356.mockable.io/getItems") else {
             return
         }
         
-        let session = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 return onComplete(.failure(error))
             }
             guard let data = data else {
-                return onComplete(.failure(LocalError.message(failureReason: "No data found")))
+                return onComplete(.failure(NetworkManagerError.message(failureReason: "No data found")))
             }
             do {
                 onComplete(.success(try DataModel.setData(data)))
             } catch (let error) {
-                onComplete(.failure(error as NSError))
+                onComplete(.failure(error))
                 return
             }
         }
-        session.resume()
+        task.resume()
+    }
+    
+    // POST REQUEST
+    static func executeRequest(with url: URL, model: User, completion:  @escaping (Swift.Result<DataModel, Error>) -> Void) {
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let jsonData = try? JSONEncoder().encode(model)
+        request.httpBody = jsonData
+        let task = session.dataTask(with: request) { (data, response, error) in
+            // Handle the response
+        }
+        task.resume()
     }
 }

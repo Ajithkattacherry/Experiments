@@ -26,7 +26,7 @@ class CachedImageView: UIImageView {
             return
         }
         
-        URLSession.shared.dataTask(with: actualURL) { (data, response, error) in
+        NetworkManager.session.dataTask(with: actualURL) { (data, response, error) in
             guard error == nil,
                 let data = data,
                 let customImage = CustomImage(data: data) else {
