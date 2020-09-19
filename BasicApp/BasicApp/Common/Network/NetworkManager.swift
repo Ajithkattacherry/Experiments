@@ -15,10 +15,11 @@ enum NetworkManagerError: Error {
 }
 
 class NetworkManager {
-    static let session = URLSession.shared
+    static let shared = NetworkManager()
+    let session = URLSession(configuration: .default)
     
     // GET REQUEST
-    static func getList(onComplete: @escaping (Swift.Result<DataModel, Error>) -> Void) {
+    func getList(onComplete: @escaping (Swift.Result<DataModel, Error>) -> Void) {
         
         guard let url = URL(string: "https://demo0736356.mockable.io/getItems") else {
             return
@@ -42,11 +43,14 @@ class NetworkManager {
     }
     
     // POST REQUEST
-    static func executeRequest(with url: URL, model: User, completion:  @escaping (Swift.Result<DataModel, Error>) -> Void) {
+    func executeRequest(with url: URL, model: User, completion:  @escaping (Swift.Result<DataModel, Error>) -> Void) {
         var request = URLRequest(url: url)
+        // Http Type
         request.httpMethod = "POST"
+        // Http header
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
+        // request data
         let jsonData = try? JSONEncoder().encode(model)
         request.httpBody = jsonData
         let task = session.dataTask(with: request) { (data, response, error) in

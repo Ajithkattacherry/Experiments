@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     }
     
     func getList() {
-        NetworkManager.getList(onComplete: { (result) in
+        NetworkManager.shared.getList(onComplete: { (result) in
             switch result {
                 case .success(let model):
                     self.model = model
@@ -52,26 +52,29 @@ class ViewController: UIViewController {
     
     func setUpSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search List"
-        definesPresentationContext = true
-        
         // UISearchResultsUpdating
         searchController.searchResultsUpdater = self
         
-        // UITextFieldDelegate
-        searchController.searchBar.searchTextField.delegate = self
-        
-        // UISearchBarDelegate for Scope bar
-        searchController.searchBar.delegate = self
-        searchController.searchBar.scopeButtonTitles = ["Food", "Other"]
-        searchController.searchBar.showsScopeBar = true
-        
-        // Search Tokens
-        let purchasesToken = UISearchToken(icon: UIImage(systemName: "tag"), text: "Purchases")
-        let countryToken = UISearchToken(icon: UIImage(systemName: "flag"), text: "Country")
-        searchController.searchBar.searchTextField.insertToken(purchasesToken, at: 0)
-        searchController.searchBar.searchTextField.insertToken(countryToken, at: 0)
+        //*********OPTIONAL********//
+        // searchController.obscuresBackgroundDuringPresentation = false
+        // searchController.searchBar.placeholder = "Search List"
+        // definesPresentationContext = true
+        //
+        //
+        // // UITextFieldDelegate
+        // searchController.searchBar.searchTextField.delegate = self
+        //
+         // UISearchBarDelegate for Scope bar
+         searchController.searchBar.delegate = self
+         searchController.searchBar.scopeButtonTitles = ["Food", "Other"]
+         searchController.searchBar.showsScopeBar = true
+        //
+        // // Search Tokens
+        // let purchasesToken = UISearchToken(icon: UIImage(systemName: "tag"), text: "Purchases")
+        // let countryToken = UISearchToken(icon: UIImage(systemName: "flag"), text: "Country")
+        // searchController.searchBar.searchTextField.insertToken(purchasesToken, at: 0)
+        // searchController.searchBar.searchTextField.insertToken(countryToken, at: 0)
+        //***********************//
         
         navigationItem.searchController = searchController
     }

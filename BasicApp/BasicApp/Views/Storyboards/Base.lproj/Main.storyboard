@@ -32,6 +32,11 @@
                                                         <constraint firstAttribute="width" constant="117" id="JBD-qA-ncA"/>
                                                         <constraint firstAttribute="width" secondItem="kAh-Gi-64P" secondAttribute="height" multiplier="117:133" id="pQA-YD-0gg"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03W-Vz-MOM">
                                                     <rect key="frame" x="133" y="8" width="273" height="20.5"/>
