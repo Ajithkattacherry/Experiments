@@ -8,12 +8,17 @@
 
 import UIKit
 
-struct User: Encodable {
-    let name: String
-    let surname: String
-    let age: Int
+struct User: Codable {
+    let name: String?
+    let surname: String?
+    let age: Int?
+    let token: String?
     
     static func getData(from model: User) throws -> Data? {
         return try JSONEncoder().encode(model)
+    }
+    
+    static func getModel(from data: Data) throws -> User {
+        return try JSONDecoder().decode(User.self, from: data)
     }
 }

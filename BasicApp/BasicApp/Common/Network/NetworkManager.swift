@@ -9,12 +9,14 @@
 import Foundation
 
 enum NetworkManagerError: Error {
+    case jsonDecodingError(error: Error)
     case invalidURL
     case InvalidData
+    case InvalidURLResponse(errorCode: Int)
     case message(failureReason: String?)
 }
 
-class NetworkManager {
+class NetworkManager: NeteorkManagerProtocol {
     static let shared = NetworkManager()
     let session = URLSession(configuration: .default)
     
@@ -29,6 +31,11 @@ class NetworkManager {
             if let error = error {
                 return onComplete(.failure(error))
             }
+
+            if let response = response as? HTTPURLResponse, response.statusCode != 200 {
+                return onComplete(.failure(self.handleURLResponse(response)))
+            }
+            
             guard let data = data else {
                 return onComplete(.failure(NetworkManagerError.message(failureReason: "No data found")))
             }
@@ -43,18 +50,28 @@ class NetworkManager {
     }
     
     // POST REQUEST
-    func executeRequest(with url: URL, model: User, completion:  @escaping (Swift.Result<DataModel, Error>) -> Void) {
-        var request = URLRequest(url: url)
-        // Http Type
-        request.httpMethod = "POST"
-        // Http header
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        // request data
-        let jsonData = try? JSONEncoder().encode(model)
-        request.httpBody = jsonData
+    func executePOSTRequest<T: Codable>(with url: String, model: T, completion:  @escaping (Swift.Result<T, Error>) -> Void) {
+        guard let url = URL(string: url) else { return completion(.failure(NetworkManagerError.invalidURL)) }
+        let request = setURLRequest(for: url, model: model)
         let task = session.dataTask(with: request) { (data, response, error) in
-            // Handle the response
+            if let error = error {
+                return completion(.failure(error))
+            }
+            guard let data = data else {
+                completion(.failure(NetworkManagerError.InvalidData))
+                return
+            }
+            do {
+                // Aletrnative approach
+                // let dataStr = String(data: data, encoding: .utf8)!
+                // print(dataStr)
+                // let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String : Any]
+                // print(json["token"]!)
+                let model = try JSONDecoder().decode(T.self, from: data)
+                completion(.success(model))
+            } catch {
+                completion(.failure(NetworkManagerError.jsonDecodingError(error: error)))
+            }
         }
         task.resume()
     }

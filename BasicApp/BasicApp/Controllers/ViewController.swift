@@ -35,6 +35,22 @@ class ViewController: UIViewController {
 //        }
     }
     
+    @IBAction func didTapPOST() {
+        let user = User(name: "Ajith", surname: "Antony", age: 33, token: nil)
+        NetworkManager.shared.executePOSTRequest(with: "https://demo0736356.mockable.io/login", model: user) { (result) in
+            switch result {
+            case .success(let model):
+                print(model.token)
+                if let token = model.token {
+                    UserSession.shared.userToken = token
+                }
+                print("Token from defaults: \(UserSession.shared.userToken)")
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     func getList() {
         NetworkManager.shared.getList(onComplete: { (result) in
             switch result {

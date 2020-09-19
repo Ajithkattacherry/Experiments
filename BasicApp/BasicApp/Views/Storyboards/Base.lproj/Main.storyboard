@@ -86,7 +86,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Doordash" id="1ZM-3Y-0t1"/>
+                    <navigationItem key="navigationItem" title="Doordash" id="1ZM-3Y-0t1">
+                        <barButtonItem key="rightBarButtonItem" title="POST" style="plain" id="Zng-Ex-qcf">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="o72-7A-rue">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="POST"/>
+                                <connections>
+                                    <action selector="didTapPOST" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sny-5X-a7g"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="listTableView" destination="d2V-ee-M2T" id="0ys-QL-PBt"/>
                     </connections>
