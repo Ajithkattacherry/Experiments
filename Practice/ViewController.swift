@@ -9,28 +9,58 @@
 import UIKit
 import Foundation
 
+class HTMLElement {
+
+    let name: String
+    let text: String?
+
+    lazy var asHTML: () -> String = {
+        if let text = self.text {
+            return "<\(self.name)>\(text)</\(self.name)>"
+        } else {
+            return "<\(self.name) />"
+        }
+    }
+
+    init(name: String, text: String? = nil) {
+        self.name = name
+        self.text = text
+    }
+    
+    func testMethod(completion: @escaping (String) -> Void) {
+        print("testMethod")
+        sleep(10)
+        DispatchQueue.global().async {
+            completion(self.name)
+        }
+    }
+
+    deinit {
+        print("\(name) is being deinitialized")
+    }
+
+}
+
 class ViewController: UIViewController {
+    
+    var label = UILabel()
+    var paragraph: HTMLElement?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        //var arr = Array("ABC")
-        //permutations(arr.count, &arr)
-        Helper().testAllKeys()
+        label.text = "Happy Newyear"
+        test()
     }
     
-    func test() -> Bool {
-        var s = "A man, a plan, a canal: Panama"
-        s = s.filter { $0.isLetter || $0.isNumber }
-        let charArray = Array(s.lowercased())
-        print(charArray)
-        var i = 0, count = charArray.count - 1
-        while i < count / 2 {
-            if charArray[i] != charArray[count - i] {
-                return false
+    func test() {
+        paragraph = HTMLElement(name: "Ajit", text: "test")
+        paragraph?.testMethod{ value in
+            DispatchQueue.main.async {
+                print(self.label.text!)
             }
-            i += 1
+            print("testMethod completed")
         }
-        return true
+        paragraph?.asHTML()
+        paragraph = nil
     }
 }

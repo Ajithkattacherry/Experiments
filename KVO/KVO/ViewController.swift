@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        ageObservationToken = observe(\ViewController.user.age, options: [.new]) { (self, value) in
+        ageObservationToken = observe(\.user.age, options: [.old, .new]) { (self, value) in
             let text = value.newValue ?? 0
             self.lblNewValue.text = String(text)
         }

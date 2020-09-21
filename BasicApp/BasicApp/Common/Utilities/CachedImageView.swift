@@ -14,10 +14,11 @@ class CustomImage: UIImage {
 
 class CachedImageView: UIImageView {
     private var cache = NSCache<NSString, CustomImage>()
-    private var localImage: UIImage?
     
     func loadImage(from url: String, placeholder: String) {
-        if let image = cache.object(forKey: url as NSString), image.createdTime ?? Date() < Date()  {
+        if let image = cache.object(forKey: url as NSString),
+            let hour = Calendar.current.dateComponents([.hour], from: image.createdTime ?? Date(), to: Date()).hour,
+            hour < 24  {
             return self.image = image
         }
         

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		41B276EDD2677810633E8906 /* Pods_BasicApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF142260BD16398B58E822C /* Pods_BasicApp.framework */; };
 		E0221E27250FE9790068F9F9 /* CachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0221E26250FE9790068F9F9 /* CachedImageView.swift */; };
+		E02D0FB0251877F6005360FE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D0FAF251877F6005360FE /* LoginViewController.swift */; };
+		E02D0FB225187942005360FE /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D0FB125187942005360FE /* LoginModel.swift */; };
 		E02DD79024B56E0700EB3A7C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02DD78F24B56E0700EB3A7C /* NetworkManager.swift */; };
 		E02DD79224B6EE5300EB3A7C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02DD79124B6EE5300EB3A7C /* DetailViewController.swift */; };
 		E064CBBE251683AA00D96C1C /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064CBBD251683AA00D96C1C /* UserSession.swift */; };
@@ -41,6 +43,8 @@
 		9BF142260BD16398B58E822C /* Pods_BasicApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasicApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6FE64F90147BEB2644197E2 /* Pods-BasicApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicApp.release.xcconfig"; path = "Target Support Files/Pods-BasicApp/Pods-BasicApp.release.xcconfig"; sourceTree = "<group>"; };
 		E0221E26250FE9790068F9F9 /* CachedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedImageView.swift; sourceTree = "<group>"; };
+		E02D0FAF251877F6005360FE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E02D0FB125187942005360FE /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		E02DD78F24B56E0700EB3A7C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E02DD79124B6EE5300EB3A7C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E064CBBD251683AA00D96C1C /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 		E0221E25250FE9790068F9F9 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				E064CBBD251683AA00D96C1C /* UserSession.swift */,
 				E0221E26250FE9790068F9F9 /* CachedImageView.swift */,
 			);
 			path = Utilities;
@@ -130,6 +135,23 @@
 				E0C406C824B5228F00CB06FB /* Main.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E02D0FB325187CA3005360FE /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				E0C406BD24B5228F00CB06FB /* ViewController.swift */,
+				E02DD79124B6EE5300EB3A7C /* DetailViewController.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		E02D0FB425187CAB005360FE /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E02D0FAF251877F6005360FE /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		E0C4068D24B5209B00CB06FB = {
@@ -176,9 +198,8 @@
 		E0C406BC24B5228F00CB06FB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E0C406BD24B5228F00CB06FB /* ViewController.swift */,
-				E02DD79124B6EE5300EB3A7C /* DetailViewController.swift */,
-				E064CBBD251683AA00D96C1C /* UserSession.swift */,
+				E02D0FB425187CAB005360FE /* Login */,
+				E02D0FB325187CA3005360FE /* Store */,
 			);
 			name = Controllers;
 			path = BasicApp/Controllers;
@@ -221,6 +242,7 @@
 			children = (
 				E0C406D424B52B2F00CB06FB /* DataModel.swift */,
 				E088ACFD2511E36D00534F2A /* PostDataModel.swift */,
+				E02D0FB125187942005360FE /* LoginModel.swift */,
 			);
 			name = DataModel;
 			path = BasicApp/DataModel;
@@ -372,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E02D0FB0251877F6005360FE /* LoginViewController.swift in Sources */,
 				E02DD79024B56E0700EB3A7C /* NetworkManager.swift in Sources */,
 				E064CBBE251683AA00D96C1C /* UserSession.swift in Sources */,
 				E0C406CE24B5228F00CB06FB /* AppDelegate.swift in Sources */,
@@ -379,6 +402,7 @@
 				E0C406CB24B5228F00CB06FB /* ViewController.swift in Sources */,
 				E0C406CF24B5228F00CB06FB /* SceneDelegate.swift in Sources */,
 				E0C406D724B5393100CB06FB /* ListTableViewCell.swift in Sources */,
+				E02D0FB225187942005360FE /* LoginModel.swift in Sources */,
 				E0221E27250FE9790068F9F9 /* CachedImageView.swift in Sources */,
 				E064CBC025169DFC00D96C1C /* NeteorkManagerProtocol.swift in Sources */,
 				E088ACFE2511E36D00534F2A /* PostDataModel.swift in Sources */,

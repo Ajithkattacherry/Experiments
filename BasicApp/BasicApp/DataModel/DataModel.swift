@@ -10,7 +10,7 @@ import Foundation
 
 struct DataModel: Decodable {
     var categoryItems: [ListDataModel]
-    var total: Int
+    var total: Int?
     
     enum CodingKeys: String, CodingKey {
         case categoryItems = "items_List", total
