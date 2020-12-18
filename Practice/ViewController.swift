@@ -48,8 +48,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        label.text = "Happy Newyear"
-        test()
+        var arr = Array("ABC")
+        var output = [String]()
+        permutations(arr.count, &arr, output: &output)
+        print(output)
     }
     
     func test() {
