@@ -78,6 +78,7 @@ class Helper {
         testStringArrayToDictionary()
         let dicKeys = dictionary.keys
         let dicValues = dictionary.values
+        print("\(Array(dicKeys))")
         print("Dic Keys: \(dicKeys)")
         print("Dic Keys: \(dicValues)")
         for key in dicKeys {

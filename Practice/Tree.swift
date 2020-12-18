@@ -8,6 +8,42 @@
 
 import Foundation
 
+
+/**
+ class TreeNode {
+     var value: Int
+     var left: TreeNode?
+     var right: TreeNode?
+     
+     init(value: Int, left: TreeNode? = nil, right: TreeNode? = nil) {
+         self.value = value
+         self.left = left
+         self.right = right
+     }
+     
+     func traverse(_ visit: (TreeNode) -> Void) {
+         visit(self)
+         left?.traverse(visit)
+         right?.traverse(visit)
+     }
+ }
+
+ class Solution {
+     func visitAllNodes(_ root: TreeNode) {
+         root.traverse {
+             print($0.value)
+         }
+     }
+ }
+
+ let root = TreeNode(value: 10)
+ let left1 = TreeNode(value: 1)
+ let right1 = TreeNode(value: 11)
+ root.left = left1
+ root.right = right1
+ Solution().visitAllNodes(root)
+ */
+
 public class TreeNode {
     public var val: Int
     public var left: TreeNode?

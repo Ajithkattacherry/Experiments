@@ -11,14 +11,14 @@ import Foundation
 // MARK: Permutations of a string
 // var arr = Array("ABC")
 // permutations(arr.count, &arr)
-func permutations(_ n:Int, _ a: inout Array<Character>) {
+func permutations(_ n:Int, _ a: inout [Character]) {
     if n == 1 {
         print(String(a))
-        return
-    }
-    for i in 0..<n-1 {
+    } else {
+        for i in 0..<n-1 {
+            permutations(n-1, &a)
+            a.swapAt(n-1, (n%2 == 0) ? i : 0)
+        }
         permutations(n-1, &a)
-        a.swapAt(n-1, (n%2 == 1) ? 0 : i)
     }
-    permutations(n-1, &a)
 }
