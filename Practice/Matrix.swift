@@ -8,9 +8,10 @@
 
 import Foundation
 
+/***********************************/
 // MARK: Set Matrix Zeroes
 /***************************/
-/*Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in-place.
+/* Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in-place.
 
 Example 1:
 
@@ -67,6 +68,7 @@ func setZeroes(_ matrix: inout [[Int]]) {
     }
 }
 
+/***************************/
 // MARK: Lucky Numbers in a Matrix
 /***************************/
 /*
@@ -112,4 +114,46 @@ func getMaxValue(from column: Int, matrix: [[Int]]) -> Int {
         }
     }
     return max
+}
+
+/***********************************/
+// MARK: Number of isLands using DFS
+/***********************************/
+
+func setupMatrix() -> [[Int]] {
+    var matrix = [[Int]]()
+    let row1 = [1,1,0,1]
+    let row2 = [1,0,1,0]
+    let row3 = [0,1,0,1]
+    matrix.append(row1)
+    matrix.append(row2)
+    matrix.append(row3)
+    return matrix
+}
+
+func matrixDFS() {
+    var matrix = setupMatrix()
+    var noOfIslands = 0
+    for i in 0..<matrix.count {
+        for j in 0..<matrix[i].count {
+            noOfIslands += dfs(i: i, j: j, matrix: &matrix)
+        }
+    }
+    print(noOfIslands)
+}
+
+func dfs(i: Int, j: Int, matrix: inout [[Int]]) -> Int {
+    if i < 0 || j < 0 || i >= matrix.count || j >= matrix[i].count || matrix[i][j] == 0 {
+        return 0
+    }
+    // Set visited nodes as 0
+    matrix[i][j] = 0
+    
+    // Visit in all directs until we find a 0.
+    // If top, bottom, left and right node are 0, we found an island
+    dfs(i: i, j: j+1, matrix: &matrix)
+    dfs(i: i, j: j-1, matrix: &matrix)
+    dfs(i: i-1, j: j, matrix: &matrix)
+    dfs(i: i+1, j: j, matrix: &matrix)
+    return 1
 }
