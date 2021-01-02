@@ -14,9 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        matrixDFS()
-//        var arr = Array("ABC")
-//        permutations(arr.count, &arr)
+        Playground().traverse()
     }
     
     func test() -> Bool {

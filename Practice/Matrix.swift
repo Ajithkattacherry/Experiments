@@ -28,7 +28,7 @@ Output:
   [1,0,1]
 ]*/
 
-// Solution with no extra memory
+// MARK: 1. Solution with no extra memory
 func setZeroes(_ matrix: inout [[Int]]) {
     // Support functions
     func updateRows(_ row: Int, _ matrix: inout [[Int]]) {
@@ -69,7 +69,7 @@ func setZeroes(_ matrix: inout [[Int]]) {
 }
 
 /***************************/
-// MARK: Lucky Numbers in a Matrix
+// MARK: 2. Lucky Numbers in a Matrix
 /***************************/
 /*
 Given a m * n matrix of distinct numbers, return all lucky numbers in the matrix in any order.
@@ -117,7 +117,21 @@ func getMaxValue(from column: Int, matrix: [[Int]]) -> Int {
 }
 
 /***********************************/
-// MARK: Number of isLands using DFS
+// MARK: 3. Number of isLands using DFS
+/*
+ Given an m x n 2d grid map of '1's (land) and '0's (water), return the number of islands.
+ An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
+ You may assume all four edges of the grid are all surrounded by water.
+
+ Input: grid = [
+   ["1","1","1","1","0"],
+   ["1","1","0","1","0"],
+   ["1","1","0","0","0"],
+   ["0","0","0","0","0"]
+ ]
+ Output: 1
+
+ */
 /***********************************/
 
 func setupMatrix() -> [[Int]] {
@@ -156,4 +170,119 @@ func dfs(i: Int, j: Int, matrix: inout [[Int]]) -> Int {
     dfs(i: i-1, j: j, matrix: &matrix)
     dfs(i: i+1, j: j, matrix: &matrix)
     return 1
+}
+
+/***********************************/
+// MARK: 4. Spiral Matrix
+/***********************************/
+func traverse() {
+    // Setup
+    var matrix = [[Int]]()
+    let row1 = [1,2,3,11]
+    let row2 = [4,5,6,12]
+    let row3 = [7,8,9,44]
+    matrix.append(row1)
+    matrix.append(row2)
+    matrix.append(row3)
+    
+    var top = 0
+    var left = 0
+    var bottom = matrix.count
+    var right = matrix[0].count
+    var result = [Int]()
+    var direction = 1
+    
+    while top<bottom && left<right {
+        if direction == 1 {
+            for i in left..<right {
+                result.append(matrix[top][i])
+            }
+            top += 1
+            direction = 2
+        } else if direction == 2 {
+            for i in top..<bottom {
+                result.append(matrix[i][right-1])
+            }
+            right -= 1
+            direction = 3
+        } else if direction == 3 {
+            for i in (left..<right).reversed() {
+                result.append(matrix[bottom-1][i])
+            }
+            bottom -= 1
+            direction = 4
+        } else if direction == 4 {
+            for i in (top..<bottom).reversed() {
+                result.append(matrix[i][left])
+            }
+            left += 1
+            direction = 1
+        }
+    }
+    print(result)
+}
+
+/***************************************/
+// MARK: 5. Find the sourounded regions
+// https://www.youtube.com/watch?v=FoVhnqN0B28
+/*
+ 130. Surrounded Regions
+ Given a 2D board containing 'X' and 'O' (the letter O), capture all regions surrounded by 'X'.
+
+ A region is captured by flipping all 'O's into 'X's in that surrounded region.
+
+ Example:
+
+ X X X X
+ X O O X
+ X X O X
+ X O X X
+ After running your function, the board should be:
+
+ X X X X
+ X X X X
+ X X X X
+ X O X X
+ */
+/***************************************/
+func souroundedRegions() {
+    var matrix = [
+        [1,1,1,1,1,1],
+        [1,0,0,0,0,1],
+        [1,1,0,1,1,1],
+        [1,0,1,0,1,0]
+    ]
+    
+    for i in 0..<matrix.count {
+        for j in 0..<matrix[i].count {
+            if (i == 0 || j == 0 || i == matrix.count-1 || j == matrix[i].count-1) && matrix[i][j] == 0 {
+                findTheSurroundedRegions(i: i, j: j, matrix: &matrix)
+            }
+            
+        }
+    }
+    updateSurroundedRegions(matrix: &matrix)
+    print(matrix)
+}
+
+func findTheSurroundedRegions(i: Int, j: Int, matrix: inout [[Int]]) {
+    if i >= 0 && j >= 0 && i <= matrix.count-1 && j <= matrix[i].count-1 && matrix[i][j] == 0 {
+        matrix[i][j] = 9
+        findTheSurroundedRegions(i: i+1, j: j, matrix: &matrix)
+        findTheSurroundedRegions(i: i-1, j: j, matrix: &matrix)
+        findTheSurroundedRegions(i: i, j: j-1, matrix: &matrix)
+        findTheSurroundedRegions(i: i, j: j+1, matrix: &matrix)
+    }
+}
+
+func updateSurroundedRegions(matrix: inout [[Int]]) {
+    for i in 0..<matrix.count {
+        for j in 0..<matrix[i].count {
+            if matrix[i][j] == 0 {
+                matrix[i][j] = 1
+            } else if matrix[i][j] == 9 {
+                matrix[i][j] = 0
+            }
+        }
+    }
 }
