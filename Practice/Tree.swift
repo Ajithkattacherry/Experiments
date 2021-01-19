@@ -44,6 +44,35 @@ import Foundation
  Solution().visitAllNodes(root)
  */
 
+/*********** Alernative approach ***********
+ class Solution {
+     func inorderTraversal(_ root: TreeNode?) -> [Int] {
+         var list = [Int]()
+         travserse(root, values: &list)
+         print(list)
+         return list
+     }
+     
+     func travserse(_ root: TreeNode?, values: inout [Int]) {
+         guard let root = root else {
+             return
+         }
+         travserse(root.left, values: &values)
+         values.append(root.val)
+         travserse(root.right, values: &values)
+     }
+ }
+ */
+
+public class TreeNodeDFS {
+    var value: Int?
+    var children: [TreeNodeDFS]?
+    init(_ value: Int, children: [TreeNodeDFS]?) {
+        self.value = value
+        self.children = children
+    }
+}
+
 public class TreeNode {
     public var val: Int
     public var left: TreeNode?
@@ -95,6 +124,48 @@ extension TreeNode {
         visit(self)
         self.left?.depthFirstSearch(visit: visit)
         self.right?.depthFirstSearch(visit: visit)
+    }
+}
+
+/*Approach 2*/
+class BreadthFirstSearch {
+    func bfsTraversal(_ root: TreeNode?) {
+        var queue = [TreeNode]()
+        guard let root = root else { return }
+        queue.append(root)
+        breadthFirstSearch(&queue)
+    }
+    
+    func breadthFirstSearch(_ queue: inout [TreeNode]) {
+        let node = queue.removeFirst()
+        print(node.val) // Collecting Node values
+        if let left = node.left {
+            queue.append(left)
+        }
+
+        if let right = node.right {
+            queue.append(right)
+        }
+        
+        // Boundary condition. Perform this until the queue is empty
+        if !queue.isEmpty {
+            breadthFirstSearch(&queue)
+        }
+    }
+}
+
+class DepthFirstSearch {
+    func dfsTraversal(_ root: TreeNodeDFS?) {
+        guard let root = root else { return }
+        dfs(root)
+    }
+    
+    func dfs(_ node: TreeNodeDFS?) {
+        print(node?.value ?? 0)
+        if node?.children?.isEmpty ?? true {
+            return
+        }
+        node?.children?.forEach { dfs($0)}
     }
 }
 
@@ -333,4 +404,24 @@ func constructMaximumBinaryTree(_ nums: [Int]) -> TreeNode? {
     root.left = constructMaximumBinaryTree(Array(nums[0..<maxIdx]))
     root.right = constructMaximumBinaryTree(Array(nums[(maxIdx + 1)..<nums.count]))
     return root
+}
+
+class InsertIntoBST {
+    func insertIntoBST(_ root: TreeNode?, _ val: Int) -> TreeNode? {
+        let node = getInsertionNode(root, value: val)
+        node?.left = TreeNode(val)
+        return root
+    }
+    
+    func getInsertionNode(_ node: TreeNode?, value: Int) -> TreeNode? {
+        guard let treeNode = node else { return node }
+        if treeNode.left == nil && treeNode.right == nil {
+             return treeNode
+        }
+        if value > treeNode.val {
+            return getInsertionNode(treeNode.right, value: value)
+        } else {
+            return getInsertionNode(treeNode.left, value: value)
+        }
+    }
 }
