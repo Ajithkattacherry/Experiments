@@ -26,7 +26,7 @@ func isPalindrom(_ string: String) -> Bool {
 // MARK: 2. Palindrome Permutation
 // If a set of characters can form a palindrome if at most one character
 // occurs odd number of times and all characters occur even number of times.
-// Eg: MALAYALAM -> Count of M,A,L,A is 2 and Y is 1.
+// Eg: MALAYALAM -> Count of M,A,L is 2 and Y is 1.
 func isPalindromPermutation(_ string: String) -> Bool {
     var hashMap = [Character: Int]()
     if string.isEmpty {

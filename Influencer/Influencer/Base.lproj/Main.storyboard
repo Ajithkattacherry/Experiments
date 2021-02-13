@@ -19,25 +19,25 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" rowHeight="274" id="mXg-AO-TeR" customClass="TableviewCell" customModule="Influencer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TableCell" rowHeight="274" id="mXg-AO-TeR" customClass="TableviewCell" customModule="Influencer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="274"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mXg-AO-TeR" id="bKD-oS-fvo">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="274"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="274"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="balloon" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IWr-wb-y0o">
-                                                    <rect key="frame" x="12" y="47" width="390" height="171.5"/>
+                                                    <rect key="frame" x="12" y="47" width="359" height="171.5"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8l-k9-610">
-                                                    <rect key="frame" x="20" y="234.5" width="366" height="20.5"/>
+                                                    <rect key="frame" x="20" y="234.5" width="347" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmI-dD-KPB">
-                                                    <rect key="frame" x="360" y="21" width="42" height="21"/>
+                                                    <rect key="frame" x="341" y="21" width="42" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="shI-a2-tqh"/>
                                                     </constraints>
@@ -109,21 +109,38 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="ytC-uy-HFz">
             <objects>
-                <viewController id="1sP-Jq-cLS" sceneMemberID="viewController">
+                <viewController id="1sP-Jq-cLS" customClass="DetailViewController" customModule="Influencer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8aJ-3P-lAt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="er4-ix-dfO">
+                                <rect key="frame" x="50" y="100" width="314" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="JTe-CF-lGv"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bvW-Y2-rDf" firstAttribute="trailing" secondItem="er4-ix-dfO" secondAttribute="trailing" constant="50" id="2lk-qE-fjl"/>
+                            <constraint firstItem="er4-ix-dfO" firstAttribute="leading" secondItem="bvW-Y2-rDf" secondAttribute="leading" constant="50" id="FPw-lb-ElM"/>
+                            <constraint firstItem="er4-ix-dfO" firstAttribute="top" secondItem="bvW-Y2-rDf" secondAttribute="top" constant="100" id="dem-CB-gzn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bvW-Y2-rDf"/>
                     </view>
                     <navigationItem key="navigationItem" id="YFe-cz-Sp9"/>
+                    <connections>
+                        <outlet property="customView" destination="er4-ix-dfO" id="Dse-vU-vxo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kh6-JN-M7B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1891" y="115"/>
+            <point key="canvasLocation" x="1889.8550724637682" y="114.50892857142857"/>
         </scene>
     </scenes>
     <resources>
