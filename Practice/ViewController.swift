@@ -14,9 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //var arr = Array("ABC")
-        //permutations(arr.count, &arr)
-        Helper().testAllKeys()
+        Playground().traverse()
     }
     
     func test() -> Bool {

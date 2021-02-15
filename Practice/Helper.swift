@@ -67,7 +67,11 @@ class Helper {
         let string = " This is  a  big  day "
         let array = string.split(separator: " ")
         print(array)
-        // OUTPUT: ["This", "is", "a", "big", "day"]
+        
+        let line = "BLANCHE:   I don't want realism. I want magic!"
+        print(line.split(separator: " ", maxSplits: 1)
+                .map(String.init))
+        // Prints "["BLANCHE:", "  I don\'t want realism. I want magic!"]"
     }
     
     // MARK: 2. DICTIONARY
@@ -78,6 +82,7 @@ class Helper {
         testStringArrayToDictionary()
         let dicKeys = dictionary.keys
         let dicValues = dictionary.values
+        print("\(Array(dicKeys))")
         print("Dic Keys: \(dicKeys)")
         print("Dic Keys: \(dicValues)")
         for key in dicKeys {
@@ -213,6 +218,9 @@ class Helper {
         
         setArray = setArray.union(setArray2)
         print(setArray.sorted())
+        
+        let result = setArray.symmetricDifference(setArray2)
+        print(result)
     }
     
     
