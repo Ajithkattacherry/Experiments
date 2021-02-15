@@ -10,22 +10,22 @@
 		E06FCCC92432B48C00163600 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E06FCCC72432B48C00163600 /* Main.storyboard */; };
 		E06FCCCB2432B48E00163600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06FCCCA2432B48E00163600 /* Assets.xcassets */; };
 		E06FCCCE2432B48E00163600 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E06FCCCC2432B48E00163600 /* LaunchScreen.storyboard */; };
-		E09099F225DB02D700A68F7A /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09099E225DB02D600A68F7A /* Array.swift */; };
-		E09099F325DB02D700A68F7A /* TableviewDQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09099E325DB02D600A68F7A /* TableviewDQueue.swift */; };
-		E09099F425DB02D700A68F7A /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09099E425DB02D600A68F7A /* Tree.swift */; };
-		E09099F525DB02D700A68F7A /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09099E525DB02D600A68F7A /* Matrix.swift */; };
-		E09099F625DB02D700A68F7A /* Permutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09099E625DB02D600A68F7A /* Permutation.swift */; };
-		E09099F725DB02D700A68F7A /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09099E725DB02D700A68F7A /* Sort.swift */; };
-		E09099F825DB02D700A68F7A /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09099E825DB02D700A68F7A /* Helper.swift */; };
-		E09099F925DB02D700A68F7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09099E925DB02D700A68F7A /* SceneDelegate.swift */; };
-		E09099FA25DB02D700A68F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09099EA25DB02D700A68F7A /* AppDelegate.swift */; };
-		E09099FB25DB02D700A68F7A /* Generic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09099EB25DB02D700A68F7A /* Generic.swift */; };
-		E09099FC25DB02D700A68F7A /* Collections_Docs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09099EC25DB02D700A68F7A /* Collections_Docs.swift */; };
-		E09099FD25DB02D700A68F7A /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09099ED25DB02D700A68F7A /* Playground.swift */; };
-		E09099FE25DB02D700A68F7A /* BitManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09099EE25DB02D700A68F7A /* BitManipulation.swift */; };
-		E09099FF25DB02D700A68F7A /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09099EF25DB02D700A68F7A /* Search.swift */; };
-		E0909A0025DB02D700A68F7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09099F025DB02D700A68F7A /* ViewController.swift */; };
-		E0909A0125DB02D700A68F7A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09099F125DB02D700A68F7A /* String.swift */; };
+		E0909A1525DB039500A68F7A /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0909A0525DB039400A68F7A /* Array.swift */; };
+		E0909A1625DB039500A68F7A /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0909A0625DB039400A68F7A /* Playground.swift */; };
+		E0909A1725DB039500A68F7A /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0909A0725DB039400A68F7A /* Matrix.swift */; };
+		E0909A1825DB039500A68F7A /* Generic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0909A0825DB039400A68F7A /* Generic.swift */; };
+		E0909A1925DB039500A68F7A /* TableviewDQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0909A0925DB039400A68F7A /* TableviewDQueue.swift */; };
+		E0909A1A25DB039500A68F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0909A0A25DB039400A68F7A /* AppDelegate.swift */; };
+		E0909A1B25DB039500A68F7A /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0909A0B25DB039400A68F7A /* Tree.swift */; };
+		E0909A1C25DB039500A68F7A /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0909A0C25DB039400A68F7A /* Helper.swift */; };
+		E0909A1D25DB039500A68F7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0909A0D25DB039400A68F7A /* ViewController.swift */; };
+		E0909A1E25DB039500A68F7A /* Collections_Docs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0909A0E25DB039400A68F7A /* Collections_Docs.swift */; };
+		E0909A1F25DB039500A68F7A /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0909A0F25DB039400A68F7A /* Sort.swift */; };
+		E0909A2025DB039500A68F7A /* BitManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0909A1025DB039400A68F7A /* BitManipulation.swift */; };
+		E0909A2125DB039500A68F7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0909A1125DB039400A68F7A /* SceneDelegate.swift */; };
+		E0909A2225DB039500A68F7A /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0909A1225DB039500A68F7A /* Search.swift */; };
+		E0909A2325DB039500A68F7A /* Permutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0909A1325DB039500A68F7A /* Permutation.swift */; };
+		E0909A2425DB039500A68F7A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0909A1425DB039500A68F7A /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,22 +34,22 @@
 		E06FCCCA2432B48E00163600 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E06FCCCD2432B48E00163600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E06FCCCF2432B48E00163600 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E09099E225DB02D600A68F7A /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array.swift; path = "Practice copy/Array.swift"; sourceTree = SOURCE_ROOT; };
-		E09099E325DB02D600A68F7A /* TableviewDQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableviewDQueue.swift; path = "Practice copy/TableviewDQueue.swift"; sourceTree = SOURCE_ROOT; };
-		E09099E425DB02D600A68F7A /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tree.swift; path = "Practice copy/Tree.swift"; sourceTree = SOURCE_ROOT; };
-		E09099E525DB02D600A68F7A /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Matrix.swift; path = "Practice copy/Matrix.swift"; sourceTree = SOURCE_ROOT; };
-		E09099E625DB02D600A68F7A /* Permutation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Permutation.swift; path = "Practice copy/Permutation.swift"; sourceTree = SOURCE_ROOT; };
-		E09099E725DB02D700A68F7A /* Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sort.swift; path = "Practice copy/Sort.swift"; sourceTree = SOURCE_ROOT; };
-		E09099E825DB02D700A68F7A /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helper.swift; path = "Practice copy/Helper.swift"; sourceTree = SOURCE_ROOT; };
-		E09099E925DB02D700A68F7A /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = "Practice copy/SceneDelegate.swift"; sourceTree = SOURCE_ROOT; };
-		E09099EA25DB02D700A68F7A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Practice copy/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
-		E09099EB25DB02D700A68F7A /* Generic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Generic.swift; path = "Practice copy/Generic.swift"; sourceTree = SOURCE_ROOT; };
-		E09099EC25DB02D700A68F7A /* Collections_Docs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Collections_Docs.swift; path = "Practice copy/Collections_Docs.swift"; sourceTree = SOURCE_ROOT; };
-		E09099ED25DB02D700A68F7A /* Playground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Playground.swift; path = "Practice copy/Playground.swift"; sourceTree = SOURCE_ROOT; };
-		E09099EE25DB02D700A68F7A /* BitManipulation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BitManipulation.swift; path = "Practice copy/BitManipulation.swift"; sourceTree = SOURCE_ROOT; };
-		E09099EF25DB02D700A68F7A /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Search.swift; path = "Practice copy/Search.swift"; sourceTree = SOURCE_ROOT; };
-		E09099F025DB02D700A68F7A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "Practice copy/ViewController.swift"; sourceTree = SOURCE_ROOT; };
-		E09099F125DB02D700A68F7A /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = "Practice copy/String.swift"; sourceTree = SOURCE_ROOT; };
+		E0909A0525DB039400A68F7A /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		E0909A0625DB039400A68F7A /* Playground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
+		E0909A0725DB039400A68F7A /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		E0909A0825DB039400A68F7A /* Generic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generic.swift; sourceTree = "<group>"; };
+		E0909A0925DB039400A68F7A /* TableviewDQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableviewDQueue.swift; sourceTree = "<group>"; };
+		E0909A0A25DB039400A68F7A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E0909A0B25DB039400A68F7A /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
+		E0909A0C25DB039400A68F7A /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		E0909A0D25DB039400A68F7A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E0909A0E25DB039400A68F7A /* Collections_Docs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collections_Docs.swift; sourceTree = "<group>"; };
+		E0909A0F25DB039400A68F7A /* Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
+		E0909A1025DB039400A68F7A /* BitManipulation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitManipulation.swift; sourceTree = "<group>"; };
+		E0909A1125DB039400A68F7A /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E0909A1225DB039500A68F7A /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		E0909A1325DB039500A68F7A /* Permutation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permutation.swift; sourceTree = "<group>"; };
+		E0909A1425DB039500A68F7A /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,22 +82,22 @@
 		E06FCCC02432B48C00163600 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
-				E09099EA25DB02D700A68F7A /* AppDelegate.swift */,
-				E09099E225DB02D600A68F7A /* Array.swift */,
-				E09099EE25DB02D700A68F7A /* BitManipulation.swift */,
-				E09099EC25DB02D700A68F7A /* Collections_Docs.swift */,
-				E09099EB25DB02D700A68F7A /* Generic.swift */,
-				E09099E825DB02D700A68F7A /* Helper.swift */,
-				E09099E525DB02D600A68F7A /* Matrix.swift */,
-				E09099E625DB02D600A68F7A /* Permutation.swift */,
-				E09099ED25DB02D700A68F7A /* Playground.swift */,
-				E09099E925DB02D700A68F7A /* SceneDelegate.swift */,
-				E09099EF25DB02D700A68F7A /* Search.swift */,
-				E09099E725DB02D700A68F7A /* Sort.swift */,
-				E09099F125DB02D700A68F7A /* String.swift */,
-				E09099E325DB02D600A68F7A /* TableviewDQueue.swift */,
-				E09099E425DB02D600A68F7A /* Tree.swift */,
-				E09099F025DB02D700A68F7A /* ViewController.swift */,
+				E0909A0A25DB039400A68F7A /* AppDelegate.swift */,
+				E0909A1025DB039400A68F7A /* BitManipulation.swift */,
+				E0909A0E25DB039400A68F7A /* Collections_Docs.swift */,
+				E0909A0825DB039400A68F7A /* Generic.swift */,
+				E0909A0C25DB039400A68F7A /* Helper.swift */,
+				E0909A0725DB039400A68F7A /* Matrix.swift */,
+				E0909A1325DB039500A68F7A /* Permutation.swift */,
+				E0909A1125DB039400A68F7A /* SceneDelegate.swift */,
+				E0909A1225DB039500A68F7A /* Search.swift */,
+				E0909A0F25DB039400A68F7A /* Sort.swift */,
+				E0909A1425DB039500A68F7A /* String.swift */,
+				E0909A0525DB039400A68F7A /* Array.swift */,
+				E0909A0625DB039400A68F7A /* Playground.swift */,
+				E0909A0925DB039400A68F7A /* TableviewDQueue.swift */,
+				E0909A0B25DB039400A68F7A /* Tree.swift */,
+				E0909A0D25DB039400A68F7A /* ViewController.swift */,
 				E06FCCC72432B48C00163600 /* Main.storyboard */,
 				E06FCCCA2432B48E00163600 /* Assets.xcassets */,
 				E06FCCCC2432B48E00163600 /* LaunchScreen.storyboard */,
@@ -178,22 +178,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0909A0025DB02D700A68F7A /* ViewController.swift in Sources */,
-				E09099FE25DB02D700A68F7A /* BitManipulation.swift in Sources */,
-				E09099F525DB02D700A68F7A /* Matrix.swift in Sources */,
-				E09099F825DB02D700A68F7A /* Helper.swift in Sources */,
-				E09099F425DB02D700A68F7A /* Tree.swift in Sources */,
-				E09099FA25DB02D700A68F7A /* AppDelegate.swift in Sources */,
-				E09099FC25DB02D700A68F7A /* Collections_Docs.swift in Sources */,
-				E09099F325DB02D700A68F7A /* TableviewDQueue.swift in Sources */,
-				E09099FB25DB02D700A68F7A /* Generic.swift in Sources */,
-				E09099F625DB02D700A68F7A /* Permutation.swift in Sources */,
-				E09099FD25DB02D700A68F7A /* Playground.swift in Sources */,
-				E09099F225DB02D700A68F7A /* Array.swift in Sources */,
-				E09099F725DB02D700A68F7A /* Sort.swift in Sources */,
-				E09099F925DB02D700A68F7A /* SceneDelegate.swift in Sources */,
-				E0909A0125DB02D700A68F7A /* String.swift in Sources */,
-				E09099FF25DB02D700A68F7A /* Search.swift in Sources */,
+				E0909A1D25DB039500A68F7A /* ViewController.swift in Sources */,
+				E0909A1A25DB039500A68F7A /* AppDelegate.swift in Sources */,
+				E0909A1625DB039500A68F7A /* Playground.swift in Sources */,
+				E0909A1525DB039500A68F7A /* Array.swift in Sources */,
+				E0909A1825DB039500A68F7A /* Generic.swift in Sources */,
+				E0909A1F25DB039500A68F7A /* Sort.swift in Sources */,
+				E0909A2125DB039500A68F7A /* SceneDelegate.swift in Sources */,
+				E0909A2025DB039500A68F7A /* BitManipulation.swift in Sources */,
+				E0909A1725DB039500A68F7A /* Matrix.swift in Sources */,
+				E0909A1B25DB039500A68F7A /* Tree.swift in Sources */,
+				E0909A1E25DB039500A68F7A /* Collections_Docs.swift in Sources */,
+				E0909A1925DB039500A68F7A /* TableviewDQueue.swift in Sources */,
+				E0909A2325DB039500A68F7A /* Permutation.swift in Sources */,
+				E0909A2225DB039500A68F7A /* Search.swift in Sources */,
+				E0909A2425DB039500A68F7A /* String.swift in Sources */,
+				E0909A1C25DB039500A68F7A /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
