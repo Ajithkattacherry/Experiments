@@ -34,7 +34,6 @@
 		E06FCCCA2432B48E00163600 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E06FCCCD2432B48E00163600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E06FCCCF2432B48E00163600 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E09099E125DB02D600A68F7A /* Practice-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Practice-Bridging-Header.h"; sourceTree = "<group>"; };
 		E09099E225DB02D600A68F7A /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array.swift; path = "Practice copy/Array.swift"; sourceTree = SOURCE_ROOT; };
 		E09099E325DB02D600A68F7A /* TableviewDQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableviewDQueue.swift; path = "Practice copy/TableviewDQueue.swift"; sourceTree = SOURCE_ROOT; };
 		E09099E425DB02D600A68F7A /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tree.swift; path = "Practice copy/Tree.swift"; sourceTree = SOURCE_ROOT; };
@@ -103,7 +102,6 @@
 				E06FCCCA2432B48E00163600 /* Assets.xcassets */,
 				E06FCCCC2432B48E00163600 /* LaunchScreen.storyboard */,
 				E06FCCCF2432B48E00163600 /* Info.plist */,
-				E09099E125DB02D600A68F7A /* Practice-Bridging-Header.h */,
 			);
 			path = Practice;
 			sourceTree = "<group>";
@@ -349,7 +347,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pge.dc.sketch.Test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Practice/Practice-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -370,7 +367,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pge.dc.sketch.Test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Practice/Practice-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
