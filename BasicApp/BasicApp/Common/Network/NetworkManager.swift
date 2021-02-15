@@ -29,7 +29,7 @@ class NetworkManager {
             do {
                 onComplete(.success(try DataModel.setData(data)))
             } catch (let error) {
-                onComplete(.failure(error as NSError))
+                onComplete(.failure(LocalError.message(failureReason: error.localizedDescription)))
                 return
             }
         }
