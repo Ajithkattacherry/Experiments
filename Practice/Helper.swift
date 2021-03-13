@@ -147,7 +147,7 @@ class Helper {
     /*********************************
      ********ARRAY OPERATIONS*****
      *********************************/
-    // Array Slice will give you the sub array fro an array
+    // Array Slice will give you the sub array from an array
     // It will keep the indices of the parent array
     func testArraySlice() {
         let array = [1,3,4,5,6,7]

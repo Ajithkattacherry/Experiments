@@ -82,11 +82,12 @@
 		E06FCCC02432B48C00163600 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
+				E0909A0D25DB039400A68F7A /* ViewController.swift */,
+				E0909A0C25DB039400A68F7A /* Helper.swift */,
 				E0909A0A25DB039400A68F7A /* AppDelegate.swift */,
 				E0909A1025DB039400A68F7A /* BitManipulation.swift */,
 				E0909A0E25DB039400A68F7A /* Collections_Docs.swift */,
 				E0909A0825DB039400A68F7A /* Generic.swift */,
-				E0909A0C25DB039400A68F7A /* Helper.swift */,
 				E0909A0725DB039400A68F7A /* Matrix.swift */,
 				E0909A1325DB039500A68F7A /* Permutation.swift */,
 				E0909A1125DB039400A68F7A /* SceneDelegate.swift */,
@@ -97,7 +98,6 @@
 				E0909A0625DB039400A68F7A /* Playground.swift */,
 				E0909A0925DB039400A68F7A /* TableviewDQueue.swift */,
 				E0909A0B25DB039400A68F7A /* Tree.swift */,
-				E0909A0D25DB039400A68F7A /* ViewController.swift */,
 				E06FCCC72432B48C00163600 /* Main.storyboard */,
 				E06FCCCA2432B48E00163600 /* Assets.xcassets */,
 				E06FCCCC2432B48E00163600 /* LaunchScreen.storyboard */,

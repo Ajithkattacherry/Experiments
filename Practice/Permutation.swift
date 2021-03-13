@@ -8,7 +8,8 @@
 
 import Foundation
 
-// MARK: Permutations of a string
+// MARK: Permutations of a string using Heap's algorithm
+// Explanation: Heap's algorithm is nicely efficient, the deeper point is that it walks through the entire array and swaps every possible pair.
 // var arr = Array("ABC")
 // permutations(arr.count, &arr)
 func permutations(_ n:Int, _ a: inout [Character]) {
