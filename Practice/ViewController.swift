@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //Playground().traverse()
-        Playground().test()
+        permutes([1,2,3])
     }
     
     func test() -> Bool {
