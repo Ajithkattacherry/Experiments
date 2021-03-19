@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E03C5A3226042D24003C541F /* BackTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03C5A3126042D24003C541F /* BackTracking.swift */; };
+		E0560AB42603339900B63119 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0560AB32603339900B63119 /* LinkedList.swift */; };
 		E06FCCC92432B48C00163600 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E06FCCC72432B48C00163600 /* Main.storyboard */; };
 		E06FCCCB2432B48E00163600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06FCCCA2432B48E00163600 /* Assets.xcassets */; };
 		E06FCCCE2432B48E00163600 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E06FCCCC2432B48E00163600 /* LaunchScreen.storyboard */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E03C5A3126042D24003C541F /* BackTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackTracking.swift; sourceTree = "<group>"; };
+		E0560AB32603339900B63119 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		E06FCCBE2432B48C00163600 /* Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06FCCC82432B48C00163600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E06FCCCA2432B48E00163600 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 				E0909A0A25DB039400A68F7A /* AppDelegate.swift */,
 				E0909A1025DB039400A68F7A /* BitManipulation.swift */,
 				E0909A0E25DB039400A68F7A /* Collections_Docs.swift */,
+				E0560AB32603339900B63119 /* LinkedList.swift */,
 				E0909A0825DB039400A68F7A /* Generic.swift */,
 				E0909A0725DB039400A68F7A /* Matrix.swift */,
 				E0909A1325DB039500A68F7A /* Permutation.swift */,
@@ -96,6 +101,7 @@
 				E0909A1425DB039500A68F7A /* String.swift */,
 				E0909A0525DB039400A68F7A /* Array.swift */,
 				E0909A0625DB039400A68F7A /* Playground.swift */,
+				E03C5A3126042D24003C541F /* BackTracking.swift */,
 				E0909A0925DB039400A68F7A /* TableviewDQueue.swift */,
 				E0909A0B25DB039400A68F7A /* Tree.swift */,
 				E06FCCC72432B48C00163600 /* Main.storyboard */,
@@ -181,6 +187,7 @@
 				E0909A1D25DB039500A68F7A /* ViewController.swift in Sources */,
 				E0909A1A25DB039500A68F7A /* AppDelegate.swift in Sources */,
 				E0909A1625DB039500A68F7A /* Playground.swift in Sources */,
+				E03C5A3226042D24003C541F /* BackTracking.swift in Sources */,
 				E0909A1525DB039500A68F7A /* Array.swift in Sources */,
 				E0909A1825DB039500A68F7A /* Generic.swift in Sources */,
 				E0909A1F25DB039500A68F7A /* Sort.swift in Sources */,
@@ -193,6 +200,7 @@
 				E0909A2325DB039500A68F7A /* Permutation.swift in Sources */,
 				E0909A2225DB039500A68F7A /* Search.swift in Sources */,
 				E0909A2425DB039500A68F7A /* String.swift in Sources */,
+				E0560AB42603339900B63119 /* LinkedList.swift in Sources */,
 				E0909A1C25DB039500A68F7A /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
