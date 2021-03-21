@@ -81,3 +81,58 @@ class LRUCache {
       
     }
 }
+
+// MARK: Basic Linked List
+class LinkedListNode {
+    var value: Int
+    var left: LinkedListNode?
+    var right: LinkedListNode?
+    
+    init(_ value: Int, _ left: LinkedListNode? = nil, _ right: LinkedListNode? = nil) {
+        self.value = value
+        self.left = left
+        self.right = right
+    }
+
+}
+
+class LinkedList {
+    var head: LinkedListNode?
+    var tail: LinkedListNode?
+    var length: Int = 0
+    
+    init() {
+        self.head = LinkedListNode(-1)
+        self.tail = LinkedListNode(-1)
+        head?.right = tail
+        tail?.left = head
+    }
+    
+    func addNodeAtTail(_ node: LinkedListNode) {
+        let lastNode = tail?.left
+        lastNode?.right = node
+        node.left = lastNode
+        node.right = tail
+        tail?.left = node
+        length += 1
+    }
+    
+    func addNodeAtHead(_ node: LinkedListNode) {
+        let firstNode = head?.right
+        firstNode?.left = node
+        node.left = head
+        node.right = firstNode
+        head?.right = node
+        length += 1
+    }
+    
+    @discardableResult func nthNode(from position: Int, length: Int, head: LinkedListNode?) -> LinkedListNode? {
+        if head == nil {
+            return nil
+        }
+        while position != length {
+            nthNode(from: position, length: length - 1, head: head?.left)
+        }
+        return head
+    }
+}

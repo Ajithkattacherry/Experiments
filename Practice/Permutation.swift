@@ -25,21 +25,22 @@ func permutations(_ n:Int, _ a: inout [Character]) {
 }
 
 // Another approach
-func permuteNums(_ nums: [Int]) -> [[Int]] {
-        var result = [[Int]]()
-        var nums = nums
-        recurseValue(0, &nums, &result)
-        return result
+func permuteNums(_ nums: [Character]) -> [String] {
+    var result = [String]()
+    var nums = nums
+    recurseValue(0, &nums, &result)
+    print(result)
+    return result
+}
+
+func recurseValue(_ first: Int, _ nums: inout [Character], _ result: inout [String]) {
+    if first == nums.count {
+        result.append(String(nums))
+        return
     }
-    
-    func recurseValue(_ first: Int, _ nums: inout [Int], _ result: inout [[Int]]) {
-        if first == nums.count {
-            result.append(nums)
-            return
-        }
-        for index in first..<nums.count {
-            nums.swapAt(first, index)
-            recurseValue(first+1, &nums, &result)
-            nums.swapAt(first, index)
-        }
+    for index in first..<nums.count {
+        nums.swapAt(first, index)
+        recurseValue(first+1, &nums, &result)
+        nums.swapAt(first, index)
     }
+}

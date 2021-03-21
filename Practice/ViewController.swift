@@ -10,26 +10,27 @@ import UIKit
 import Foundation
 
 class ViewController: UIViewController {
-    
+    let linkedList = LinkedList()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        Playground().backTracking()
         
+        for i in 1...10 {
+            linkedList.addNode(LinkedListNode(i))
+        }
+        
+        findLinkedList(for: 4, head: linkedList.head, index: 1)
     }
     
-    func test() -> Bool {
-        var s = "A man, a plan, a canal: Panama"
-        s = s.filter { $0.isLetter || $0.isNumber }
-        let charArray = Array(s.lowercased())
-        print(charArray)
-        var i = 0, count = charArray.count - 1
-        while i < count / 2 {
-            if charArray[i] != charArray[count - i] {
-                return false
-            }
-            i += 1
+    func findLinkedList(for position: Int, head: LinkedListNode?, index: Int) {
+        var headNode = head
+        var index = 0
+        while index < position {
+            headNode = headNode?.right
+            index += 1
         }
-        return true
+        print(headNode?.value)
+        print(headNode?.right?.value)
+        print(headNode?.left?.value)
     }
 }
