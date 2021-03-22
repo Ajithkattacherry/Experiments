@@ -344,3 +344,36 @@ func subdomainVisits(_ cpdomains: [String]) -> [String] {
     }
     return resultArray
 }
+
+// MARK: Merge Intervals
+
+///Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.
+
+///Example 1:
+
+///Input: intervals = [[1,3],[2,6],[8,10],[15,18]]
+///Output: [[1,6],[8,10],[15,18]]
+///Explanation: Since intervals [1,3] and [2,6] overlaps, merge them into [1,6].
+
+func mergeIntervals(_ intervals: [[Int]]) -> [[Int]] {
+    var result = [[Int]]()
+    guard intervals.count > 0 else {
+        return result
+    }
+    let intervals = intervals.sorted { $0[0] < $1[0] }
+    for interval in intervals {
+        if result.count == 0 {
+            result.append([interval[0], interval[1]])
+        } else {
+            let lastMax = result.last![1]
+            let lastMin = result.last![0]
+            if interval[0] > lastMax {
+                result.append([interval[0], interval[1]])
+            } else if interval[1] > lastMax {
+                result.removeLast()
+                result.append([lastMin, interval[1]])
+            }
+        }
+    }
+    return result
+}

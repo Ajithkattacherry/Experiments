@@ -15,11 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        for i in 1...10 {
-            linkedList.addNode(LinkedListNode(i))
-        }
-        
-        findLinkedList(for: 4, head: linkedList.head, index: 1)
+        test()
     }
     
     func findLinkedList(for position: Int, head: LinkedListNode?, index: Int) {
