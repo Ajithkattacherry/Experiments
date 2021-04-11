@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E03C5A3226042D24003C541F /* BackTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03C5A3126042D24003C541F /* BackTracking.swift */; };
+		E053D1BF262387A500CC41C1 /* OpaqueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053D1BE262387A500CC41C1 /* OpaqueType.swift */; };
+		E053D1C326238C7100CC41C1 /* Generics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053D1C226238C7100CC41C1 /* Generics.swift */; };
 		E0560AB42603339900B63119 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0560AB32603339900B63119 /* LinkedList.swift */; };
 		E06FCCC92432B48C00163600 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E06FCCC72432B48C00163600 /* Main.storyboard */; };
 		E06FCCCB2432B48E00163600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06FCCCA2432B48E00163600 /* Assets.xcassets */; };
@@ -32,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		E03C5A3126042D24003C541F /* BackTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackTracking.swift; sourceTree = "<group>"; };
+		E053D1BE262387A500CC41C1 /* OpaqueType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpaqueType.swift; sourceTree = "<group>"; };
+		E053D1C226238C7100CC41C1 /* Generics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generics.swift; sourceTree = "<group>"; };
 		E0560AB32603339900B63119 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		E06FCCBE2432B48C00163600 /* Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06FCCC82432B48C00163600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E053D1BD2623877200CC41C1 /* Concepts */ = {
+			isa = PBXGroup;
+			children = (
+				E053D1BE262387A500CC41C1 /* OpaqueType.swift */,
+				E053D1C226238C7100CC41C1 /* Generics.swift */,
+			);
+			path = Concepts;
+			sourceTree = "<group>";
+		};
 		E06FCCB52432B48C00163600 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +99,7 @@
 		E06FCCC02432B48C00163600 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
+				E053D1BD2623877200CC41C1 /* Concepts */,
 				E0909A0A25DB039400A68F7A /* AppDelegate.swift */,
 				E0909A0525DB039400A68F7A /* Array.swift */,
 				E06FCCCA2432B48E00163600 /* Assets.xcassets */,
@@ -198,8 +212,10 @@
 				E0909A1E25DB039500A68F7A /* Collections_Docs.swift in Sources */,
 				E0909A1925DB039500A68F7A /* TableviewDQueue.swift in Sources */,
 				E0909A2325DB039500A68F7A /* Permutation.swift in Sources */,
+				E053D1BF262387A500CC41C1 /* OpaqueType.swift in Sources */,
 				E0909A2225DB039500A68F7A /* Search.swift in Sources */,
 				E0909A2425DB039500A68F7A /* String.swift in Sources */,
+				E053D1C326238C7100CC41C1 /* Generics.swift in Sources */,
 				E0560AB42603339900B63119 /* LinkedList.swift in Sources */,
 				E0909A1C25DB039500A68F7A /* Helper.swift in Sources */,
 			);
