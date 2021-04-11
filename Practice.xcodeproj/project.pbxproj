@@ -73,14 +73,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E053D1BD2623877200CC41C1 /* Concepts */ = {
+		E053D1BD2623877200CC41C1 /* SwiftConcepts */ = {
 			isa = PBXGroup;
 			children = (
 				E053D1BE262387A500CC41C1 /* OpaqueType.swift */,
 				E053D1C226238C7100CC41C1 /* Generics.swift */,
 				E053D1C82623900200CC41C1 /* Subscript.swift */,
 			);
-			path = Concepts;
+			path = SwiftConcepts;
+			sourceTree = "<group>";
+		};
+		E053D1CB2623926F00CC41C1 /* Algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				E0909A0525DB039400A68F7A /* Array.swift */,
+				E03C5A3126042D24003C541F /* BackTracking.swift */,
+				E0909A1025DB039400A68F7A /* BitManipulation.swift */,
+				E0909A0E25DB039400A68F7A /* Collections_Docs.swift */,
+				E0909A0825DB039400A68F7A /* Generic.swift */,
+				E0909A0C25DB039400A68F7A /* Helper.swift */,
+				E0560AB32603339900B63119 /* LinkedList.swift */,
+				E0909A0725DB039400A68F7A /* Matrix.swift */,
+				E0909A1325DB039500A68F7A /* Permutation.swift */,
+				E0909A1225DB039500A68F7A /* Search.swift */,
+				E0909A0F25DB039400A68F7A /* Sort.swift */,
+				E0909A1425DB039500A68F7A /* String.swift */,
+				E0909A0925DB039400A68F7A /* TableviewDQueue.swift */,
+				E0909A0B25DB039400A68F7A /* Tree.swift */,
+			);
+			path = Algorithms;
 			sourceTree = "<group>";
 		};
 		E06FCCB52432B48C00163600 = {
@@ -102,28 +123,15 @@
 		E06FCCC02432B48C00163600 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
-				E053D1BD2623877200CC41C1 /* Concepts */,
+				E053D1CB2623926F00CC41C1 /* Algorithms */,
+				E053D1BD2623877200CC41C1 /* SwiftConcepts */,
 				E0909A0A25DB039400A68F7A /* AppDelegate.swift */,
-				E0909A0525DB039400A68F7A /* Array.swift */,
 				E06FCCCA2432B48E00163600 /* Assets.xcassets */,
-				E03C5A3126042D24003C541F /* BackTracking.swift */,
-				E0909A1025DB039400A68F7A /* BitManipulation.swift */,
-				E0909A0E25DB039400A68F7A /* Collections_Docs.swift */,
-				E0909A0825DB039400A68F7A /* Generic.swift */,
-				E0909A0C25DB039400A68F7A /* Helper.swift */,
 				E06FCCCF2432B48E00163600 /* Info.plist */,
 				E06FCCCC2432B48E00163600 /* LaunchScreen.storyboard */,
-				E0560AB32603339900B63119 /* LinkedList.swift */,
 				E06FCCC72432B48C00163600 /* Main.storyboard */,
-				E0909A0725DB039400A68F7A /* Matrix.swift */,
-				E0909A1325DB039500A68F7A /* Permutation.swift */,
 				E0909A0625DB039400A68F7A /* Playground.swift */,
 				E0909A1125DB039400A68F7A /* SceneDelegate.swift */,
-				E0909A1225DB039500A68F7A /* Search.swift */,
-				E0909A0F25DB039400A68F7A /* Sort.swift */,
-				E0909A1425DB039500A68F7A /* String.swift */,
-				E0909A0925DB039400A68F7A /* TableviewDQueue.swift */,
-				E0909A0B25DB039400A68F7A /* Tree.swift */,
 				E0909A0D25DB039400A68F7A /* ViewController.swift */,
 			);
 			path = Practice;
