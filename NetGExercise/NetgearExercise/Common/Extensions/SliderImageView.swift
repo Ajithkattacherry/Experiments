@@ -28,13 +28,13 @@ class SliderImageView: UIImageView, ImageCacheProtocol {
         
         image = UIImage(named: placeholder)
         DispatchQueue.global(qos: .userInitiated).async {
-            SliderDataServiceManager.shared.getImageData(from: identifier) { (result) in
+            SliderDataServiceManager.getImageData(from: identifier) { (result) in
                 switch result {
                 case .success(let imageDetails):
                     guard let url = imageDetails.url else {
                         return
                     }
-                    SliderDataServiceManager.shared.getImage(from: url) { (result) in
+                    SliderDataServiceManager.getImage(from: url) { (result) in
                         switch result {
                         case .success(let imageData):
                             DispatchQueue.main.async {

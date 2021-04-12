@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     }
     
     private func fetchMetaData() {
-        SliderDataServiceManager.shared.getManifestData { [weak self] (result) in
+        SliderDataServiceManager.getManifestData { [weak self] (result) in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {

@@ -8,12 +8,15 @@
 
 import Foundation
 
-struct CustValue {
-    subscript(_ value: Int) -> Int {
-        return value * value
+struct CollectionItem<T: Sequence> where T.Element: Equatable {
+    var list: T
+    
+    subscript(countOf value: T.Element) -> Int {
+        return list.filter { $0 == value }.count
     }
 }
 
-let val = CustValue()
-print(val[2])
-
+/// TEST
+//let list = "This is a list of items"
+//let cust = CollectionItem(list: list)
+//print(cust[countOf: "i"]) -> 4

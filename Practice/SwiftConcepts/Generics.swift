@@ -61,4 +61,34 @@ extension Stack where T: Comparable {
     }
 }
 
+// 3. Associated Type use case
+protocol WebService {
+    associatedtype Model
+    func getAll(url: URL, completion: @escaping (Result<Model, Error>) -> Void)
+}
+
+struct Movie {
+    var title: String
+}
+
+struct User {
+    var name: String
+}
+
+class MovieWebService: WebService {
+    typealias Model = Movie
+    
+    func getAll(url: URL, completion: @escaping (Result<Movie, Error>) -> Void) {
+        
+    }
+}
+
+class UserWebService: WebService {
+    typealias Model = User
+    
+    func getAll(url: URL, completion: @escaping (Result<User, Error>) -> Void) {
+        
+    }
+}
+
 

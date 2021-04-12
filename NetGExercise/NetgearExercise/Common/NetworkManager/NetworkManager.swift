@@ -16,28 +16,24 @@ enum NetworkError: Error {
     case defultError(error: Error)
 }
 
-protocol CustomSequence: Sequence, IteratorProtocol {
-    var item: Array<Int>?
-}
-
 protocol NetworkManagerProtocol {
-    func execute<T: Codable>(urlString: String,
-                             request: URLRequest?,
-                             completion: @escaping (Result<T, NetworkError>)-> Void)
-    func loadImage(urlString: String, completion: @escaping (Result<Data, NetworkError>) -> Void)
+    static func execute<T: Codable>(urlString: String,
+                                    request: URLRequest?,
+                                    completion: @escaping (Result<T, NetworkError>)-> Void)
+    static func loadImage(urlString: String, completion: @escaping (Result<Data, NetworkError>) -> Void)
 }
 
 extension NetworkManagerProtocol {
-    func execute<T: Codable>(urlString: String,
-                             request: URLRequest? = nil,
-                             completion: @escaping (Result<T, NetworkError>)-> Void) {
+    static func execute<T: Codable>(urlString: String,
+                                    request: URLRequest? = nil,
+                                    completion: @escaping (Result<T, NetworkError>)-> Void) {
         guard let url = URL(string: urlString) else {
             return completion(.failure(NetworkError.invalidURL))
         }
         executeGetService(url: url, completion: completion)
     }
     
-    func loadImage(urlString: String, completion: @escaping (Result<Data, NetworkError>) -> Void) {
+    static func loadImage(urlString: String, completion: @escaping (Result<Data, NetworkError>) -> Void) {
         guard let url = URL(string: urlString) else {
             return completion(.failure(NetworkError.invalidURL))
         }
@@ -63,8 +59,8 @@ extension NetworkManagerProtocol {
         }.resume()
     }
     
-    private func executeGetService<T: Codable>(url: URL,
-                                               completion: @escaping (Result<T, NetworkError>)-> Void) {
+    private static  func executeGetService<T: Codable>(url: URL,
+                                                       completion: @escaping (Result<T, NetworkError>)-> Void) {
         guard let request = createGetURLRequestHeader(for: url) else {
             return completion(.failure(NetworkError.invalidRequest))
         }
@@ -94,7 +90,7 @@ extension NetworkManagerProtocol {
         }.resume()
     }
     
-    private func createGetURLRequestHeader(for url: URL) -> URLRequest? {
+    private static func createGetURLRequestHeader(for url: URL) -> URLRequest? {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
